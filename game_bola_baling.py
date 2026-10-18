@@ -501,7 +501,7 @@ class PermainanBolaBaling:
             return
 
         # Kira baki masa
-        masa_lalu = int(time.time() - self.mula_mula)
+        masa_lalu = int(time.time() - self.masa_mula)
         self.masa_tinggal = max(0, 60 - masa_lalu)
         if self.masa_tinggal <= 0:
             self.keadaan = "SELESAI"
