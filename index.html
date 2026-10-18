@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Akademi Bola Baling Tahun 5 - Kemahiran Menghantar & Menerima</title>
+  <title>Year 5 Handball Skills: Passing & Receiving | Juara Bola Baling Tahun 5</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
     }
 
     .nav-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -105,6 +105,13 @@
       color: var(--text-muted);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .nav-tabs {
       display: flex;
       background: rgba(30, 41, 59, 0.8);
@@ -117,7 +124,7 @@
       background: none;
       border: none;
       color: var(--text-muted);
-      padding: 8px 16px;
+      padding: 8px 14px;
       font-size: 0.85rem;
       font-weight: 600;
       border-radius: 8px;
@@ -134,10 +141,30 @@
       box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
     }
 
+    .btn-lang-toggle {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1.5px solid #38bdf8;
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .btn-lang-toggle:hover {
+      background: rgba(56, 189, 248, 0.25);
+      transform: translateY(-1px);
+    }
+
     /* Main Container */
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 1240px;
       width: 100%;
       margin: 0 auto;
       padding: 18px 16px 40px;
@@ -165,7 +192,7 @@
       align-items: start;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .game-section {
         grid-template-columns: 1fr;
       }
@@ -199,7 +226,7 @@
       -webkit-user-select: none;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .mobile-controls {
         display: block;
       }
@@ -254,28 +281,25 @@
 
     .touch-pass-btn {
       background: #1e293b;
-      border: 2px solid #334155;
       color: #94a3b8;
+      border: 2px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
       padding: 8px 4px;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      text-align: center;
       cursor: pointer;
-      line-height: 1.2;
-    }
-
-    .touch-pass-btn span {
-      display: block;
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.15s;
     }
 
     .touch-pass-btn.active {
-      background: #1d4ed8;
+      background: #2563eb;
+      color: white;
       border-color: #60a5fa;
-      color: #fff;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
     }
 
     .btn-action-main {
@@ -283,52 +307,47 @@
       background: linear-gradient(135deg, #10b981, #059669);
       border: 2px solid #34d399;
       color: white;
-      font-size: 1rem;
-      font-weight: 800;
-      border-radius: 12px;
-      padding: 12px 18px;
+      font-family: 'Fredoka', cursive;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
       box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
     }
 
-    /* Sidebar info panel */
+    /* Sidebar Panel */
     .sidebar-panel {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--dark-card);
       border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .sidebar-title {
       font-family: 'Fredoka', cursive;
       font-size: 1.15rem;
-      color: var(--accent);
+      color: var(--accent-glow);
       display: flex;
       align-items: center;
       gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .pass-type-card {
       background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
-      padding: 12px;
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 12px;
       cursor: pointer;
       transition: all 0.2s ease;
-      position: relative;
     }
 
-    .pass-type-card:hover {
+    .pass-type-card:hover, .pass-type-card.selected {
+      background: rgba(37, 99, 235, 0.2);
       border-color: #3b82f6;
-      background: rgba(30, 41, 59, 0.9);
-    }
-
-    .pass-type-card.selected {
-      border-color: #3b82f6;
-      background: rgba(37, 99, 235, 0.15);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+      transform: translateX(4px);
     }
 
     .pass-header {
@@ -339,18 +358,18 @@
     }
 
     .pass-name {
+      font-size: 0.88rem;
       font-weight: 700;
-      font-size: 0.9rem;
       color: #fff;
     }
 
     .pass-key {
+      font-size: 0.68rem;
       background: #334155;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 6px;
-      color: #cbd5e1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #94a3b8;
+      font-family: 'Fira Code', monospace;
     }
 
     .pass-desc {
@@ -362,33 +381,109 @@
     .pass-tactics {
       font-size: 0.72rem;
       color: #38bdf8;
-      margin-top: 5px;
+      margin-top: 4px;
       font-weight: 600;
     }
 
     .pedagogy-tip-box {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(234, 88, 12, 0.1));
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.08));
+      border: 1.5px solid rgba(16, 185, 129, 0.4);
       border-radius: 12px;
-      padding: 14px;
+      padding: 12px;
     }
 
     .pedagogy-tip-box h4 {
+      color: #34d399;
       font-size: 0.85rem;
-      color: #fbbf24;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 6px;
     }
 
     .pedagogy-tip-box p {
-      font-size: 0.78rem;
-      color: #e2e8f0;
+      font-size: 0.76rem;
+      color: #cbd5e1;
       line-height: 1.4;
     }
 
-    /* Theory & Syllabus Section */
+    /* Quiz Section */
+    .quiz-card {
+      background: var(--dark-card);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quiz-question {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .quiz-scenario {
+      background: rgba(30, 41, 59, 0.7);
+      border-left: 4px solid #f59e0b;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn {
+      background: #1e293b;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quiz-opt-btn:hover {
+      background: #2e3d55;
+      border-color: #3b82f6;
+      transform: translateX(4px);
+    }
+
+    .quiz-feedback {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .feedback-correct {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1.5px solid #10b981;
+      color: #34d399;
+    }
+
+    .feedback-wrong {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1.5px solid #ef4444;
+      color: #fca5a5;
+    }
+
+    /* Theory Guide Section */
     .theory-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -397,8 +492,8 @@
     }
 
     .theory-card {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--dark-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 20px;
     }
@@ -406,15 +501,12 @@
     .theory-card h3 {
       font-family: 'Fredoka', cursive;
       font-size: 1.1rem;
-      margin-bottom: 12px;
       color: #38bdf8;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 10px;
     }
 
     .theory-card p, .theory-card li {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: #cbd5e1;
       line-height: 1.5;
     }
@@ -429,19 +521,19 @@
 
     /* Code View Section */
     .code-wrapper {
-      background: #0a0f1d;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
+      background: #020617;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       overflow: hidden;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .code-header {
-      background: #131d31;
-      padding: 12px 18px;
+      background: #0f172a;
+      padding: 10px 16px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       flex-wrap: wrap;
       gap: 10px;
@@ -462,129 +554,44 @@
     }
 
     .btn-action {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #1e293b;
       color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      border-radius: 8px;
       font-size: 0.78rem;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 8px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.15s;
+      transition: background 0.2s;
     }
 
     .btn-action:hover {
-      background: rgba(255, 255, 255, 0.18);
+      background: #334155;
     }
 
-    pre code {
-      display: block;
-      padding: 18px;
+    pre {
+      margin: 0;
+      padding: 16px;
+      max-height: 480px;
+      overflow-y: auto;
+      background: #050a14;
+    }
+
+    code {
       font-family: 'Fira Code', monospace;
-      font-size: 0.82rem;
-      color: #e2e8f0;
-      overflow-x: auto;
-      max-height: 550px;
+      font-size: 0.8rem;
       line-height: 1.5;
+      color: #e2e8f0;
       white-space: pre;
     }
 
-    /* Interactive Quiz Section */
-    .quiz-card {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      max-width: 800px;
-      margin: 16px auto;
-    }
-
-    .quiz-question {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-      color: #fff;
-    }
-
-    .quiz-scenario {
-      background: rgba(30, 41, 59, 0.7);
-      border-left: 4px solid var(--accent);
-      padding: 12px 16px;
-      border-radius: 0 10px 10px 0;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      margin-bottom: 20px;
-    }
-
-    .quiz-options {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .quiz-opt-btn {
-      background: rgba(30, 41, 59, 0.8);
-      border: 2px solid rgba(255, 255, 255, 0.08);
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .quiz-opt-btn:hover {
-      border-color: #3b82f6;
-      background: #1e293b;
-    }
-
-    .quiz-feedback {
-      display: none;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-
-    .quiz-feedback.show {
-      display: block;
-      animation: fadeIn 0.2s;
-    }
-
-    .feedback-correct {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid #10b981;
-      color: #34d399;
-    }
-
-    .feedback-wrong {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid #ef4444;
-      color: #f87171;
-    }
-
-    /* Footer */
     footer {
-      background: #090e1a;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 20px 16px;
+      background: #0b1222;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       text-align: center;
+      padding: 16px;
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: auto;
-    }
-
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
     }
   </style>
 </head>
@@ -596,15 +603,20 @@
       <div class="brand">
         <div class="brand-icon">🤾</div>
         <div class="brand-text">
-          <h1>Juara Bola Baling <span class="brand-badge">PJK TAHUN 5</span></h1>
-          <p>Modul Interaktif: Kemahiran Menghantar & Menerima Bola (KSSR Semakan)</p>
+          <h1 id="brand-title">Handball Champions <span class="brand-badge" id="brand-badge">YEAR 5 PE</span></h1>
+          <p id="brand-desc">Passing & Receiving Skills Game (Year 5 Primary School Physical Education)</p>
         </div>
       </div>
-      <div class="nav-tabs">
-        <button class="nav-btn active" onclick="tukarTab('game')">🎮 Main Game</button>
-        <button class="nav-btn" onclick="tukarTab('quiz')">🧠 Uji Minda PJK</button>
-        <button class="nav-btn" onclick="tukarTab('theory')">📚 Panduan KSSR</button>
-        <button class="nav-btn" onclick="tukarTab('code')">💻 Kod Python</button>
+      <div class="nav-actions">
+        <div class="nav-tabs">
+          <button class="nav-btn active" id="tab-btn-game" onclick="tukarTab('game')">🎮 Play Game</button>
+          <button class="nav-btn" id="tab-btn-quiz" onclick="tukarTab('quiz')">🧠 PE Quiz</button>
+          <button class="nav-btn" id="tab-btn-theory" onclick="tukarTab('theory')">📚 PE Guide</button>
+          <button class="nav-btn" id="tab-btn-code" onclick="tukarTab('code')">💻 Python Code</button>
+        </div>
+        <button class="btn-lang-toggle" onclick="toggleLanguage()" title="Switch Language / Tukar Bahasa">
+          <span id="lang-indicator">🌐 Bahasa Melayu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -623,16 +635,16 @@
             <div class="touch-row">
               <div class="pass-selector">
                 <button class="touch-pass-btn active" id="btn-pass-1" onclick="pilihHantaran(1)">
-                  <span>1️⃣</span>Aras Dada
+                  <span>1️⃣</span><span class="p-btn-name">Chest Pass</span>
                 </button>
                 <button class="touch-pass-btn" id="btn-pass-2" onclick="pilihHantaran(2)">
-                  <span>2️⃣</span>Atas Bahu
+                  <span>2️⃣</span><span class="p-btn-name">Shoulder</span>
                 </button>
                 <button class="touch-pass-btn" id="btn-pass-3" onclick="pilihHantaran(3)">
-                  <span>3️⃣</span>Lantul
+                  <span>3️⃣</span><span class="p-btn-name">Bounce</span>
                 </button>
                 <button class="touch-pass-btn" id="btn-pass-4" onclick="pilihHantaran(4)">
-                  <span>4️⃣</span>Atas Kepala
+                  <span>4️⃣</span><span class="p-btn-name">Lob / Head</span>
                 </button>
               </div>
             </div>
@@ -648,7 +660,7 @@
                         onmousedown="setGerak(1)" onmouseup="setGerak(0)">▶</button>
               </div>
               <button class="touch-btn btn-action-main" id="btn-hantar" onclick="lakukanAksi()">
-                ⚡ HANTAR / SERAP DAYA
+                ⚡ PASS / ABSORB FORCE
               </button>
             </div>
           </div>
@@ -656,49 +668,49 @@
 
         <!-- Sidebar Info & Guide -->
         <div class="sidebar-panel">
-          <div class="sidebar-title">
-            <span>🎯</span> 4 Jenis Hantaran PJK Tahun 5
+          <div class="sidebar-title" id="side-title">
+            <span>🎯</span> 4 Handball Passes (Year 5 PE)
           </div>
 
           <div class="pass-type-card selected" id="card-pass-1" onclick="pilihHantaran(1)">
             <div class="pass-header">
-              <span class="pass-name">1. Hantaran Aras Dada</span>
-              <span class="pass-key">Kekunci 1</span>
+              <span class="pass-name" id="p1-title">1. Chest Pass</span>
+              <span class="pass-key">Key 1</span>
             </div>
-            <div class="pass-desc">Tolak bola kuat dari paras dada ke dada rakan. Laju dan tepat untuk jarak dekat.</div>
-            <div class="pass-tactics">💡 Taktik: Gunakan bila tiada lawan tegak di hadapan.</div>
+            <div class="pass-desc" id="p1-desc">Push strongly from chest level to teammate's chest. Fast and accurate for short distances.</div>
+            <div class="pass-tactics" id="p1-tac">💡 Tactics: Use when there is an open corridor with no tall blockers.</div>
           </div>
 
           <div class="pass-type-card" id="card-pass-2" onclick="pilihHantaran(2)">
             <div class="pass-header">
-              <span class="pass-name">2. Hantaran Atas Bahu</span>
-              <span class="pass-key">Kekunci 2</span>
+              <span class="pass-name" id="p2-title">2. Shoulder Pass</span>
+              <span class="pass-key">Key 2</span>
             </div>
-            <div class="pass-desc">Hantaran paling kuat dan laju menggunakan ayunan siku dan pergelangan tangan.</div>
-            <div class="pass-tactics">💡 Taktik: Sesuai untuk serangan pantas (fast-break) jarak jauh.</div>
+            <div class="pass-desc" id="p2-desc">Strongest and fastest pass generated from shoulder cocking and wrist snap.</div>
+            <div class="pass-tactics" id="p2-tac">💡 Tactics: Ideal for long-distance fast-breaks to running teammates.</div>
           </div>
 
           <div class="pass-type-card" id="card-pass-3" onclick="pilihHantaran(3)">
             <div class="pass-header">
-              <span class="pass-name">3. Hantaran Lantul</span>
-              <span class="pass-key">Kekunci 3</span>
+              <span class="pass-name" id="p3-title">3. Bounce Pass</span>
+              <span class="pass-key">Key 3</span>
             </div>
-            <div class="pass-desc">Lantun bola ke lantai kira-kira 2/3 perjalanan ke rakan penerima.</div>
-            <div class="pass-tactics">💡 Taktik: Terbaik lepasi penghadang lawan bertubuh tinggi!</div>
+            <div class="pass-desc" id="p3-desc">Bounces on the floor roughly 2/3 of the way to the receiver.</div>
+            <div class="pass-tactics" id="p3-tac">💡 Tactics: Best way to bypass tall defenders with raised arms!</div>
           </div>
 
           <div class="pass-type-card" id="card-pass-4" onclick="pilihHantaran(4)">
             <div class="pass-header">
-              <span class="pass-name">4. Hantaran Atas Kepala</span>
-              <span class="pass-key">Kekunci 4</span>
+              <span class="pass-name" id="p4-title">4. Overhead / Lob Pass</span>
+              <span class="pass-key">Key 4</span>
             </div>
-            <div class="pass-desc">Pegang bola dengan kedua-dua belah tangan di atas kepala dan lambung melengkung.</div>
-            <div class="pass-tactics">💡 Taktik: Mengatasi pertahanan yang mengawal rapat membongkok.</div>
+            <div class="pass-desc" id="p4-desc">Both hands release ball overhead with an upward trajectory over opponents.</div>
+            <div class="pass-tactics" id="p4-tac">💡 Tactics: Beats tight marking defenders who crouch low.</div>
           </div>
 
-          <div class="pedagogy-tip-box">
-            <h4>🙌 Teknik Serap Daya (Menerima)</h4>
-            <p>Buka jari bentuk huruf <strong>'W'</strong> dengan ibu jari hampir bertemu. Apabila bola sampai, bengkokkan siku ke arah dada untuk serap momentum bola!</p>
+          <div class="pedagogy-tip-box" id="side-catch-box">
+            <h4 id="side-catch-title">🙌 Force Absorption ('W' Hands)</h4>
+            <p id="side-catch-desc">Spread your fingers to contour the ball forming a <strong>'W'</strong> shape with thumbs touching. As the ball arrives, bend your elbows towards your chest to cushion momentum!</p>
           </div>
         </div>
       </div>
@@ -707,21 +719,23 @@
     <!-- TAB 2: KUIZ & UJI MINDA -->
     <div id="tab-quiz" class="tab-content">
       <div class="quiz-card">
-        <h2 style="font-family: 'Fredoka', cursive; color: #fbbf24; margin-bottom: 8px;">🧠 Kuiz Taktikal & Mekanik Bola Baling Tahun 5</h2>
-        <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 20px;">Jawab situasi perlawanan berikut berdasarkan Standard Kandungan PJK KSSR.</p>
+        <h2 style="font-family: 'Fredoka', cursive; color: #fbbf24; margin-bottom: 8px;" id="quiz-header-title">
+          🧠 Year 5 Tactical & Biomechanics Handball Quiz
+        </h2>
+        <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 20px;" id="quiz-header-sub">
+          Answer the game scenarios based on primary school Physical Education learning standards.
+        </p>
 
         <div id="quiz-container">
-          <div class="quiz-question" id="quiz-soalan">Soalan 1:</div>
-          <div class="quiz-scenario" id="quiz-senario">Situasi dimuatkan...</div>
+          <div class="quiz-question" id="quiz-soalan">Question 1:</div>
+          <div class="quiz-scenario" id="quiz-senario">Loading scenario...</div>
 
-          <div class="quiz-options" id="quiz-pilihan">
-            <!-- Pilihan butang dijana secara dinamik -->
-          </div>
+          <div class="quiz-options" id="quiz-pilihan"></div>
 
           <div class="quiz-feedback" id="quiz-feedback"></div>
 
-          <button id="btn-next-quiz" class="btn-action" style="display:none; background:#2563eb; padding:10px 20px; font-size:0.9rem;" onclick="soalanSeterusnya()">
-            Soalan Seterusnya ➔
+          <button id="btn-next-quiz" class="btn-action" style="display:none; background:#2563eb; padding:10px 20px; font-size:0.9rem; margin-top: 14px;" onclick="soalanSeterusnya()">
+            Next Question ➔
           </button>
         </div>
       </div>
@@ -729,104 +743,898 @@
 
     <!-- TAB 3: PANDUAN KSSR PJK TAHUN 5 -->
     <div id="tab-theory" class="tab-content">
-      <h2 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #f59e0b; margin-bottom: 6px;">
-        📖 Sukatan Pelajaran: Kemahiran Asas Bola Baling KSSR Semakan Tahun 5
+      <h2 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #f59e0b; margin-bottom: 6px;" id="theory-title">
+        📖 Curriculum Guide: Year 5 Primary School Handball Skills
       </h2>
-      <p style="color: #94a3b8; font-size: 0.88rem;">Bidang Kemahiran: Kategori Serangan (Invasion Games) - Standard Pembelajaran 1.8.1, 1.8.2, 2.8.1 & 2.8.2</p>
+      <p style="color: #94a3b8; font-size: 0.88rem;" id="theory-sub">
+        Invasion Games Category: Passing, Catching (Receiving), Spatial Awareness & Biomechanics
+      </p>
 
-      <div class="theory-grid">
-        <div class="theory-card">
-          <h3>⚡ 1. Kemahiran Menghantar Bola</h3>
-          <p>Terdapat 4 jenis hantaran utama yang perlu dikuasai murid Tahun 5:</p>
-          <ul>
-            <li><strong>Hantaran Aras Dada:</strong> Tolakan dari dada ke dada sasaran. Titik pelepasan pada aras dada.</li>
-            <li><strong>Hantaran Atas Bahu:</strong> Tarik tangan ke belakang telinga, hayun ke hadapan dengan langkah kaki sokongan.</li>
-            <li><strong>Hantaran Lantul:</strong> Titik pantulan pada 2/3 jarak dari penghantar ke penerima.</li>
-            <li><strong>Hantaran Atas Kepala:</strong> Mengelirukan lawan berpostur rendah melalui balingan melengkung (lob).</li>
-          </ul>
-        </div>
-
-        <div class="theory-card">
-          <h3>🤲 2. Kemahiran Menerima Bola</h3>
-          <p>Mekanik serap daya semasa menyambut bola:</p>
-          <ul>
-            <li><strong>Bentuk Tangan 'W':</strong> Buka jari tapak tangan, ibu jari dan jari telunjuk membentuk corak seakan 'W' untuk kawalan bola optimum.</li>
-            <li><strong>Serap Daya:</strong> Tarik tangan menghampiri dada dan bengkokkan siku secara beransur-ansur untuk mengurangkan impak bola.</li>
-            <li><strong>Gerak Sambut:</strong> Maju satu langkah ke hadapan menyambut bola, jangan berdiri kaku di tempat asal.</li>
-          </ul>
-        </div>
-
-        <div class="theory-card">
-          <h3>🛡️ 3. Konsep Ruang & Pertahanan</h3>
-          <p>Membaca situasi pertahanan lawan semasa membuat keputusan:</p>
-          <ul>
-            <li>Lawan angkat tangan tinggi ➔ Gunakan <strong>Hantaran Lantul</strong>.</li>
-            <li>Lawan kawal ketat & rendah ➔ Gunakan <strong>Hantaran Atas Kepala (Lob)</strong>.</li>
-            <li>Rakan bebas jarak dekat ➔ Gunakan <strong>Hantaran Aras Dada</strong>.</li>
-            <li>Rakan lari pantas ke hadapan ➔ Gunakan <strong>Hantaran Atas Bahu</strong>.</li>
-          </ul>
-        </div>
-
-        <div class="theory-card">
-          <h3>🌟 4. Tahap Penguasaan (TP) PJK</h3>
-          <ul>
-            <li><strong>TP 1 & 2:</strong> Boleh mengingat dan melakukan lakuan asas dengan bimbingan guru.</li>
-            <li><strong>TP 3 & 4:</strong> Boleh melakukan hantaran dan serap daya dengan betul dan konsisten.</li>
-            <li><strong>TP 5 & 6:</strong> Boleh membuat keputusan taktikal memilih hantaran yang tepat mengikut situasi gelanggang sebenar.</li>
-          </ul>
-        </div>
+      <div class="theory-grid" id="theory-grid-container">
+        <!-- Generated dynamically based on language -->
       </div>
     </div>
 
     <!-- TAB 4: KOD PYTHON ASAL (PYGAME & TERMINAL) -->
     <div id="tab-code" class="tab-content">
       <h2 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #38bdf8; margin-bottom: 6px;">
-        🐍 Fail Kod Sumber Python Lengkap
+        🐍 Complete Python Source Code Files
       </h2>
       <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 14px;">
-        Disediakan 2 versi fail Python: Versi Grafik Pygame (animasi gelanggang penuh) dan Versi Terminal/CLI (boleh terus jalan tanpa sebarang modul tambahan).
+        Both versions are provided: <strong>game_bola_baling.py</strong> (Full 2D Pygame graphics with synthesized audio & 3D arcs) and <strong>game_terminal_pjk.py</strong> (Zero-dependency CLI simulator that runs instantly anywhere).
       </p>
 
       <!-- Code Box 1: game_bola_baling.py -->
       <div class="code-wrapper">
         <div class="code-header">
           <div class="code-title">
-            <span>🎮</span> <strong>game_bola_baling.py</strong> (Versi Grafik Pygame 2D)
+            <span>🎮</span> <strong>game_bola_baling.py</strong> (Full 2D Pygame GUI Game)
           </div>
           <div class="code-actions">
-            <button class="btn-action" onclick="salinKod('kod-pygame')">📋 Salin Kod</button>
-            <a href="game_bola_baling.py" download="game_bola_baling.py" class="btn-action" style="text-decoration:none;">⬇️ Muat Turun</a>
+            <button class="btn-action" onclick="salinKod('kod-pygame')">📋 Copy Code</button>
+            <a href="game_bola_baling.py" download="game_bola_baling.py" class="btn-action" style="text-decoration:none;">⬇️ Download File</a>
           </div>
         </div>
-        <pre><code id="kod-pygame"># Kod Python game_bola_baling.py lengkap (Pygame)
-# Pasang modul: pip install pygame
-# Jalankan: python game_bola_baling.py
+        <pre><code id="kod-pygame">&quot;&quot;&quot;
+====================================================================
+YEAR 5 PRIMARY SCHOOL HANDBALL SKILLS GAME: PASSING &amp; RECEIVING
+JUARA BOLA BALING TAHUN 5: KEMAHIRAN MENGHANTAR &amp; MENERIMA BOLA
+Pendidikan Jasmani &amp; Kesihatan (PJK) KSSR Semakan / Primary School PE
+====================================================================
+How to Run:
+1. Ensure Python 3 is installed (https://www.python.org)
+2. Install pygame library:
+      pip install pygame
+3. Run the game:
+      python game_bola_baling.py
+
+(Tip: If you do not have pygame installed, you can also run
+ the zero-dependency terminal simulation directly:
+      python game_terminal_pjk.py)
+====================================================================
+Controls / Kawalan:
+- [MOVE / GERAK]: Left / Right Arrow Keys or [A] / [D]
+- [SELECT PASS / PILIH HANTARAN]:
+    [1] - Chest Pass (Hantaran Aras Dada)
+    [2] - Shoulder Pass (Hantaran Atas Bahu)
+    [3] - Bounce Pass (Hantaran Lantul)
+    [4] - Overhead / Lob Pass (Hantaran Atas Kepala)
+- [PASS / ABSORB FORCE / HANTAR &amp; SERAP DAYA]: [SPACE] Bar
+- [TOGGLE LANGUAGE / TUKAR BAHASA]: [L] Key (English / Bahasa Melayu)
+====================================================================
+&quot;&quot;&quot;
 
 import math
 import random
 import sys
 import time
-import pygame
 
-# Inisialisasi
+try:
+    import pygame
+except ImportError:
+    print(&quot;\n&quot; + &quot;=&quot; * 65)
+    print(&quot; [NOTE / PERHATIAN] The &#x27;pygame&#x27; module is not installed.&quot;)
+    print(&quot; To play the full 2D graphical game, install pygame using:&quot;)
+    print(&quot;      pip install pygame&quot;)
+    print(&quot;      python game_bola_baling.py&quot;)
+    print(&quot;\n Or run the zero-dependency terminal version right now:&quot;)
+    print(&quot;      python game_terminal_pjk.py&quot;)
+    print(&quot;=&quot; * 65 + &quot;\n&quot;)
+    sys.exit()
+
+# Initialize Pygame
 pygame.init()
 pygame.font.init()
+try:
+    pygame.mixer.init()
+except Exception:
+    pass
+
+# Screen Settings
 LEBAR_SKRIN = 900
 TINGGI_SKRIN = 650
 SKRIN = pygame.display.set_mode((LEBAR_SKRIN, TINGGI_SKRIN))
-pygame.display.set_caption("Juara Bola Baling Tahun 5: Kemahiran Hantar & Terima")
+pygame.display.set_caption(&quot;Year 5 Handball Champions: Passing &amp; Receiving Skills&quot;)
 JAM = pygame.time.Clock()
 FPS = 60
 
-# 4 Jenis Hantaran Mengikut Silibus PJK Tahun 5
-JENIS_HANTARAN = {
-    1: {"nama": "Hantaran Aras Dada", "kelajuan": 9, "ketinggian": 1, "lantulan": False},
-    2: {"nama": "Hantaran Atas Bahu", "kelajuan": 12, "ketinggian": 2, "lantulan": False},
-    3: {"nama": "Hantaran Lantul", "kelajuan": 8, "ketinggian": 0, "lantulan": True},
-    4: {"nama": "Hantaran Atas Kepala (Lob)", "kelajuan": 7, "ketinggian": 3, "lantulan": False}
+# Court Colors &amp; Themes
+WARNA_PADANG = (36, 110, 160)       # Indoor Blue Court
+WARNA_KAWASAN_GOL = (230, 126, 34)   # Orange 6m D-Zone
+WARNA_GARISAN = (255, 255, 255)
+WARNA_KUNING_GARIS = (241, 196, 15)
+WARNA_TEKS_GELAP = (30, 39, 46)
+WARNA_TEKS_TERANG = (245, 246, 250)
+WARNA_PEMAIN = (46, 204, 113)       # Green (Our Player)
+WARNA_RAKAN = (52, 152, 219)        # Blue (Teammate)
+WARNA_PERTAHANAN = (231, 76, 60)    # Red (Defender)
+WARNA_BOLA = (243, 156, 18)         # Orange Handball
+WARNA_PANEL = (20, 30, 45)
+
+# Font Loader
+def dapatkan_fon(saiz, tebal=False):
+    try:
+        return pygame.font.SysFont(&quot;Comic Sans MS&quot;, saiz, bold=tebal)
+    except Exception:
+        return pygame.font.SysFont(&quot;Arial&quot;, saiz, bold=tebal)
+
+FON_BESAR = dapatkan_fon(36, True)
+FON_SEDERHANA = dapatkan_fon(22, True)
+FON_KECIL = dapatkan_fon(17)
+FON_MIKRO = dapatkan_fon(14)
+
+# Synthetic Sound Generator (No external audio files needed)
+def cipta_bunyi(frekuensi, durasi, jenis=&quot;sine&quot;):
+    try:
+        sampel_kadar = 22050
+        n_sampel = int(sampel_kadar * durasi)
+        penimbal = bytearray()
+        for i in range(n_sampel):
+            t = float(i) / sampel_kadar
+            if jenis == &quot;sine&quot;:
+                val = int(127.5 * (1 + math.sin(2 * math.pi * frekuensi * t)))
+            elif jenis == &quot;square&quot;:
+                val = 220 if math.sin(2 * math.pi * frekuensi * t) &gt; 0 else 30
+            else:
+                val = random.randint(50, 200)
+            # Fade out
+            val = int(val * (1.0 - (i / n_sampel)))
+            penimbal.append(min(255, max(0, val)))
+        return pygame.mixer.Sound(buffer=bytes(penimbal))
+    except Exception:
+        return None
+
+BUNYI_HANTAR = cipta_bunyi(520, 0.12, &quot;sine&quot;)
+BUNYI_TANGKAP = cipta_bunyi(740, 0.15, &quot;sine&quot;)
+BUNYI_PINTAS = cipta_bunyi(180, 0.25, &quot;square&quot;)
+BUNYI_WISIL = cipta_bunyi(1100, 0.35, &quot;sine&quot;)
+
+def mainkan_bunyi(snd):
+    if snd:
+        try:
+            snd.play()
+        except Exception:
+            pass
+
+# Pass Physics Characteristics
+PROFIL_HANTARAN = {
+    1: {&quot;kelajuan&quot;: 9, &quot;ketinggian&quot;: 1, &quot;lantulan&quot;: False},
+    2: {&quot;kelajuan&quot;: 12, &quot;ketinggian&quot;: 2, &quot;lantulan&quot;: False},
+    3: {&quot;kelajuan&quot;: 8, &quot;ketinggian&quot;: 0, &quot;lantulan&quot;: True},
+    4: {&quot;kelajuan&quot;: 7, &quot;ketinggian&quot;: 3, &quot;lantulan&quot;: False}
 }
 
-# (Sila rujuk fail penuh game_bola_baling.py yang disertakan di direktori workspace)
+# Bilingual Localization Data (English &amp; Bahasa Melayu)
+DATA_BAHASA = {
+    &quot;en&quot;: {
+        &quot;title&quot;: &quot;YEAR 5 HANDBALL CHAMPIONS&quot;,
+        &quot;subtitle&quot;: &quot;Passing &amp; Receiving Skills (Year 5 PE Curriculum)&quot;,
+        &quot;press_start&quot;: &quot;PRESS [SPACE] TO START GAME&quot;,
+        &quot;press_restart&quot;: &quot;PRESS [SPACE] TO PLAY AGAIN&quot;,
+        &quot;switch_lang_hint&quot;: &quot;[L] Bahasa Melayu&quot;,
+        &quot;score_label&quot;: &quot;SCORE&quot;,
+        &quot;streak_label&quot;: &quot;COMBO&quot;,
+        &quot;perfect_label&quot;: &quot;PERFECT &#x27;W&#x27;&quot;,
+        &quot;time_label&quot;: &quot;MATCH TIME&quot;,
+        &quot;pass_mode_hint&quot;: &quot;Select Pass: [1, 2, 3, 4] | [L] Language&quot;,
+        &quot;player_tag&quot;: &quot;You (Player)&quot;,
+        &quot;teammate_tag&quot;: &quot;Teammate&quot;,
+        &quot;def_high&quot;: &quot;High Block (Bounce Pass!)&quot;,
+        &quot;def_low&quot;: &quot;Low Block (Lob/Overhead)&quot;,
+        &quot;def_normal&quot;: &quot;Opponent Defender&quot;,
+        &quot;passes&quot;: {
+            1: {&quot;name&quot;: &quot;Chest Pass&quot;, &quot;desc&quot;: &quot;Fast push from chest. Best for short-medium open spaces.&quot;},
+            2: {&quot;name&quot;: &quot;Shoulder Pass&quot;, &quot;desc&quot;: &quot;Powerful &amp; fast. Best for long distance &amp; fast breaks.&quot;},
+            3: {&quot;name&quot;: &quot;Bounce Pass&quot;, &quot;desc&quot;: &quot;Bounces off the floor to sneak under tall raised arms!&quot;},
+            4: {&quot;name&quot;: &quot;Overhead / Lob&quot;, &quot;desc&quot;: &quot;High arcing pass over tight, crouched defenders.&quot;}
+        },
+        &quot;catch_title&quot;: &quot;Receiving &amp; Force Absorption (&#x27;W&#x27; Hands):&quot;,
+        &quot;catch_desc&quot;: &quot;Press [SPACE] precisely when the ball arrives to absorb force with &#x27;W&#x27; hands!&quot;,
+        &quot;tips&quot;: [
+            &quot;Year 5 PE Tip: Form a &#x27;W&#x27; shape with thumbs &amp; fingers to catch the ball securely!&quot;,
+            &quot;Year 5 PE Tip: Bend your elbows towards your chest to absorb the ball&#x27;s momentum.&quot;,
+            &quot;Year 5 PE Tip: Use a Bounce Pass when the defender stands tall with arms raised.&quot;,
+            &quot;Year 5 PE Tip: Step forward to meet the incoming ball; don&#x27;t wait flat-footed!&quot;,
+            &quot;Year 5 PE Tip: Keep your eyes focused on the flight of the ball at all times.&quot;
+        ],
+        &quot;game_over_title&quot;: &quot;FULL TIME! MATCH OVER&quot;,
+        &quot;grades&quot;: {
+            &quot;top&quot;: &quot;Outstanding (Mastery Level 6) ★★★&quot;,
+            &quot;mid&quot;: &quot;Very Good (Mastery Level 4-5) ★★☆&quot;,
+            &quot;low&quot;: &quot;Needs Practice (Mastery Level 3) ★☆☆&quot;
+        },
+        &quot;stats_score&quot;: &quot;Total Final Score: {} Points&quot;,
+        &quot;stats_passes&quot;: &quot;Successful Passes: {} times&quot;,
+        &quot;stats_catches&quot;: &quot;Perfect &#x27;W&#x27; Force Absorptions: {} times&quot;,
+        &quot;stats_intercepted&quot;: &quot;Passes Intercepted: {} times&quot;,
+        &quot;msg_start&quot;: &quot;Match started! Execute accurate passes past the defender!&quot;,
+        &quot;msg_selected&quot;: &quot;Pass Selected: {}!&quot;,
+        &quot;msg_chest_blocked&quot;: &quot;Chest pass blocked! Defender is directly in the path.&quot;,
+        &quot;msg_shoulder_blocked&quot;: &quot;Shoulder pass intercepted by defender!&quot;,
+        &quot;msg_bounce_blocked&quot;: &quot;Bounce pass hit the defender&#x27;s crouched legs!&quot;,
+        &quot;msg_lob_blocked&quot;: &quot;Defender leaped high to block the overhead ball!&quot;,
+        &quot;msg_teammate_caught&quot;: &quot;Crisp pass! Teammate caught the ball. Get ready to receive!&quot;,
+        &quot;msg_absorb_perfect&quot;: &quot;PERFECT! &#x27;W&#x27; Hand Force Absorption (+{} Points)&quot;,
+        &quot;msg_absorb_missed&quot;: &quot;Ball received. (Tip: Press SPACE when ball arrives to ABSORB FORCE!)&quot;
+    },
+    &quot;bm&quot;: {
+        &quot;title&quot;: &quot;CABARAN BOLA BALING TAHUN 5&quot;,
+        &quot;subtitle&quot;: &quot;Kemahiran Menghantar &amp; Menerima Bola (KSSR PJK)&quot;,
+        &quot;press_start&quot;: &quot;TEKAN [SPACE] UNTUK MULA&quot;,
+        &quot;press_restart&quot;: &quot;TEKAN [SPACE] MAIN SEMULA&quot;,
+        &quot;switch_lang_hint&quot;: &quot;[L] English Language&quot;,
+        &quot;score_label&quot;: &quot;SKOR&quot;,
+        &quot;streak_label&quot;: &quot;KOMBO&quot;,
+        &quot;perfect_label&quot;: &quot;SEMPURNA &#x27;W&#x27;&quot;,
+        &quot;time_label&quot;: &quot;MASA PERLAWANAN&quot;,
+        &quot;pass_mode_hint&quot;: &quot;Tukar Hantaran: [1, 2, 3, 4] | [L] Bahasa&quot;,
+        &quot;player_tag&quot;: &quot;Murid (Anda)&quot;,
+        &quot;teammate_tag&quot;: &quot;Rakan Penerima&quot;,
+        &quot;def_high&quot;: &quot;Hadang Tinggi (Lantul!)&quot;,
+        &quot;def_low&quot;: &quot;Hadang Rendah (Atas Bahu/Lob)&quot;,
+        &quot;def_normal&quot;: &quot;Penghadang Lawan&quot;,
+        &quot;passes&quot;: {
+            1: {&quot;name&quot;: &quot;Hantaran Aras Dada&quot;, &quot;desc&quot;: &quot;Tolakan paras dada. Sesuai untuk hantaran pantas ruang terbuka.&quot;},
+            2: {&quot;name&quot;: &quot;Hantaran Atas Bahu&quot;, &quot;desc&quot;: &quot;Hantaran paling kuat untuk jarak jauh atau larian pantas.&quot;},
+            3: {&quot;name&quot;: &quot;Hantaran Lantul&quot;, &quot;desc&quot;: &quot;Melantun di lantai untuk lepasi pertahanan tinggi!&quot;},
+            4: {&quot;name&quot;: &quot;Hantaran Atas Kepala (Lob)&quot;, &quot;desc&quot;: &quot;Hantaran melengkung melepasi pertahanan rapat.&quot;}
+        },
+        &quot;catch_title&quot;: &quot;Kemahiran Menerima Bola (Serap Daya):&quot;,
+        &quot;catch_desc&quot;: &quot;Tekan [SPACE] tepat ketika bola sampai untuk serap daya dengan tangan &#x27;W&#x27;!&quot;,
+        &quot;tips&quot;: [
+            &quot;Tip PJK Tahun 5: Gunakan kedua-dua belah tangan membentuk huruf &#x27;W&#x27; semasa menerima bola!&quot;,
+            &quot;Tip PJK Tahun 5: Bengkokkan siku ke arah dada untuk menyerap daya momentum bola.&quot;,
+            &quot;Tip PJK Tahun 5: Hantaran Lantul sesuai jika penghadang lawan berdiri tegak &amp; mendepang tangan.&quot;,
+            &quot;Tip PJK Tahun 5: Bergerak ke hadapan menyambut bola, jangan tunggu bola sampai setempat!&quot;,
+            &quot;Tip PJK Tahun 5: Mata sentiasa fokus memandang arah pergerakan bola yang melayang.&quot;
+        ],
+        &quot;game_over_title&quot;: &quot;TAMAT MASA PERLAWANAN!&quot;,
+        &quot;grades&quot;: {
+            &quot;top&quot;: &quot;Cemerlang (Tahap Penguasaan 6 / Bintang 3) ★★★&quot;,
+            &quot;mid&quot;: &quot;Sangat Baik (Tahap Penguasaan 4-5 / Bintang 2) ★★☆&quot;,
+            &quot;low&quot;: &quot;Boleh Dipertingkatkan (Bintang 1) ★☆☆&quot;
+        },
+        &quot;stats_score&quot;: &quot;Jumlah Skor Keseluruhan: {} Mata&quot;,
+        &quot;stats_passes&quot;: &quot;Hantaran Berjaya: {} kali&quot;,
+        &quot;stats_catches&quot;: &quot;Tangkapan Sempurna (Serap Daya &#x27;W&#x27;): {} kali&quot;,
+        &quot;stats_intercepted&quot;: &quot;Bola Dipintas Lawan: {} kali&quot;,
+        &quot;msg_start&quot;: &quot;Perlawanan bermula! Lakukan hantaran yang tepat!&quot;,
+        &quot;msg_selected&quot;: &quot;Mod: {} dipilih!&quot;,
+        &quot;msg_chest_blocked&quot;: &quot;Hantaran aras dada terhalang! Lawan berada tepat di laluan.&quot;,
+        &quot;msg_shoulder_blocked&quot;: &quot;Hantaran atas bahu dipintas pertahanan lawan!&quot;,
+        &quot;msg_bounce_blocked&quot;: &quot;Hantaran lantul terkena kaki penghadang yang membongkok!&quot;,
+        &quot;msg_lob_blocked&quot;: &quot;Lawan melonjak tinggi menyekat bola atas kepala!&quot;,
+        &quot;msg_teammate_caught&quot;: &quot;Hantaran kemas! Rakan menyambut bola. Bersedia menerima!&quot;,
+        &quot;msg_absorb_perfect&quot;: &quot;SEMPURNA! Lakuan Serap Daya Tangan &#x27;W&#x27; (+{} Mata)&quot;,
+        &quot;msg_absorb_missed&quot;: &quot;Bola diterima. (Tip: Tekan SPACE semasa bola sampai untuk SERAP DAYA!)&quot;
+    }
+}
+
+class Pemain:
+    def __init__(self, x, y, warna, label_key=&quot;player_tag&quot;):
+        self.x = x
+        self.y = y
+        self.warna = warna
+        self.label_key = label_key
+        self.jejari = 22
+        self.kelajuan = 5
+        self.sedang_serap_daya = False
+        self.pemasa_serap_daya = 0
+
+    def gerak(self, dx):
+        self.x += dx * self.kelajuan
+        self.x = max(60, min(LEBAR_SKRIN - 60, self.x))
+
+    def aktifkan_serap_daya(self):
+        self.sedang_serap_daya = True
+        self.pemasa_serap_daya = 25  # frames active
+
+    def kemas_kini(self):
+        if self.pemasa_serap_daya &gt; 0:
+            self.pemasa_serap_daya -= 1
+        else:
+            self.sedang_serap_daya = False
+
+    def lukis(self, permukaan, L):
+        # Force absorption visual ring effect
+        if self.sedang_serap_daya:
+            radius_efek = self.jejari + 14 + int(math.sin(pygame.time.get_ticks() * 0.02) * 4)
+            pygame.draw.circle(permukaan, (241, 196, 15), (int(self.x), int(self.y)), radius_efek, 3)
+
+        # Shadow
+        pygame.draw.ellipse(permukaan, (20, 20, 20, 80), (self.x - 18, self.y + 16, 36, 14))
+
+        # Body
+        pygame.draw.circle(permukaan, self.warna, (int(self.x), int(self.y)), self.jejari)
+        pygame.draw.circle(permukaan, (255, 255, 255), (int(self.x), int(self.y)), self.jejari, 3)
+
+        # Head
+        pygame.draw.circle(permukaan, (253, 227, 167), (int(self.x), int(self.y - 4)), 10)
+        
+        # &#x27;W&#x27; Hand formation symbol in front of torso
+        warna_tangan = (255, 255, 255) if not self.sedang_serap_daya else (241, 196, 15)
+        pygame.draw.line(permukaan, warna_tangan, (self.x - 12, self.y - 12), (self.x - 6, self.y - 18), 3)
+        pygame.draw.line(permukaan, warna_tangan, (self.x - 6, self.y - 18), (self.x, self.y - 14), 3)
+        pygame.draw.line(permukaan, warna_tangan, (self.x, self.y - 14), (self.x + 6, self.y - 18), 3)
+        pygame.draw.line(permukaan, warna_tangan, (self.x + 6, self.y - 18), (self.x + 12, self.y - 12), 3)
+
+        # Label
+        label_text = L.get(self.label_key, &quot;Player&quot;)
+        teks = FON_MIKRO.render(label_text, True, WARNA_TEKS_TERANG)
+        permukaan.blit(teks, (self.x - teks.get_width() // 2, self.y + self.jejari + 4))
+
+class PenghadangLawan:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.jejari = 20
+        self.kelajuan = 2.8
+        self.arah = random.choice([-1, 1])
+        self.tinggi_hadangan = random.choice([&quot;tinggi&quot;, &quot;rendah&quot;, &quot;normal&quot;])
+        self.masa_tukar_postur = 0
+
+    def kemas_kini(self):
+        self.x += self.arah * self.kelajuan
+        if self.x &lt; 150:
+            self.x = 150
+            self.arah = 1
+        elif self.x &gt; LEBAR_SKRIN - 150:
+            self.x = LEBAR_SKRIN - 150
+            self.arah = -1
+
+        self.masa_tukar_postur += 1
+        if self.masa_tukar_postur &gt; 180:
+            self.masa_tukar_postur = 0
+            self.tinggi_hadangan = random.choice([&quot;tinggi&quot;, &quot;rendah&quot;, &quot;normal&quot;])
+
+    def lukis(self, permukaan, L):
+        # Shadow
+        pygame.draw.ellipse(permukaan, (20, 20, 20, 80), (self.x - 18, self.y + 14, 36, 12))
+
+        # Body
+        pygame.draw.circle(permukaan, WARNA_PERTAHANAN, (int(self.x), int(self.y)), self.jejari)
+        pygame.draw.circle(permukaan, (255, 255, 255), (int(self.x), int(self.y)), self.jejari, 3)
+
+        # Defender arm positions reflecting blocking posture
+        if self.tinggi_hadangan == &quot;tinggi&quot;:
+            # Arms raised high up (Bypass with Bounce Pass!)
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x - 18, self.y - 10), (self.x - 22, self.y - 30), 4)
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x + 18, self.y - 10), (self.x + 22, self.y - 30), 4)
+            label = L[&quot;def_high&quot;]
+            warna_label = (255, 235, 59)
+        elif self.tinggi_hadangan == &quot;rendah&quot;:
+            # Arms crouched low (Bypass with Overhead Lob or Fast High Shoulder Pass)
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x - 14, self.y + 6), (self.x - 28, self.y + 10), 4)
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x + 14, self.y + 6), (self.x + 28, self.y + 10), 4)
+            label = L[&quot;def_low&quot;]
+            warna_label = (129, 236, 236)
+        else:
+            # Normal stance
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x - 16, self.y - 5), (self.x - 26, self.y - 5), 4)
+            pygame.draw.line(permukaan, (255, 255, 255), (self.x + 16, self.y - 5), (self.x + 26, self.y - 5), 4)
+            label = L[&quot;def_normal&quot;]
+            warna_label = (255, 177, 166)
+
+        teks = FON_MIKRO.render(label, True, warna_label)
+        permukaan.blit(teks, (self.x - teks.get_width() // 2, self.y - 38))
+
+class Bola:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.sasaran_x = x
+        self.sasaran_y = y
+        self.bergerak = False
+        self.arah_kembali = False  # True when teammate returns ball
+        self.jenis_hantaran = 1
+        self.jejari_asas = 10
+        self.jejari_semasa = 10
+        self.progres = 0.0
+        self.mula_x = x
+        self.mula_y = y
+        self.jarak_keseluruhan = 1
+        self.kelajuan = 0.02
+
+    def lancar(self, dari_x, dari_y, ke_x, ke_y, jenis, kembali=False):
+        self.mula_x = dari_x
+        self.mula_y = dari_y
+        self.x = dari_x
+        self.y = dari_y
+        self.sasaran_x = ke_x
+        self.sasaran_y = ke_y
+        self.jenis_hantaran = jenis
+        self.arah_kembali = kembali
+        self.bergerak = True
+        self.progres = 0.0
+
+        dx = ke_x - dari_x
+        dy = ke_y - dari_y
+        self.jarak_keseluruhan = max(1, math.hypot(dx, dy))
+
+        spd = PROFIL_HANTARAN[jenis][&quot;kelajuan&quot;] if not kembali else 9
+        self.kelajuan = spd / self.jarak_keseluruhan
+
+    def kemas_kini(self):
+        if not self.bergerak:
+            return
+
+        self.progres += self.kelajuan
+
+        if self.progres &gt;= 1.0:
+            self.progres = 1.0
+            self.x = self.sasaran_x
+            self.y = self.sasaran_y
+            self.bergerak = False
+            return
+
+        # Position interpolation
+        self.x = self.mula_x + (self.sasaran_x - self.mula_x) * self.progres
+        self.y = self.mula_y + (self.sasaran_y - self.mula_y) * self.progres
+
+        # 3D visual height simulation (Chest, Shoulder, Bounce, Lob)
+        profil = PROFIL_HANTARAN[self.jenis_hantaran]
+        if profil[&quot;lantulan&quot;]:
+            # Bounces on court floor at 60% of trajectory
+            if self.progres &lt; 0.6:
+                arc = math.sin((self.progres / 0.6) * math.pi) * 6
+                self.jejari_semasa = self.jejari_asas + int(arc)
+            else:
+                arc = math.sin(((self.progres - 0.6) / 0.4) * math.pi) * 8
+                self.jejari_semasa = self.jejari_asas + int(arc)
+        elif profil[&quot;ketinggian&quot;] == 3:  # Lob / Overhead pass
+            arc = math.sin(self.progres * math.pi) * 20
+            self.jejari_semasa = self.jejari_asas + int(arc)
+        elif profil[&quot;ketinggian&quot;] == 2:  # Shoulder pass
+            arc = math.sin(self.progres * math.pi) * 10
+            self.jejari_semasa = self.jejari_asas + int(arc)
+        else:  # Chest pass
+            arc = math.sin(self.progres * math.pi) * 4
+            self.jejari_semasa = self.jejari_asas + int(arc)
+
+    def lukis(self, permukaan):
+        if not self.bergerak:
+            return
+
+        # Floor shadow
+        tinggi_bayang = (self.jejari_semasa - self.jejari_asas) * 1.5
+        pygame.draw.ellipse(
+            permukaan, (20, 20, 20, 100),
+            (self.x - self.jejari_asas, self.y + tinggi_bayang, self.jejari_asas * 2, 8)
+        )
+
+        # Handball
+        pos_y_fizikal = self.y - (self.jejari_semasa - self.jejari_asas)
+        pygame.draw.circle(permukaan, WARNA_BOLA, (int(self.x), int(pos_y_fizikal)), self.jejari_semasa)
+        pygame.draw.circle(permukaan, (255, 255, 255), (int(self.x), int(pos_y_fizikal)), self.jejari_semasa, 2)
+        
+        # Handball seam pattern
+        pygame.draw.arc(
+            permukaan, (230, 81, 0),
+            (int(self.x - self.jejari_semasa * 0.8), int(pos_y_fizikal - self.jejari_semasa * 0.8),
+             int(self.jejari_semasa * 1.6), int(self.jejari_semasa * 1.6)),
+            0, math.pi, 2
+        )
+
+class Gelanggang:
+    @staticmethod
+    def lukis(permukaan):
+        # Indoor Handball Court (Blue surface)
+        permukaan.fill(WARNA_PADANG)
+
+        # Court wood-floor texture lines
+        for y in range(80, TINGGI_SKRIN - 90, 40):
+            pygame.draw.line(permukaan, (41, 128, 185), (30, y), (LEBAR_SKRIN - 30, y), 1)
+
+        # Court Outer Boundary Lines
+        pygame.draw.rect(permukaan, WARNA_GARISAN, (30, 75, LEBAR_SKRIN - 60, TINGGI_SKRIN - 165), 4)
+
+        # Center Line &amp; Center Circle
+        tengah_y = (75 + TINGGI_SKRIN - 90) // 2
+        pygame.draw.line(permukaan, WARNA_GARISAN, (30, tengah_y), (LEBAR_SKRIN - 30, tengah_y), 3)
+        pygame.draw.circle(permukaan, WARNA_GARISAN, (LEBAR_SKRIN // 2, tengah_y), 45, 3)
+
+        # Top Goal Area (6m D-Zone)
+        pygame.draw.arc(permukaan, WARNA_KAWASAN_GOL, (LEBAR_SKRIN // 2 - 130, 40, 260, 90), 0, math.pi, 4)
+        
+        # 9m Dashed Free-Throw Line
+        for sudut in range(10, 170, 20):
+            rad1 = math.radians(sudut)
+            rad2 = math.radians(sudut + 10)
+            p1 = (LEBAR_SKRIN // 2 + int(160 * math.cos(rad1)), 80 + int(90 * math.sin(rad1)))
+            p2 = (LEBAR_SKRIN // 2 + int(160 * math.cos(rad2)), 80 + int(90 * math.sin(rad2)))
+            pygame.draw.line(permukaan, WARNA_KUNING_GARIS, p1, p2, 3)
+
+        # Bottom Goal Area (Our Team&#x27;s End)
+        bawah_y = TINGGI_SKRIN - 90
+        pygame.draw.arc(permukaan, WARNA_KAWASAN_GOL, (LEBAR_SKRIN // 2 - 140, bawah_y - 70, 280, 90), math.pi, 2 * math.pi, 4)
+
+        # Goal Post Visual
+        pygame.draw.rect(permukaan, (255, 255, 255), (LEBAR_SKRIN // 2 - 70, 60, 140, 15))
+        pygame.draw.rect(permukaan, (192, 57, 43), (LEBAR_SKRIN // 2 - 70, 60, 140, 15), 3)
+
+# ----------------- MAIN GAME CLASS -----------------
+class PermainanBolaBaling:
+    def __init__(self):
+        self.keadaan = &quot;MENU&quot;  # MENU, BERMAIN, SELESAI
+        self.bahasa = &quot;en&quot;     # &quot;en&quot; or &quot;bm&quot;
+        self.skor = 0
+        self.streak = 0
+        self.hantaran_berjaya = 0
+        self.tangkapan_sempurna = 0
+        self.bola_terlepas = 0
+        self.masa_tinggal = 60
+        self.masa_mula = 0
+
+        self.jenis_pilihan = 1  # 1: Chest, 2: Shoulder, 3: Bounce, 4: Lob
+        self.pemain = Pemain(LEBAR_SKRIN // 2, 490, WARNA_PEMAIN, &quot;player_tag&quot;)
+        self.rakan = Pemain(LEBAR_SKRIN // 2, 130, WARNA_RAKAN, &quot;teammate_tag&quot;)
+        self.penghadang = PenghadangLawan(LEBAR_SKRIN // 2, 310)
+        self.bola = Bola(self.pemain.x, self.pemain.y)
+
+        self.memegang_bola = True
+        self.mesej_maklum_balas = &quot;&quot;
+        self.warna_maklum_balas = (255, 255, 255)
+        self.masa_maklum_balas = 0
+        self.tip_semasa = &quot;&quot;
+        self.pemasa_tip = 0
+        self.kemas_kini_teks_bahasa()
+
+    def kemas_kini_teks_bahasa(self):
+        L = DATA_BAHASA[self.bahasa]
+        self.mesej_maklum_balas = L[&quot;msg_start&quot;]
+        self.tip_semasa = random.choice(L[&quot;tips&quot;])
+        pygame.display.set_caption(L[&quot;title&quot;])
+
+    def tukar_bahasa(self):
+        self.bahasa = &quot;bm&quot; if self.bahasa == &quot;en&quot; else &quot;en&quot;
+        self.kemas_kini_teks_bahasa()
+        mainkan_bunyi(BUNYI_HANTAR)
+
+    def mula_baru(self):
+        self.keadaan = &quot;BERMAIN&quot;
+        self.skor = 0
+        self.streak = 0
+        self.hantaran_berjaya = 0
+        self.tangkapan_sempurna = 0
+        self.bola_terlepas = 0
+        self.masa_tinggal = 60
+        self.masa_mula = time.time()
+        self.memegang_bola = True
+        self.jenis_pilihan = 1
+        self.pemain.x = LEBAR_SKRIN // 2
+        self.rakan.x = LEBAR_SKRIN // 2
+        self.penghadang.x = LEBAR_SKRIN // 2
+        L = DATA_BAHASA[self.bahasa]
+        self.beri_maklum_balas(L[&quot;msg_start&quot;], (46, 204, 113))
+        mainkan_bunyi(BUNYI_WISIL)
+
+    def beri_maklum_balas(self, teks, warna=(255, 255, 255)):
+        self.mesej_maklum_balas = teks
+        self.warna_maklum_balas = warna
+        self.masa_maklum_balas = 130
+
+    def proses_input(self):
+        kekunci = pygame.key.get_pressed()
+        L = DATA_BAHASA[self.bahasa]
+
+        for peristiwa in pygame.event.get():
+            if peristiwa.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if peristiwa.type == pygame.KEYDOWN:
+                # Toggle language with &#x27;L&#x27; key at any time
+                if peristiwa.key == pygame.K_l:
+                    self.tukar_bahasa()
+
+                if self.keadaan in (&quot;MENU&quot;, &quot;SELESAI&quot;):
+                    if peristiwa.key in (pygame.K_SPACE, pygame.K_RETURN):
+                        self.mula_baru()
+                elif self.keadaan == &quot;BERMAIN&quot;:
+                    # Switch pass types
+                    if peristiwa.key in (pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4):
+                        mapping = {pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4}
+                        self.jenis_pilihan = mapping[peristiwa.key]
+                        nama_pass = L[&quot;passes&quot;][self.jenis_pilihan][&quot;name&quot;]
+                        self.beri_maklum_balas(L[&quot;msg_selected&quot;].format(nama_pass), (241, 196, 15))
+
+                    # Press SPACE to Pass OR Absorb Force on Catch
+                    elif peristiwa.key == pygame.K_SPACE:
+                        if self.memegang_bola and not self.bola.bergerak:
+                            # Pass to teammate
+                            self.memegang_bola = False
+                            self.bola.lancar(
+                                self.pemain.x, self.pemain.y - 10,
+                                self.rakan.x, self.rakan.y + 10,
+                                self.jenis_pilihan, kembali=False
+                            )
+                            mainkan_bunyi(BUNYI_HANTAR)
+                        elif not self.memegang_bola and self.bola.arah_kembali:
+                            # Active force-absorption catch
+                            self.pemain.aktifkan_serap_daya()
+
+        if self.keadaan == &quot;BERMAIN&quot;:
+            dx = 0
+            if kekunci[pygame.K_LEFT] or kekunci[pygame.K_a]:
+                dx -= 1
+            if kekunci[pygame.K_RIGHT] or kekunci[pygame.K_d]:
+                dx += 1
+            if dx != 0:
+                self.pemain.gerak(dx)
+
+    def logik_permainan(self):
+        if self.keadaan != &quot;BERMAIN&quot;:
+            return
+
+        L = DATA_BAHASA[self.bahasa]
+
+        # Timer
+        masa_lalu = int(time.time() - self.masa_mula)
+        self.masa_tinggal = max(0, 60 - masa_lalu)
+        if self.masa_tinggal &lt;= 0:
+            self.keadaan = &quot;SELESAI&quot;
+            mainkan_bunyi(BUNYI_WISIL)
+            return
+
+        # Updates
+        self.pemain.kemas_kini()
+        self.penghadang.kemas_kini()
+
+        # Teammate AI gently shifts looking for passing lanes
+        sasaran_rakan_x = self.pemain.x + math.sin(pygame.time.get_ticks() * 0.003) * 140
+        self.rakan.x += (sasaran_rakan_x - self.rakan.x) * 0.05
+        self.rakan.x = max(100, min(LEBAR_SKRIN - 100, self.rakan.x))
+
+        # Periodic tips
+        self.pemasa_tip += 1
+        if self.pemasa_tip &gt; 350:
+            self.pemasa_tip = 0
+            self.tip_semasa = random.choice(L[&quot;tips&quot;])
+
+        if self.masa_maklum_balas &gt; 0:
+            self.masa_maklum_balas -= 1
+
+        # While holding ball
+        if self.memegang_bola and not self.bola.bergerak:
+            self.bola.x = self.pemain.x
+            self.bola.y = self.pemain.y - 12
+            return
+
+        # Ball in flight update
+        self.bola.kemas_kini()
+
+        # 1. CHECK DEFENDER INTERCEPTIONS ON OUTBOUND PASS
+        if self.bola.bergerak and not self.bola.arah_kembali:
+            jarak_ke_lawan = math.hypot(self.bola.x - self.penghadang.x, self.bola.y - self.penghadang.y)
+            
+            if jarak_ke_lawan &lt; 36:
+                kena_hadang = False
+                postur = self.penghadang.tinggi_hadangan
+
+                # Tactical rules matching Year 5 PE curriculum:
+                if self.bola.jenis_hantaran == 1:  # Chest Pass
+                    kena_hadang = True
+                    sebab = L[&quot;msg_chest_blocked&quot;]
+                elif self.bola.jenis_hantaran == 2:  # Shoulder Pass
+                    if postur == &quot;tinggi&quot; or abs(self.bola.x - self.penghadang.x) &lt; 18:
+                        kena_hadang = True
+                        sebab = L[&quot;msg_shoulder_blocked&quot;]
+                elif self.bola.jenis_hantaran == 3:  # Bounce Pass
+                    # Bounce pass sneaks under tall defenders, blocked if defender is low
+                    if postur == &quot;rendah&quot;:
+                        kena_hadang = True
+                        sebab = L[&quot;msg_bounce_blocked&quot;]
+                    else:
+                        kena_hadang = False  # Successfully bypassed high block!
+                elif self.bola.jenis_hantaran == 4:  # Overhead / Lob Pass
+                    # Arcs over defender unless defender leaps on high stance
+                    if postur == &quot;tinggi&quot; and jarak_ke_lawan &lt; 15:
+                        kena_hadang = True
+                        sebab = L[&quot;msg_lob_blocked&quot;]
+
+                if kena_hadang:
+                    mainkan_bunyi(BUNYI_PINTAS)
+                    self.streak = 0
+                    self.skor = max(0, self.skor - 5)
+                    self.bola_terlepas += 1
+                    self.beri_maklum_balas(sebab, (231, 76, 60))
+                    self.memegang_bola = True
+                    self.bola.bergerak = False
+                    return
+
+            # Ball reaches teammate successfully
+            if not self.bola.bergerak:
+                self.hantaran_berjaya += 1
+                self.skor += 10
+                self.streak += 1
+                mainkan_bunyi(BUNYI_TANGKAP)
+                self.beri_maklum_balas(L[&quot;msg_teammate_caught&quot;], (46, 204, 113))
+
+                # Teammate passes ball back
+                self.bola.lancar(
+                    self.rakan.x, self.rakan.y + 10,
+                    self.pemain.x, self.pemain.y - 10,
+                    self.jenis_pilihan, kembali=True
+                )
+
+        # 2. CHECK RECEIVING &amp; FORCE ABSORPTION ON RETURN PASS
+        elif not self.bola.bergerak and self.bola.arah_kembali:
+            # Ball arrived back to player. Evaluate force-absorption!
+            if self.pemain.sedang_serap_daya:
+                self.tangkapan_sempurna += 1
+                mata_bonus = 15 + (self.streak * 2)
+                self.skor += mata_bonus
+                mainkan_bunyi(BUNYI_TANGKAP)
+                self.beri_maklum_balas(L[&quot;msg_absorb_perfect&quot;].format(mata_bonus), (241, 196, 15))
+            else:
+                self.skor += 5
+                mainkan_bunyi(BUNYI_TANGKAP)
+                self.beri_maklum_balas(L[&quot;msg_absorb_missed&quot;], (255, 235, 59))
+
+            self.memegang_bola = True
+
+    def lukis_panel_status(self):
+        L = DATA_BAHASA[self.bahasa]
+
+        # Top Header Bar
+        pygame.draw.rect(SKRIN, WARNA_PANEL, (0, 0, LEBAR_SKRIN, 70))
+        pygame.draw.line(SKRIN, (50, 70, 95), (0, 70), (LEBAR_SKRIN, 70), 2)
+
+        # Score &amp; Streak
+        teks_skor = FON_SEDERHANA.render(f&quot;{L[&#x27;score_label&#x27;]}: {self.skor}&quot;, True, (241, 196, 15))
+        SKRIN.blit(teks_skor, (25, 12))
+
+        teks_streak = FON_MIKRO.render(f&quot;{L[&#x27;streak_label&#x27;]}: {self.streak}x | {L[&#x27;perfect_label&#x27;]}: {self.tangkapan_sempurna}&quot;, True, (46, 204, 113))
+        SKRIN.blit(teks_streak, (25, 42))
+
+        # Match Timer
+        warna_masa = (231, 76, 60) if self.masa_tinggal &lt;= 10 else (245, 246, 250)
+        teks_masa = FON_BESAR.render(f&quot;{self.masa_tinggal}s&quot;, True, warna_masa)
+        SKRIN.blit(teks_masa, (LEBAR_SKRIN // 2 - teks_masa.get_width() // 2, 8))
+        teks_label_masa = FON_MIKRO.render(L[&quot;time_label&quot;], True, (180, 190, 205))
+        SKRIN.blit(teks_label_masa, (LEBAR_SKRIN // 2 - teks_label_masa.get_width() // 2, 46))
+
+        # Active Pass Selection
+        nama_pilihan = L[&quot;passes&quot;][self.jenis_pilihan][&quot;name&quot;]
+        teks_hantar = FON_SEDERHANA.render(f&quot;[{self.jenis_pilihan}] {nama_pilihan}&quot;, True, (52, 152, 219))
+        SKRIN.blit(teks_hantar, (LEBAR_SKRIN - teks_hantar.get_width() - 25, 12))
+
+        teks_pilih_arahan = FON_MIKRO.render(L[&quot;pass_mode_hint&quot;], True, (200, 210, 225))
+        SKRIN.blit(teks_pilih_arahan, (LEBAR_SKRIN - teks_pilih_arahan.get_width() - 25, 42))
+
+        # Bottom Bar (Feedback &amp; PE Tips)
+        bar_bawah_y = TINGGI_SKRIN - 80
+        pygame.draw.rect(SKRIN, WARNA_PANEL, (0, bar_bawah_y, LEBAR_SKRIN, 80))
+        pygame.draw.line(SKRIN, (50, 70, 95), (0, bar_bawah_y), (LEBAR_SKRIN, bar_bawah_y), 2)
+
+        # Dynamic Feedback
+        teks_mb = FON_SEDERHANA.render(self.mesej_maklum_balas, True, self.warna_maklum_balas)
+        SKRIN.blit(teks_mb, (LEBAR_SKRIN // 2 - teks_mb.get_width() // 2, bar_bawah_y + 8))
+
+        # PE Tip
+        teks_tip = FON_MIKRO.render(self.tip_semasa, True, (241, 196, 15))
+        SKRIN.blit(teks_tip, (LEBAR_SKRIN // 2 - teks_tip.get_width() // 2, bar_bawah_y + 45))
+
+    def lukis_menu(self):
+        L = DATA_BAHASA[self.bahasa]
+
+        lapisan = pygame.Surface((LEBAR_SKRIN, TINGGI_SKRIN), pygame.SRCALPHA)
+        lapisan.fill((15, 25, 40, 235))
+        SKRIN.blit(lapisan, (0, 0))
+
+        kotak = pygame.Rect(70, 40, LEBAR_SKRIN - 140, TINGGI_SKRIN - 80)
+        pygame.draw.rect(SKRIN, (25, 38, 55), kotak, border_radius=18)
+        pygame.draw.rect(SKRIN, (241, 196, 15), kotak, 4, border_radius=18)
+
+        tajuk = FON_BESAR.render(L[&quot;title&quot;], True, (241, 196, 15))
+        SKRIN.blit(tajuk, (LEBAR_SKRIN // 2 - tajuk.get_width() // 2, 60))
+
+        sub = FON_SEDERHANA.render(L[&quot;subtitle&quot;], True, (236, 240, 241))
+        SKRIN.blit(sub, (LEBAR_SKRIN // 2 - sub.get_width() // 2, 105))
+
+        # Language Switch Badge
+        t_lang = FON_MIKRO.render(L[&quot;switch_lang_hint&quot;], True, (56, 189, 248))
+        SKRIN.blit(t_lang, (LEBAR_SKRIN // 2 - t_lang.get_width() // 2, 140))
+
+        # Pass Descriptions
+        y_pos = 175
+        for p_idx in (1, 2, 3, 4):
+            item = L[&quot;passes&quot;][p_idx]
+            t_nama = FON_SEDERHANA.render(f&quot;[{p_idx}] {item[&#x27;name&#x27;]}&quot;, True, (52, 152, 219))
+            SKRIN.blit(t_nama, (100, y_pos))
+            t_hur = FON_KECIL.render(item[&quot;desc&quot;], True, (200, 214, 229))
+            SKRIN.blit(t_hur, (120, y_pos + 26))
+            y_pos += 56
+
+        # Catching Guide
+        t_terima = FON_SEDERHANA.render(L[&quot;catch_title&quot;], True, (46, 204, 113))
+        SKRIN.blit(t_terima, (100, y_pos + 6))
+        t_terima_desc = FON_KECIL.render(L[&quot;catch_desc&quot;], True, (255, 235, 59))
+        SKRIN.blit(t_terima_desc, (120, y_pos + 34))
+
+        # Start Button
+        butang_rect = pygame.Rect(LEBAR_SKRIN // 2 - 200, TINGGI_SKRIN - 110, 400, 48)
+        pygame.draw.rect(SKRIN, (46, 204, 113), butang_rect, border_radius=12)
+        pygame.draw.rect(SKRIN, (255, 255, 255), butang_rect, 2, border_radius=12)
+        teks_mula = FON_SEDERHANA.render(L[&quot;press_start&quot;], True, (20, 30, 45))
+        SKRIN.blit(teks_mula, (LEBAR_SKRIN // 2 - teks_mula.get_width() // 2, TINGGI_SKRIN - 100))
+
+    def lukis_selesai(self):
+        L = DATA_BAHASA[self.bahasa]
+
+        lapisan = pygame.Surface((LEBAR_SKRIN, TINGGI_SKRIN), pygame.SRCALPHA)
+        lapisan.fill((15, 25, 40, 240))
+        SKRIN.blit(lapisan, (0, 0))
+
+        kotak = pygame.Rect(110, 70, LEBAR_SKRIN - 220, TINGGI_SKRIN - 140)
+        pygame.draw.rect(SKRIN, (25, 38, 55), kotak, border_radius=18)
+        pygame.draw.rect(SKRIN, (46, 204, 113), kotak, 4, border_radius=18)
+
+        tajuk = FON_BESAR.render(L[&quot;game_over_title&quot;], True, (241, 196, 15))
+        SKRIN.blit(tajuk, (LEBAR_SKRIN // 2 - tajuk.get_width() // 2, 95))
+
+        # Achievement Grades
+        if self.skor &gt;= 200:
+            gred = L[&quot;grades&quot;][&quot;top&quot;]
+            warna_gred = (46, 204, 113)
+        elif self.skor &gt;= 100:
+            gred = L[&quot;grades&quot;][&quot;mid&quot;]
+            warna_gred = (52, 152, 219)
+        else:
+            gred = L[&quot;grades&quot;][&quot;low&quot;]
+            warna_gred = (241, 196, 15)
+
+        t_gred = FON_SEDERHANA.render(gred, True, warna_gred)
+        SKRIN.blit(t_gred, (LEBAR_SKRIN // 2 - t_gred.get_width() // 2, 150))
+
+        # Statistics
+        baris_stat = [
+            L[&quot;stats_score&quot;].format(self.skor),
+            L[&quot;stats_passes&quot;].format(self.hantaran_berjaya),
+            L[&quot;stats_catches&quot;].format(self.tangkapan_sempurna),
+            L[&quot;stats_intercepted&quot;].format(self.bola_terlepas)
+        ]
+        y_s = 205
+        for s in baris_stat:
+            t = FON_SEDERHANA.render(s, True, (245, 246, 250))
+            SKRIN.blit(t, (LEBAR_SKRIN // 2 - t.get_width() // 2, y_s))
+            y_s += 38
+
+        # Play Again Button
+        butang = pygame.Rect(LEBAR_SKRIN // 2 - 190, TINGGI_SKRIN - 160, 380, 48)
+        pygame.draw.rect(SKRIN, (52, 152, 219), butang, border_radius=12)
+        pygame.draw.rect(SKRIN, (255, 255, 255), butang, 2, border_radius=12)
+        teks_ulang = FON_SEDERHANA.render(L[&quot;press_restart&quot;], True, (255, 255, 255))
+        SKRIN.blit(teks_ulang, (LEBAR_SKRIN // 2 - teks_ulang.get_width() // 2, TINGGI_SKRIN - 150))
+
+    def lari(self):
+        while True:
+            self.proses_input()
+            self.logik_permainan()
+
+            # Render Court
+            Gelanggang.lukis(SKRIN)
+
+            L = DATA_BAHASA[self.bahasa]
+
+            if self.keadaan == &quot;BERMAIN&quot;:
+                self.penghadang.lukis(SKRIN, L)
+                self.rakan.lukis(SKRIN, L)
+                self.pemain.lukis(SKRIN, L)
+                self.bola.lukis(SKRIN)
+                self.lukis_panel_status()
+            elif self.keadaan == &quot;MENU&quot;:
+                Gelanggang.lukis(SKRIN)
+                self.lukis_menu()
+            elif self.keadaan == &quot;SELESAI&quot;:
+                self.lukis_selesai()
+
+            pygame.display.flip()
+            JAM.tick(FPS)
+
+if __name__ == &quot;__main__&quot;:
+    permainan = PermainanBolaBaling()
+    permainan.lari()
 </code></pre>
       </div>
 
@@ -834,41 +1642,702 @@ JENIS_HANTARAN = {
       <div class="code-wrapper" style="margin-top: 24px;">
         <div class="code-header">
           <div class="code-title">
-            <span>💻</span> <strong>game_terminal_pjk.py</strong> (Versi Konsol / CLI Mudah Tanpa Install Library)
+            <span>💻</span> <strong>game_terminal_pjk.py</strong> (Zero-Dependency CLI / Terminal Simulator)
           </div>
           <div class="code-actions">
-            <button class="btn-action" onclick="salinKod('kod-terminal')">📋 Salin Kod</button>
-            <a href="game_terminal_pjk.py" download="game_terminal_pjk.py" class="btn-action" style="text-decoration:none;">⬇️ Muat Turun</a>
+            <button class="btn-action" onclick="salinKod('kod-terminal')">📋 Copy Code</button>
+            <a href="game_terminal_pjk.py" download="game_terminal_pjk.py" class="btn-action" style="text-decoration:none;">⬇️ Download File</a>
           </div>
         </div>
-        <pre><code id="kod-terminal"># Simulasi Tekstual PJK Tahun 5 (Standard Kandungan 1.8 & 2.8)
-# Tiada library luar diperlukan! Cuma jalankan: python game_terminal_pjk.py
+        <pre><code id="kod-terminal">&quot;&quot;&quot;
+=============================================================================
+HANDBALL PASSING &amp; RECEIVING SKILLS GAME - YEAR 5 PRIMARY SCHOOL
+AKADEMI BOLA BALING TAHUN 5 (KSSR SEMAKAN PJK SEKOLAH RENDAH)
+=============================================================================
+Zero dependencies required! Runs in any standard Python terminal:
+   python3 game_terminal_pjk.py
+Supports both English and Bahasa Melayu.
+=============================================================================
+&quot;&quot;&quot;
 
 import time
 import random
 import sys
 
-JENIS_HANTARAN = {
-    "1": {"nama": "Hantaran Aras Dada", "sesuai": "Jarak dekat & laluan bebas."},
-    "2": {"nama": "Hantaran Atas Bahu", "sesuai": "Jarak jauh & serangan pantas."},
-    "3": {"nama": "Hantaran Lantul", "sesuai": "Lawan tinggi mendepang tangan."},
-    "4": {"nama": "Hantaran Atas Kepala", "sesuai": "Lawan mengawal rapat rendah."}
+def garisan():
+    print(&quot;=&quot; * 68)
+
+def teks_perlahan(ayat, kelajuan=0.015):
+    for aksara in ayat:
+        sys.stdout.write(aksara)
+        sys.stdout.flush()
+        time.sleep(kelajuan)
+    print()
+
+DATA_TEKS = {
+    &quot;en&quot;: {
+        &quot;title&quot;: &quot;YEAR 5 HANDBALL SKILLS SIMULATION: PASSING &amp; RECEIVING&quot;,
+        &quot;subtitle&quot;: &quot;Physical Education (PE) Primary School - Ball Control &amp; Tactics&quot;,
+        &quot;instructions&quot;: &quot;Instructions: Make smart tactical passing decisions and react fast to absorb force when catching!&quot;,
+        &quot;pass_title&quot;: &quot;Choose the best pass type:&quot;,
+        &quot;passes&quot;: {
+            &quot;1&quot;: {
+                &quot;name&quot;: &quot;Chest Pass&quot;,
+                &quot;desc&quot;: &quot;Quick push from chest level with both hands. Best for short-medium open spaces.&quot;
+            },
+            &quot;2&quot;: {
+                &quot;name&quot;: &quot;Shoulder / Overarm Pass&quot;,
+                &quot;desc&quot;: &quot;Strongest, fastest pass using shoulder torque. Best for long distance &amp; fast-breaks.&quot;
+            },
+            &quot;3&quot;: {
+                &quot;name&quot;: &quot;Bounce Pass&quot;,
+                &quot;desc&quot;: &quot;Bounces off the floor ~2/3 distance to teammate. Best against tall upright defenders.&quot;
+            },
+            &quot;4&quot;: {
+                &quot;name&quot;: &quot;Overhead / Lob Pass&quot;,
+                &quot;desc&quot;: &quot;High arcing trajectory. Best over tight defenders crouched low or pressing close.&quot;
+            }
+        },
+        &quot;scenarios&quot;: [
+            {
+                &quot;sit&quot;: &quot;Your teammate (Aidan) is sprinting fast towards the goal 15 meters away!&quot;,
+                &quot;def&quot;: &quot;Defenders are chasing from behind but there is an open long-distance lane ahead.&quot;,
+                &quot;ans&quot;: &quot;2&quot;,
+                &quot;exp&quot;: &quot;Spot on! The Shoulder/Overarm Pass provides maximum power and velocity for long-distance fast-breaks.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;A tall defender stands right in front of you with both arms raised high to block chest-high passes.&quot;,
+                &quot;def&quot;: &quot;Defender&#x27;s arms and hands are held high in the air.&quot;,
+                &quot;ans&quot;: &quot;3&quot;,
+                &quot;exp&quot;: &quot;Brilliant! The Bounce Pass stays low and skips beneath the defender&#x27;s raised arms.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;Your teammate is 4 meters to your side in open space without any opponent nearby.&quot;,
+                &quot;def&quot;: &quot;Clear open passing lane, short distance.&quot;,
+                &quot;ans&quot;: &quot;1&quot;,
+                &quot;exp&quot;: &quot;Great choice! The Chest Pass is the quickest, most accurate pass for short distances and open teammates.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;An opponent marks you tightly and crouches low with outstretched arms to block ground and chest passes.&quot;,
+                &quot;def&quot;: &quot;Defender is crouched low and pressing close to your body.&quot;,
+                &quot;ans&quot;: &quot;4&quot;,
+                &quot;exp&quot;: &quot;Excellent! An Overhead / Lob Pass arcs smoothly over the low-crouching defender.&quot;
+            }
+        ],
+        &quot;catch_header&quot;: &quot;&gt;&gt; CATCHING CHALLENGE: ABSORBING FORCE (&#x27;W&#x27; HAND POSITION) &lt;&lt;&quot;,
+        &quot;catch_tip&quot;: &quot;Year 5 PE Tip: Form a &#x27;W&#x27; shape with thumbs &amp; index fingers, and bend your elbows towards your chest to absorb ball momentum!&quot;,
+        &quot;ready_prompt&quot;: &quot;Press [ENTER] when you are ready to receive...&quot;,
+        &quot;released&quot;: &quot;\nBall has been released by your teammate! Flying towards you...&quot;,
+        &quot;catch_action&quot;: &quot;&gt;&gt;&gt; CATCH NOW! (Press [ENTER] as fast as possible!) &lt;&lt;&lt; &quot;,
+        &quot;reaction_time&quot;: &quot;\nYour reaction time: {:.3f} seconds&quot;,
+        &quot;reaction_grades&quot;: [
+            (0.25, &quot;⚡ LIGHTNING FAST! Clean catch with textbook force absorption!&quot;, &quot;Strong &#x27;W&#x27; hand grip effortlessly absorbed the ball&#x27;s momentum! (+25 Points)&quot;, 25),
+            (0.55, &quot;👏 SOLID CATCH! Safe and controlled ball reception. (+15 Points)&quot;, &quot;Good elbow flexion cushioned the ball nicely.&quot;, 15),
+            (0.90, &quot;⚠️ A bit slow, but you managed to secure the ball! (+8 Points)&quot;, &quot;Remember to move towards the ball rather than waiting for it.&quot;, 8),
+            (999.0, &quot;❌ OOPS! The ball slipped through because your reaction was too late! (0 Points)&quot;, &quot;Keep your eyes on the ball at all times!&quot;, 0)
+        ],
+        &quot;round_label&quot;: &quot;ROUND {} / 4&quot;,
+        &quot;input_choice&quot;: &quot;\nEnter your choice (1/2/3/4): &quot;,
+        &quot;correct_alert&quot;: &quot;\n[CORRECT!] {} (+20 Points)&quot;,
+        &quot;wrong_alert&quot;: &quot;\n[NOT QUITE] That pass is easily intercepted in this situation.&quot;,
+        &quot;best_was&quot;: &quot;Best option was: [{}] {}&quot;,
+        &quot;explanation&quot;: &quot;Explanation: {}&quot;,
+        &quot;game_over&quot;: &quot;TRAINING SESSION COMPLETE! YOUR TOTAL SCORE: {} / 180 POINTS&quot;,
+        &quot;grade_mastery&quot;: [
+            (150, &quot;Grade: MASTERY LEVEL 6 (OUTSTANDING) 🏆&quot;, &quot;You have mastered all passing techniques and the &#x27;W&#x27; force-absorption catch!&quot;),
+            (100, &quot;Grade: MASTERY LEVEL 4-5 (VERY GOOD) 🥇&quot;, &quot;Solid fundamental skills! Practice reaction time for even quicker ball releases.&quot;),
+            (0, &quot;Grade: MASTERY LEVEL 3 (KEEP PRACTICING) 🥈&quot;, &quot;Review when to use Bounce, Chest, Shoulder, and Lob passes against different defensive postures.&quot;)
+        ]
+    },
+    &quot;bm&quot;: {
+        &quot;title&quot;: &quot;SIMULASI BOLA BALING TAHUN 5: KEMAHIRAN HANTAR &amp; TERIMA&quot;,
+        &quot;subtitle&quot;: &quot;Pendidikan Jasmani &amp; Kesihatan (PJK) KSSR Semakan Sekolah Rendah&quot;,
+        &quot;instructions&quot;: &quot;Arahan: Buat keputusan taktikal hantaran yang tepat dan uji kepantasan serap daya semasa menangkap bola!&quot;,
+        &quot;pass_title&quot;: &quot;Pilih jenis hantaran yang paling sesuai:&quot;,
+        &quot;passes&quot;: {
+            &quot;1&quot;: {
+                &quot;name&quot;: &quot;Hantaran Aras Dada (Chest Pass)&quot;,
+                &quot;desc&quot;: &quot;Tolakan kuat dari paras dada. Terbaik untuk jarak dekat/sederhana dan ruang terbuka.&quot;
+            },
+            &quot;2&quot;: {
+                &quot;name&quot;: &quot;Hantaran Atas Bahu (Overarm / Shoulder Pass)&quot;,
+                &quot;desc&quot;: &quot;Hantaran paling kuat dan laju. Terbaik untuk jarak jauh &amp; serangan pantas (fast-break).&quot;
+            },
+            &quot;3&quot;: {
+                &quot;name&quot;: &quot;Hantaran Lantul (Bounce Pass)&quot;,
+                &quot;desc&quot;: &quot;Bola dilantun kira-kira 2/3 perjalanan ke rakan. Terbaik melepasi penghadang lawan yang tinggi.&quot;
+            },
+            &quot;4&quot;: {
+                &quot;name&quot;: &quot;Hantaran Atas Kepala / Lob (Overhead Pass)&quot;,
+                &quot;desc&quot;: &quot;Melayangkan bola melengkung tinggi. Terbaik melepasi lawan yang mengawal ketat atau membongkok.&quot;
+            }
+        },
+        &quot;scenarios&quot;: [
+            {
+                &quot;sit&quot;: &quot;Rakan anda (Aiman) sedang membuat larian pantas ke arah gol lawan sejauh 15 meter!&quot;,
+                &quot;def&quot;: &quot;Penghadang lawan mengejar dari belakang tetapi terdapat ruang hantaran jauh di hadapan.&quot;,
+                &quot;ans&quot;: &quot;2&quot;,
+                &quot;exp&quot;: &quot;Tepat sekali! Hantaran Atas Bahu memberi daya tolakan paling kuat dan laju untuk jarak jauh.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;Pemain pertahanan lawan yang berbadan tinggi berdiri tegak tepat di hadapan anda sambil mengangkat kedua-dua tangan ke atas.&quot;,
+                &quot;def&quot;: &quot;Tangan lawan terangkat tinggi menghadang laluan aras dada.&quot;,
+                &quot;ans&quot;: &quot;3&quot;,
+                &quot;exp&quot;: &quot;Hebat! Hantaran Lantul melantun rendah di bawah jangkauan tangan lawan yang terangkat tinggi.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;Rakan anda berada 4 meter di sebelah anda dalam posisi terbuka tanpa sebarang halangan lawan.&quot;,
+                &quot;def&quot;: &quot;Laluan bola bebas dan jarak dekat.&quot;,
+                &quot;ans&quot;: &quot;1&quot;,
+                &quot;exp&quot;: &quot;Bagus! Hantaran Aras Dada adalah yang paling pantas dan tepat untuk jarak dekat dan ruang terbuka.&quot;
+            },
+            {
+                &quot;sit&quot;: &quot;Penghadang lawan mengawal sangat rapat dan membongkokkan badan untuk menyekat hantaran rendah.&quot;,
+                &quot;def&quot;: &quot;Lawan membongkokkan badan dan mendepangkan tangan ke bawah.&quot;,
+                &quot;ans&quot;: &quot;4&quot;,
+                &quot;exp&quot;: &quot;Cemerlang! Hantaran Atas Kepala (Lob) melengkung melepasi atas kepala lawan yang rendah.&quot;
+            }
+        ],
+        &quot;catch_header&quot;: &quot;&gt;&gt; CABARAN KEMAHIRAN MENERIMA BOLA (SERAP DAYA) &lt;&lt;&quot;,
+        &quot;catch_tip&quot;: &quot;Tip PJK Tahun 5: Buka jari membentuk huruf &#x27;W&#x27; dan serap daya dengan membengkokkan siku ke arah dada!&quot;,
+        &quot;ready_prompt&quot;: &quot;Tekan [ENTER] apabila anda bersedia menyambut bola...&quot;,
+        &quot;released&quot;: &quot;\nBola dilepaskan oleh rakan! Sedang melayang laju ke arah anda...&quot;,
+        &quot;catch_action&quot;: &quot;&gt;&gt;&gt; TANGKAP SEKARANG! (Tekan [ENTER] secepat mungkin!) &lt;&lt;&lt; &quot;,
+        &quot;reaction_time&quot;: &quot;\nMasa reaksi anda: {:.3f} saat&quot;,
+        &quot;reaction_grades&quot;: [
+            (0.25, &quot;⚡ LUAR BIASA PANTAS! Tangkapan kemas dengan serap daya sempurna!&quot;, &quot;Kedudukan tangan &#x27;W&#x27; yang kukuh menyerap momentum hentaman bola! (+25 Markah)&quot;, 25),
+            (0.55, &quot;👏 TANGKAPAN BAIK! Bola berjaya ditangkap dengan selamat. (+15 Markah)&quot;, &quot;Siku dibengkokkan dengan baik menyerap impak bola.&quot;, 15),
+            (0.90, &quot;⚠️ Tangkapan sedikit lambat, tetapi bola masih dapat dikawal. (+8 Markah)&quot;, &quot;Ingat: Sentiasa bergerak ke hadapan menyambut bola, jangan tunggu setempat.&quot;, 8),
+            (999.0, &quot;❌ ALAMAK! Bola terlepas daripada tangan kerana lambat bertindak! (0 Markah)&quot;, &quot;Fokus mata pada arah ketibaan bola setiap masa!&quot;, 0)
+        ],
+        &quot;round_label&quot;: &quot;PUSINGAN {} / 4&quot;,
+        &quot;input_choice&quot;: &quot;\nMasukkan pilihan anda (1/2/3/4): &quot;,
+        &quot;correct_alert&quot;: &quot;\n[BETUL!] {} (+20 Markah)&quot;,
+        &quot;wrong_alert&quot;: &quot;\n[KURANG TEPAT] Hantaran tersebut mudah dipintas atau kurang efisien.&quot;,
+        &quot;best_was&quot;: &quot;Jawapan terbaik ialah: [{}] {}&quot;,
+        &quot;explanation&quot;: &quot;Penjelasan: {}&quot;,
+        &quot;game_over&quot;: &quot;TAMAT LATIHAN! JUMLAH SKOR ANDA: {} / 180 MATA&quot;,
+        &quot;grade_mastery&quot;: [
+            (150, &quot;Gred: TAHAP PENGUASAAN 6 (CEMERLANG) 🏆&quot;, &quot;Anda menguasai semua jenis hantaran dan mekanik serap daya tangan &#x27;W&#x27;!&quot;),
+            (100, &quot;Gred: TAHAP PENGUASAAN 4-5 (SANGAT BAIK) 🥇&quot;, &quot;Kemahiran asas mantap! Teruskan latihan untuk reaksi tangkapan lebih pantas.&quot;),
+            (0, &quot;Gred: TAHAP PENGUASAAN 3 (USAHA LAGI) 🥈&quot;, &quot;Ulang kaji bila waktu terbaik menggunakan Hantaran Lantul, Dada, Bahu &amp; Lob.&quot;)
+        ]
+    }
 }
 
-# Jalankan simulasi kuiz dan ujian reaksi serap daya tangan 'W'...
+def uji_menerima_bola(lang_dict):
+    garisan()
+    print(lang_dict[&quot;catch_header&quot;])
+    garisan()
+    print(lang_dict[&quot;catch_tip&quot;])
+    print()
+    
+    input(lang_dict[&quot;ready_prompt&quot;])
+    
+    print(lang_dict[&quot;released&quot;])
+    time.sleep(random.uniform(1.2, 2.5))
+    
+    mula = time.time()
+    input(lang_dict[&quot;catch_action&quot;])
+    tamat = time.time()
+    
+    masa_reaksi = tamat - mula
+    print(lang_dict[&quot;reaction_time&quot;].format(masa_reaksi))
+    
+    for had, pujian, ulasan, markah in lang_dict[&quot;reaction_grades&quot;]:
+        if masa_reaksi &lt; had:
+            print(pujian)
+            print(ulasan)
+            return markah
+    return 0
+
+def main_simulasi():
+    garisan()
+    print(&quot;   YEAR 5 HANDBALL SKILLS SIMULATION / AKADEMI BOLA BALING&quot;)
+    print(&quot;       Passing (Menghantar) &amp; Receiving / Force Absorption&quot;)
+    garisan()
+    print(&quot;Select Language / Pilih Bahasa:&quot;)
+    print(&quot;  [1] English (Default)&quot;)
+    print(&quot;  [2] Bahasa Melayu (PJK Tahun 5)&quot;)
+    pilih_bahasa = input(&quot;Pilihan / Selection (1/2, default 1): &quot;).strip()
+    
+    lang_code = &quot;bm&quot; if pilih_bahasa == &quot;2&quot; else &quot;en&quot;
+    L = DATA_TEKS[lang_code]
+    
+    garisan()
+    print(f&quot;   {L[&#x27;title&#x27;]}&quot;)
+    print(f&quot;      {L[&#x27;subtitle&#x27;]}&quot;)
+    garisan()
+    print(L[&quot;instructions&quot;])
+    print()
+    
+    skor = 0
+    pusingan = 1
+    
+    senarai_soalan = list(L[&quot;scenarios&quot;])
+    random.shuffle(senarai_soalan)
+    
+    for item in senarai_soalan:
+        garisan()
+        print(L[&quot;round_label&quot;].format(pusingan))
+        garisan()
+        print(f&quot;• {item[&#x27;sit&#x27;]}&quot;)
+        print(f&quot;• {item[&#x27;def&#x27;]}&quot;)
+        print(f&quot;\n{L[&#x27;pass_title&#x27;]}&quot;)
+        for k, v in L[&quot;passes&quot;].items():
+            print(f&quot;  [{k}] {v[&#x27;name&#x27;]} - {v[&#x27;desc&#x27;]}&quot;)
+        
+        pilihan = input(L[&quot;input_choice&quot;]).strip()
+        
+        if pilihan == item[&quot;ans&quot;]:
+            print(L[&quot;correct_alert&quot;].format(item[&quot;exp&quot;]))
+            skor += 20
+            # Ujian menangkap bola (serap daya)
+            skor += uji_menerima_bola(L)
+        else:
+            betul_k = item[&quot;ans&quot;]
+            nama_b = L[&quot;passes&quot;][betul_k][&quot;name&quot;]
+            print(L[&quot;wrong_alert&quot;])
+            print(L[&quot;best_was&quot;].format(betul_k, nama_b))
+            print(L[&quot;explanation&quot;].format(item[&quot;exp&quot;]))
+        
+        pusingan += 1
+        time.sleep(1.2)
+        print()
+    
+    garisan()
+    print(L[&quot;game_over&quot;].format(skor))
+    garisan()
+    for had_min, tajuk_gred, huraian in L[&quot;grade_mastery&quot;]:
+        if skor &gt;= had_min:
+            print(tajuk_gred)
+            print(huraian)
+            break
+    garisan()
+
+if __name__ == &quot;__main__&quot;:
+    main_simulasi()
 </code></pre>
       </div>
     </div>
   </main>
 
   <footer>
-    <p>Aplikasi Pembelajaran Pendidikan Jasmani & Kesihatan (PJK) Sekolah Rendah Tahun 5</p>
-    <p style="margin-top: 4px; font-size: 0.74rem;">Dibina khusus mengikut Dokumen Standard Kurikulum & Pentaksiran (DSKP) KSSR Semakan Kemahiran Bola Baling.</p>
+    <p id="footer-text-1">Year 5 Primary School Physical Education (PE) Interactive Handball Learning App</p>
+    <p style="margin-top: 4px; font-size: 0.74rem;" id="footer-text-2">Aligned with Primary School PE & KSSR Semakan PJK Handball Learning Standards.</p>
   </footer>
 
   <!-- Web Audio & Game Engine Script -->
   <script>
-    // --- PENJANA AUDIO SYNTHETIC (Web Audio API) ---
+    // --- BILINGUAL STRINGS & LOCALIZATION ---
+    let currentLang = 'en'; // 'en' or 'bm'
+
+    const LOCALIZATION = {
+      en: {
+        langButton: "🌐 Bahasa Melayu",
+        brandTitle: "Handball Champions <span class='brand-badge'>YEAR 5 PE</span>",
+        brandDesc: "Passing & Receiving Skills Game (Year 5 Primary School Physical Education)",
+        tabGame: "🎮 Play Game",
+        tabQuiz: "🧠 PE Quiz",
+        tabTheory: "📚 PE Guide",
+        tabCode: "💻 Python Code",
+        btnActionMain: "⚡ PASS / ABSORB FORCE",
+        passBtnNames: ["Chest Pass", "Shoulder", "Bounce", "Lob / Head"],
+        sideTitle: "🎯 4 Handball Passes (Year 5 PE)",
+        p1Title: "1. Chest Pass",
+        p1Desc: "Push strongly from chest level to teammate's chest. Fast and accurate for short distances.",
+        p1Tac: "💡 Tactics: Use when there is an open corridor with no tall blockers.",
+        p2Title: "2. Shoulder Pass",
+        p2Desc: "Strongest and fastest pass generated from shoulder cocking and wrist snap.",
+        p2Tac: "💡 Tactics: Ideal for long-distance fast-breaks to running teammates.",
+        p3Title: "3. Bounce Pass",
+        p3Desc: "Bounces on the floor roughly 2/3 of the way to the receiver.",
+        p3Tac: "💡 Tactics: Best way to bypass tall defenders with raised arms!",
+        p4Title: "4. Overhead / Lob Pass",
+        p4Desc: "Both hands release ball overhead with an upward trajectory over opponents.",
+        p4Tac: "💡 Tactics: Beats tight marking defenders who crouch low.",
+        sideCatchTitle: "🙌 Force Absorption ('W' Hands)",
+        sideCatchDesc: "Spread your fingers to contour the ball forming a <strong>'W'</strong> shape with thumbs touching. As the ball arrives, bend your elbows towards your chest to cushion momentum!",
+        quizHeaderTitle: "🧠 Year 5 Tactical & Biomechanics Handball Quiz",
+        quizHeaderSub: "Answer the game scenarios based on primary school Physical Education learning standards.",
+        btnNextQuiz: "Next Question ➔",
+        theoryTitle: "📖 Curriculum Guide: Year 5 Primary School Handball Skills",
+        theorySub: "Invasion Games Category: Passing, Catching (Receiving), Spatial Awareness & Biomechanics",
+        footer1: "Year 5 Primary School Physical Education (PE) Interactive Handball Learning App",
+        footer2: "Aligned with Primary School PE & KSSR Semakan PJK Handball Learning Standards.",
+        hudScore: "SCORE",
+        hudCombo: "COMBO",
+        hudPerfect: "PERFECT 'W'",
+        hudTime: "TIME",
+        hudPassSelected: "Selected Pass: ",
+        playerTag: "You (Player)",
+        teammateTag: "Teammate",
+        defHigh: "High Block ➔ Use Bounce Pass!",
+        defLow: "Low Block ➔ Use Lob or Shoulder",
+        defNormal: "Opponent Defender",
+        tips: [
+          "Year 5 PE Tip: Form a 'W' shape with thumbs & index fingers to catch securely!",
+          "Year 5 PE Tip: Bend your elbows towards your chest to absorb ball momentum.",
+          "Year 5 PE Tip: Bounce passes are most effective against tall upright defenders!",
+          "Year 5 PE Tip: Step forward to meet the incoming ball rather than waiting flat-footed!",
+          "Year 5 PE Tip: Chest passes provide maximum speed and accuracy over short distances."
+        ],
+        menuTitle: "YEAR 5 HANDBALL CHAMPIONS",
+        menuSub: "Passing & Receiving Skills (Year 5 PE Curriculum)",
+        menuGuides: [
+          "1. Chest Pass: Fast push from chest. Quick and straight across open lanes.",
+          "2. Shoulder Pass: Strongest & fastest pass for long-distance fast-breaks.",
+          "3. Bounce Pass: Bounces off the floor to bypass tall outstretched defender arms!",
+          "4. Overhead / Lob: High arcing pass over tight, crouched defenders."
+        ],
+        menuCatchTip: "🤲 CATCHING & FORCE ABSORPTION: Press [SPACE] or Action Button when ball arrives!",
+        menuStartBtn: "CLICK HERE TO START GAME 🤾",
+        gameOverTitle: "MATCH TIME OVER!",
+        grades: {
+          top: "Mastery Level 6 (Outstanding) 🏆",
+          mid: "Mastery Level 4-5 (Very Good) 🥇",
+          low: "Mastery Level 3 (Keep Practicing) 🥈"
+        },
+        stats: [
+          "Total Score: {score} Points",
+          "Passes Completed: {passes} times",
+          "Perfect 'W' Force Absorptions: {catches} times",
+          "Passes Intercepted: {intercepts} times"
+        ],
+        restartBtn: "PLAY AGAIN 🔄",
+        feedbackStart: "Select pass type (1-4) & press button to PASS!",
+        feedbackChestBlock: "Chest pass intercepted! Defender is directly in the path.",
+        feedbackShoulderBlock: "Shoulder pass blocked by defender!",
+        feedbackBounceBlock: "Bounce pass struck the crouched defender's legs!",
+        feedbackLobBlock: "Defender leaped high to block the overhead ball!",
+        feedbackTeammateCaught: "Crisp pass! Teammate caught the ball. Get ready to receive!",
+        feedbackAbsorbPerfect: "PERFECT! 'W' Hand Force Absorption (+{bonus} pts)",
+        feedbackAbsorbMissed: "Ball received. (Tip: Press SPACE or Action Button to ABSORB FORCE!)"
+      },
+      bm: {
+        langButton: "🌐 English Language",
+        brandTitle: "Juara Bola Baling <span class='brand-badge'>PJK TAHUN 5</span>",
+        brandDesc: "Modul Interaktif: Kemahiran Menghantar & Menerima Bola (KSSR Semakan)",
+        tabGame: "🎮 Main Game",
+        tabQuiz: "🧠 Uji Minda PJK",
+        tabTheory: "📚 Panduan KSSR",
+        tabCode: "💻 Kod Python",
+        btnActionMain: "⚡ HANTAR / SERAP DAYA",
+        passBtnNames: ["Aras Dada", "Atas Bahu", "Lantul", "Atas Kepala"],
+        sideTitle: "🎯 4 Jenis Hantaran PJK Tahun 5",
+        p1Title: "1. Hantaran Aras Dada",
+        p1Desc: "Tolak bola kuat dari paras dada ke dada rakan. Laju dan tepat untuk jarak dekat.",
+        p1Tac: "💡 Taktik: Gunakan bila tiada lawan tegak di hadapan.",
+        p2Title: "2. Hantaran Atas Bahu",
+        p2Desc: "Hantaran paling kuat dan laju menggunakan ayunan siku dan pergelangan tangan.",
+        p2Tac: "💡 Taktik: Sesuai untuk serangan pantas (fast-break) jarak jauh.",
+        p3Title: "3. Hantaran Lantul",
+        p3Desc: "Lantun bola ke lantai kira-kira 2/3 perjalanan ke rakan penerima.",
+        p3Tac: "💡 Taktik: Terbaik lepasi penghadang lawan bertubuh tinggi!",
+        p4Title: "4. Hantaran Atas Kepala",
+        p4Desc: "Pegang bola dengan kedua-dua belah tangan di atas kepala dan lambung melengkung.",
+        p4Tac: "💡 Taktik: Mengatasi pertahanan yang mengawal rapat membongkok.",
+        sideCatchTitle: "🙌 Teknik Serap Daya (Menerima)",
+        sideCatchDesc: "Buka jari bentuk huruf <strong>'W'</strong> dengan ibu jari hampir bertemu. Apabila bola sampai, bengkokkan siku ke arah dada untuk serap momentum bola!",
+        quizHeaderTitle: "🧠 Kuiz Taktikal & Mekanik Bola Baling Tahun 5",
+        quizHeaderSub: "Jawab situasi perlawanan berikut berdasarkan Standard Kandungan PJK KSSR.",
+        btnNextQuiz: "Soalan Seterusnya ➔",
+        theoryTitle: "📖 Sukatan Pelajaran: Kemahiran Asas Bola Baling KSSR Semakan Tahun 5",
+        theorySub: "Bidang Kemahiran: Kategori Serangan (Invasion Games) - Standard Pembelajaran 1.8.1, 1.8.2, 2.8.1 & 2.8.2",
+        footer1: "Aplikasi Pembelajaran Pendidikan Jasmani & Kesihatan (PJK) Sekolah Rendah Tahun 5",
+        footer2: "Dibina khusus mengikut Dokumen Standard Kurikulum & Pentaksiran (DSKP) KSSR Semakan Kemahiran Bola Baling.",
+        hudScore: "SKOR",
+        hudCombo: "KOMBO",
+        hudPerfect: "SEMPURNA 'W'",
+        hudTime: "MASA",
+        hudPassSelected: "Mod Hantaran: ",
+        playerTag: "Murid (Anda)",
+        teammateTag: "Rakan Penerima",
+        defHigh: "Hadang Tinggi ➔ Guna Lantul!",
+        defLow: "Hadang Rendah ➔ Guna Lob / Bahu",
+        defNormal: "Penghadang Lawan",
+        tips: [
+          "Tip PJK: Buka jari bentuk 'W' untuk menyambut bola dengan selamat!",
+          "Tip PJK: Bengkokkan siku ke arah dada untuk menyerap daya momentum bola.",
+          "Tip PJK: Hantaran Lantul paling berkesan menembusi pertahanan tinggi!",
+          "Tip PJK: Bergerak ke hadapan menyambut bola, jangan tunggu setempat!",
+          "Tip PJK: Hantaran Aras Dada memberi hantaran paling tepat dalam jarak dekat."
+        ],
+        menuTitle: "AKADEMI BOLA BALING TAHUN 5",
+        menuSub: "Kemahiran Asas: Menghantar & Menerima Bola (KSSR Semakan)",
+        menuGuides: [
+          "1. Hantaran Aras Dada: Tolak kuat dari dada. Laju & tepat pada jarak dekat.",
+          "2. Hantaran Atas Bahu: Kuat & laju untuk serangan pantas melepasi jarak jauh.",
+          "3. Hantaran Lantul: Melantun di lantai, menembusi pertahanan lawan yang tinggi!",
+          "4. Hantaran Atas Kepala: Melengkung tinggi melepasi lawan yang mengawal ketat."
+        ],
+        menuCatchTip: "🤲 TEKNIK SERAP DAYA: Tekan [SPACE] atau Butang Aksi ketika bola sampai!",
+        menuStartBtn: "KLIK DI SINI UNTUK MULA 🤾",
+        gameOverTitle: "TAMAT MASA PERLAWANAN!",
+        grades: {
+          top: "Tahap Penguasaan 6 (Cemerlang) 🏆",
+          mid: "Tahap Penguasaan 4-5 (Sangat Baik) 🥇",
+          low: "Tahap Penguasaan 3 (Usaha Lagi) 🥈"
+        },
+        stats: [
+          "Jumlah Skor Keseluruhan: {score} Mata",
+          "Hantaran Berjaya ke Rakan: {passes} kali",
+          "Tangkapan Serap Daya Tangan 'W': {catches} kali",
+          "Bola Dipintas Lawan: {intercepts} kali"
+        ],
+        restartBtn: "MAIN SEMULA 🔄",
+        feedbackStart: "Pilih jenis hantaran (1-4) & tekan butang untuk HANTAR!",
+        feedbackChestBlock: "Hantaran aras dada terhalang! Lawan berada tepat di laluan.",
+        feedbackShoulderBlock: "Hantaran atas bahu dipintas pertahanan lawan!",
+        feedbackBounceBlock: "Hantaran lantul terkena kaki penghadang yang membongkok!",
+        feedbackLobBlock: "Lawan melonjak tinggi menyekat bola atas kepala!",
+        feedbackTeammateCaught: "Hantaran kemas! Rakan menyambut bola. Bersedia menerima!",
+        feedbackAbsorbPerfect: "SEMPURNA! Lakuan Serap Daya Tangan 'W' (+{bonus} Mata)",
+        feedbackAbsorbMissed: "Bola diterima. (Tip: Tekan SPACE semasa bola sampai untuk SERAP DAYA!)"
+      }
+    };
+
+    const THEORY_DATA = {
+      en: [
+        {
+          title: "⚡ 1. Passing Skills Mechanics",
+          desc: "4 core passes required for Year 5 PE mastery:",
+          points: [
+            "<strong>Chest Pass:</strong> Force pushed from chest level. Release with flick of wrists and thumbs pointing down.",
+            "<strong>Shoulder Pass:</strong> Cock arm behind ear, step forward with opposite foot, rotate torso for velocity.",
+            "<strong>Bounce Pass:</strong> Push ball downwards hitting court ~2/3 of distance to teammate.",
+            "<strong>Overhead / Lob Pass:</strong> High arc trajectory using both hands from above forehead."
+          ]
+        },
+        {
+          title: "🤲 2. Catching & Force Absorption",
+          desc: "Biomechanics of safe and secure ball reception:",
+          points: [
+            "<strong>'W' Hand Contour:</strong> Fingers spread wide, index fingers and thumbs nearly touching to form a 'W' cup.",
+            "<strong>Force Absorption:</strong> Draw arms towards chest and bend elbows progressively to cushion momentum.",
+            "<strong>Active Step:</strong> Step forward to meet the flight of the ball; never remain passive."
+          ]
+        },
+        {
+          title: "🛡️ 3. Spatial & Defensive Tactics",
+          desc: "Reading opponent positions during game play:",
+          points: [
+            "Defender with raised arms ➔ Use <strong>Bounce Pass</strong>.",
+            "Defender crouched low or marking tight ➔ Use <strong>Overhead / Lob Pass</strong>.",
+            "Unmarked teammate nearby ➔ Use <strong>Chest Pass</strong>.",
+            "Fast-break sprint towards goal ➔ Use <strong>Shoulder Pass</strong>."
+          ]
+        },
+        {
+          title: "🌟 4. Primary PE Mastery Levels",
+          desc: "Physical Education Assessment Benchmark:",
+          points: [
+            "<strong>Level 1 & 2:</strong> Can execute basic passes and catches with teacher guidance.",
+            "<strong>Level 3 & 4:</strong> Consistently executes correct passing and 'W' force absorption.",
+            "<strong>Level 5 & 6:</strong> Makes smart tactical choices based on game contexts and defender positioning."
+          ]
+        }
+      ],
+      bm: [
+        {
+          title: "⚡ 1. Kemahiran Menghantar Bola",
+          desc: "Terdapat 4 jenis hantaran utama yang perlu dikuasai murid Tahun 5:",
+          points: [
+            "<strong>Hantaran Aras Dada:</strong> Tolakan dari dada ke dada sasaran. Titik pelepasan pada aras dada.",
+            "<strong>Hantaran Atas Bahu:</strong> Tarik tangan ke belakang telinga, hayun ke hadapan dengan langkah kaki sokongan.",
+            "<strong>Hantaran Lantul:</strong> Titik pantulan pada 2/3 jarak dari penghantar ke penerima.",
+            "<strong>Hantaran Atas Kepala:</strong> Mengelirukan lawan berpostur rendah melalui balingan melengkung (lob)."
+          ]
+        },
+        {
+          title: "🤲 2. Kemahiran Menerima Bola",
+          desc: "Mekanik serap daya semasa menyambut bola:",
+          points: [
+            "<strong>Bentuk Tangan 'W':</strong> Buka jari tapak tangan, ibu jari dan jari telunjuk membentuk corak seakan 'W'.",
+            "<strong>Serap Daya:</strong> Tarik tangan menghampiri dada dan bengkokkan siku untuk mengurangkan impak bola.",
+            "<strong>Gerak Sambut:</strong> Maju satu langkah ke hadapan menyambut bola, jangan berdiri kaku di tempat asal."
+          ]
+        },
+        {
+          title: "🛡️ 3. Konsep Ruang & Pertahanan",
+          desc: "Membaca situasi pertahanan lawan semasa membuat keputusan:",
+          points: [
+            "Lawan angkat tangan tinggi ➔ Gunakan <strong>Hantaran Lantul</strong>.",
+            "Lawan kawal ketat & rendah ➔ Gunakan <strong>Hantaran Atas Kepala (Lob)</strong>.",
+            "Rakan bebas jarak dekat ➔ Gunakan <strong>Hantaran Aras Dada</strong>.",
+            "Rakan lari pantas ke hadapan ➔ Gunakan <strong>Hantaran Atas Bahu</strong>."
+          ]
+        },
+        {
+          title: "🌟 4. Tahap Penguasaan (TP) PJK",
+          desc: "Pentaksiran Bilik Darjah (PBD) Pendidikan Jasmani:",
+          points: [
+            "<strong>TP 1 & 2:</strong> Boleh mengingat dan melakukan lakuan asas dengan bimbingan guru.",
+            "<strong>TP 3 & 4:</strong> Boleh melakukan hantaran dan serap daya dengan betul dan konsisten.",
+            "<strong>TP 5 & 6:</strong> Boleh membuat keputusan taktikal memilih hantaran yang tepat mengikut situasi."
+          ]
+        }
+      ]
+    };
+
+    const QUIZ_DATA = {
+      en: [
+        {
+          soalan: "Question 1 / 4: Bypassing Tall Defenders",
+          senario: "Your teammate is 8 meters ahead. However, a tall opponent stands directly in front of you with both arms raised high. Which pass is the MOST EFFECTIVE?",
+          pilihan: [
+            { text: "A. Chest Pass", betul: false, ulasan: "Not ideal because the chest lane is blocked by the defender's torso and reach." },
+            { text: "B. Bounce Pass", betul: true, ulasan: "Spot on! The Bounce Pass skims beneath the defender's outstretched high arms." },
+            { text: "C. Foot Kick Pass", betul: false, ulasan: "Illegal in handball - players cannot touch the ball below the knee." },
+            { text: "D. Hold without passing", betul: false, ulasan: "Turnover risk - in handball you cannot hold the ball longer than 3 seconds." }
+          ]
+        },
+        {
+          soalan: "Question 2 / 4: Long Distance Fast-Break",
+          senario: "Your team intercepted the ball and your teammate is sprinting fast towards the goal 18 meters away. You need a powerful, high-velocity long pass. What is the best choice?",
+          pilihan: [
+            { text: "A. Shoulder / Overarm Pass", betul: true, ulasan: "Brilliant! The Shoulder Pass generates maximum arm torque and velocity for distance." },
+            { text: "B. Chest Pass", betul: false, ulasan: "Difficult to achieve 18 meters with sufficient speed and trajectory." },
+            { text: "C. Bounce Pass", betul: false, ulasan: "Over long distances, bounce passes lose speed and are easily intercepted." },
+            { text: "D. Underarm Toss", betul: false, ulasan: "Lacks sufficient power and distance for a fast-break." }
+          ]
+        },
+        {
+          soalan: "Question 3 / 4: Force Absorption Mechanics When Catching",
+          senario: "A teammate fires a fast pass towards you. Why are Year 5 PE students taught to form a 'W' shape with hands and bend elbows towards the chest when receiving the ball?",
+          pilihan: [
+            { text: "A. To generate extra throw power to opponents", betul: false, ulasan: "Elbow flexion is for receiving and deceleration, not throwing." },
+            { text: "B. To absorb momentum and cushion impact, preventing finger injury", betul: true, ulasan: "Excellent! Absorbing force by bending the elbows and using 'W' hands cushions the ball securely." },
+            { text: "C. To prevent the referee from calling a foul", betul: false, ulasan: "Not a rule penalty, but a fundamental mechanical and safety skill." },
+            { text: "D. To deflect the ball directly into the floor", betul: false, ulasan: "The objective of receiving is firm ball control in both hands." }
+          ]
+        },
+        {
+          soalan: "Question 4 / 4: Bypassing Low & Tight Marking",
+          senario: "An opponent marks you tightly and crouches low to block low passes and ground bounce passes. What pass best beats this defensive posture?",
+          pilihan: [
+            { text: "A. Overhead / Lob Pass", betul: true, ulasan: "Correct! The high arcing lob clears the low-crouched defender's reach cleanly." },
+            { text: "B. Bounce Pass", betul: false, ulasan: "The defender is low; a bounce pass will strike their legs or body." },
+            { text: "C. Chest Pass", betul: false, ulasan: "The chest corridor is blocked by the close defender." },
+            { text: "D. Blind Behind-the-Back Pass", betul: false, ulasan: "High risk of turning over possession." }
+          ]
+        }
+      ],
+      bm: [
+        {
+          soalan: "Soalan 1 / 4: Menembusi Pertahanan Bertubuh Tinggi",
+          senario: "Rakan sepasukan anda berada 8 meter di hadapan. Namun, pemain pertahanan lawan yang berbadan tinggi berdiri tegak tepat di hadapan anda sambil mengangkat kedua-dua belah tangan ke atas. Apakah jenis hantaran yang PALING SESUAI digunakan?",
+          pilihan: [
+            { text: "A. Hantaran Aras Dada", betul: false, ulasan: "Kurang sesuai kerana laluan dada dihadang tepat oleh tubuh dan depangan lawan." },
+            { text: "B. Hantaran Lantul (Bounce Pass)", betul: true, ulasan: "Tepat sekali! Hantaran Lantul membolehkan bola memantul di bawah jangkauan tangan lawan yang terangkat tinggi." },
+            { text: "C. Hantaran Leret Kaki", betul: false, ulasan: "Salah, bola baling tidak menggunakan hantaran leret kaki (kesalahan menyentuh bola di bawah lutut)." },
+            { text: "D. Menunggu tanpa membuat hantaran", betul: false, ulasan: "Salah, pemain tidak boleh memegang bola melebihi 3 saat dalam bola baling." }
+          ]
+        },
+        {
+          soalan: "Soalan 2 / 4: Serangan Pantas Jarak Jauh (Fast-Break)",
+          senario: "Pasukan anda berjaya merampas bola dan rakan anda (Farhan) sedang memecut laju ke arah pintu gol lawan sejauh 18 meter. Anda memerlukan hantaran yang kuat, laju dan jauh. Apakah pilihan terbaik?",
+          pilihan: [
+            { text: "A. Hantaran Atas Bahu (Shoulder Pass)", betul: true, ulasan: "Hebat! Hantaran Atas Bahu menjana daya tolakan dan kelajuan maksimum untuk hantaran jarak jauh." },
+            { text: "B. Hantaran Aras Dada", betul: false, ulasan: "Hantaran aras dada sukar mencapai jarak 18 meter dengan laju." },
+            { text: "C. Hantaran Lantul", betul: false, ulasan: "Hantaran lantul pada jarak terlalu jauh mudah kehilangan kelajuan dan dipintas." },
+            { text: "D. Balingan Bawah Lengan", betul: false, ulasan: "Kurang berkuasa untuk serangan pantas jarak jauh." }
+          ]
+        },
+        {
+          soalan: "Soalan 3 / 4: Mekanik Serap Daya Semasa Menerima Bola",
+          senario: "Rakan anda menghantar bola laju ke arah anda. Mengapakah murid Tahun 5 diajar untuk membentuk jari tangan 'W' dan membengkokkan siku ke arah dada semasa menerima bola?",
+          pilihan: [
+            { text: "A. Untuk menghasilkan daya lontaran yang lebih kuat kepada lawan", betul: false, ulasan: "Membengkokkan siku adalah untuk menerima bola, bukan melontar." },
+            { text: "B. Untuk menyerap momentum daya hentaman bola dan mengelakkan kecederaan jari", betul: true, ulasan: "Cemerlang! Konsep mekanik serap daya (bengkokkan siku dan tangan 'W') mengurangkan impak bola dan memastikan kawalan kemas." },
+            { text: "C. Supaya pengadil tidak meniup wisil kesalahan", betul: false, ulasan: "Bukan peraturan wisil, tetapi mekanik asas keselamatan dan kawalan bola." },
+            { text: "D. Untuk memantulkan bola terus ke lantai", betul: false, ulasan: "Salah, tujuan menerima adalah mengawal bola di tangan." }
+          ]
+        },
+        {
+          soalan: "Soalan 4 / 4: Mengatasi Pertahanan Rendah & Rapat",
+          senario: "Penghadang lawan mengawal anda dengan sangat rapat sambil membongkokkan badan untuk menyekat sebarang percubaan hantaran lantul atau aras dada. Apakah jenis hantaran terbaik untuk melepasi halangan ini?",
+          pilihan: [
+            { text: "A. Hantaran Atas Kepala / Lob (Overhead Pass)", betul: true, ulasan: "Tepat! Hantaran melengkung di atas kepala lawan melepasi halangan badan yang membongkok rendah." },
+            { text: "B. Hantaran Lantul", betul: false, ulasan: "Lawan membongkok rendah, hantaran lantul akan mudah terkena kaki atau badan lawan." },
+            { text: "C. Hantaran Aras Dada", betul: false, ulasan: "Laluan aras dada tertutup rapat oleh kawalan hadapan lawan." },
+            { text: "D. Balingan Belakang", betul: false, ulasan: "Hantaran buta ke belakang berisiko tinggi kehilangan bola." }
+          ]
+        }
+      ]
+    };
+
+    function toggleLanguage() {
+      currentLang = (currentLang === 'en') ? 'bm' : 'en';
+      applyLanguage();
+    }
+
+    function applyLanguage() {
+      const L = LOCALIZATION[currentLang];
+
+      document.getElementById('lang-indicator').innerText = L.langButton;
+      document.getElementById('brand-title').innerHTML = L.brandTitle;
+      document.getElementById('brand-desc').innerText = L.brandDesc;
+
+      document.getElementById('tab-btn-game').innerText = L.tabGame;
+      document.getElementById('tab-btn-quiz').innerText = L.tabQuiz;
+      document.getElementById('tab-btn-theory').innerText = L.tabTheory;
+      document.getElementById('tab-btn-code').innerText = L.tabCode;
+
+      document.getElementById('btn-hantar').innerText = L.btnActionMain;
+
+      const pBtns = document.querySelectorAll('.p-btn-name');
+      L.passBtnNames.forEach((n, idx) => {
+        if (pBtns[idx]) pBtns[idx].innerText = n;
+      });
+
+      document.getElementById('side-title').innerHTML = `<span>🎯</span> ` + L.sideTitle;
+      document.getElementById('p1-title').innerText = L.p1Title;
+      document.getElementById('p1-desc').innerText = L.p1Desc;
+      document.getElementById('p1-tac').innerText = L.p1Tac;
+
+      document.getElementById('p2-title').innerText = L.p2Title;
+      document.getElementById('p2-desc').innerText = L.p2Desc;
+      document.getElementById('p2-tac').innerText = L.p2Tac;
+
+      document.getElementById('p3-title').innerText = L.p3Title;
+      document.getElementById('p3-desc').innerText = L.p3Desc;
+      document.getElementById('p3-tac').innerText = L.p3Tac;
+
+      document.getElementById('p4-title').innerText = L.p4Title;
+      document.getElementById('p4-desc').innerText = L.p4Desc;
+      document.getElementById('p4-tac').innerText = L.p4Tac;
+
+      document.getElementById('side-catch-title').innerHTML = L.sideCatchTitle;
+      document.getElementById('side-catch-desc').innerHTML = L.sideCatchDesc;
+
+      document.getElementById('quiz-header-title').innerText = L.quizHeaderTitle;
+      document.getElementById('quiz-header-sub').innerText = L.quizHeaderSub;
+      document.getElementById('btn-next-quiz').innerText = L.btnNextQuiz;
+
+      document.getElementById('theory-title').innerText = L.theoryTitle;
+      document.getElementById('theory-sub').innerText = L.theorySub;
+
+      document.getElementById('footer-text-1').innerText = L.footer1;
+      document.getElementById('footer-text-2').innerText = L.footer2;
+
+      // Update Theory Cards
+      const tContainer = document.getElementById('theory-grid-container');
+      tContainer.innerHTML = '';
+      THEORY_DATA[currentLang].forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'theory-card';
+        card.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p><ul>${item.points.map(p => `<li>${p}</li>`).join('')}</ul>`;
+        tContainer.appendChild(card);
+      });
+
+      currentTip = L.tips[0];
+      feedbackText = L.feedbackStart;
+
+      paparSoalanQuiz();
+    }
+
+    // --- SYNTHETIC WEB AUDIO (Web Audio API) ---
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
 
@@ -952,22 +2421,14 @@ JENIS_HANTARAN = {
     let timeLeft = 60;
     let timerInterval = null;
 
-    let selectedPassType = 1; // 1: Aras Dada, 2: Atas Bahu, 3: Lantul, 4: Atas Kepala
-    let feedbackText = "Pilih jenis hantaran (1-4) & tekan butang untuk HANTAR!";
+    let selectedPassType = 1; // 1: Chest, 2: Shoulder, 3: Bounce, 4: Lob
+    let feedbackText = "Select pass type (1-4) & press button to PASS!";
     let feedbackColor = "#ffffff";
     let feedbackTimer = 0;
-
-    const tipsPJK = [
-      "Tip PJK: Buka jari bentuk 'W' untuk menyambut bola dengan selamat!",
-      "Tip PJK: Bengkokkan siku ke arah dada untuk menyerap daya momentum bola.",
-      "Tip PJK: Hantaran Lantul paling berkesan menembusi pertahanan tinggi!",
-      "Tip PJK: Bergerak ke hadapan menyambut bola, jangan tunggu setempat!",
-      "Tip PJK: Hantaran Aras Dada memberi hantaran paling tepat dalam jarak dekat."
-    ];
-    let currentTip = tipsPJK[0];
+    let currentTip = "";
     let tipTimer = 0;
 
-    // Pemain Kita (Murid Tahun 5)
+    // Player (You)
     const player = {
       x: C_WIDTH / 2,
       y: 470,
@@ -978,7 +2439,7 @@ JENIS_HANTARAN = {
       absorbTimer: 0
     };
 
-    // Rakan Penerima (Bergerak cari ruang)
+    // Teammate (Receiver)
     const teammate = {
       x: C_WIDTH / 2,
       y: 130,
@@ -986,7 +2447,7 @@ JENIS_HANTARAN = {
       targetX: C_WIDTH / 2
     };
 
-    // Penghadang Lawan (Defenders)
+    // Opponent Defender
     const defender = {
       x: C_WIDTH / 2,
       y: 300,
@@ -997,59 +2458,91 @@ JENIS_HANTARAN = {
       postureTimer: 0
     };
 
-    // Bola Baling
+    // Handball
     const ball = {
-      x: player.x,
-      y: player.y - 12,
-      targetX: player.x,
-      targetY: player.y,
-      startX: player.x,
-      startY: player.y,
+      x: C_WIDTH / 2,
+      y: 470,
+      startX: C_WIDTH / 2,
+      startY: 470,
+      targetX: C_WIDTH / 2,
+      targetY: 130,
+      progress: 0.0,
+      speed: 0.025,
       isMoving: false,
       isReturning: false,
       passType: 1,
-      progress: 0,
-      speed: 0.025,
       heightOffset: 0
     };
 
     let hasBall = true;
+
+    // Pass profiles
+    const PASS_PROFILES = {
+      1: { speed: 0.024, maxArc: 12, isBounce: false },
+      2: { speed: 0.032, maxArc: 20, isBounce: false },
+      3: { speed: 0.020, maxArc: 15, isBounce: true },
+      4: { speed: 0.018, maxArc: 55, isBounce: false }
+    };
+
+    function pilihHantaran(type) {
+      selectedPassType = type;
+      document.querySelectorAll('.pass-type-card').forEach((card, idx) => {
+        card.classList.toggle('selected', idx + 1 === type);
+      });
+      document.querySelectorAll('.touch-pass-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx + 1 === type);
+      });
+
+      const L = LOCALIZATION[currentLang];
+      const pName = L.passBtnNames[type - 1];
+      feedbackText = `${L.hudPassSelected} ${pName}`;
+      feedbackColor = "#fbbf24";
+      feedbackTimer = 90;
+      initAudio();
+    }
 
     function setGerak(dir) {
       initAudio();
       player.movingDir = dir;
     }
 
-    function pilihHantaran(type) {
+    function lakukanAksi() {
       initAudio();
-      selectedPassType = type;
-      // Kemas kini UI butang
-      for (let i = 1; i <= 4; i++) {
-        const btn = document.getElementById(`btn-pass-${i}`);
-        const card = document.getElementById(`card-pass-${i}`);
-        if (btn) btn.classList.toggle('active', i === type);
-        if (card) card.classList.toggle('selected', i === type);
-      }
-      setFeedback(`Mod Dipilih: Hantaran ${getNamaHantaran(type)}!`, "#38bdf8");
-    }
-
-    function getNamaHantaran(type) {
-      switch (type) {
-        case 1: return "Aras Dada";
-        case 2: return "Atas Bahu";
-        case 3: return "Lantul";
-        case 4: return "Atas Kepala (Lob)";
-        default: return "Aras Dada";
+      if (gameState === "MENU") {
+        mulaGame();
+      } else if (gameState === "GAMEOVER") {
+        mulaGame();
+      } else if (gameState === "PLAYING") {
+        if (hasBall && !ball.isMoving) {
+          // Release pass to teammate
+          hantarBola();
+        } else if (!hasBall && ball.isReturning) {
+          // Absorb force upon catching
+          aktifkanSerapDaya();
+        }
       }
     }
 
-    function setFeedback(txt, col = "#ffffff") {
-      feedbackText = txt;
-      feedbackColor = col;
-      feedbackTimer = 140;
+    function hantarBola() {
+      hasBall = false;
+      ball.isMoving = true;
+      ball.isReturning = false;
+      ball.startX = player.x;
+      ball.startY = player.y - 10;
+      ball.targetX = teammate.x;
+      ball.targetY = teammate.y + 10;
+      ball.progress = 0;
+      ball.passType = selectedPassType;
+      ball.speed = PASS_PROFILES[selectedPassType].speed;
+      mainkanBunyi('pass');
     }
 
-    function startGame() {
+    function aktifkanSerapDaya() {
+      player.isAbsorbing = true;
+      player.absorbTimer = 22; // active window
+    }
+
+    function mulaGame() {
       initAudio();
       gameState = "PLAYING";
       score = 0;
@@ -1063,7 +2556,12 @@ JENIS_HANTARAN = {
       player.x = C_WIDTH / 2;
       teammate.x = C_WIDTH / 2;
       defender.x = C_WIDTH / 2;
-      setFeedback("Perlawanan bermula! Lakukan hantaran pintar melepasi lawan!", "#10b981");
+
+      const L = LOCALIZATION[currentLang];
+      feedbackText = L.feedbackStart;
+      feedbackColor = "#10b981";
+      feedbackTimer = 120;
+
       mainkanBunyi('whistle');
 
       if (timerInterval) clearInterval(timerInterval);
@@ -1071,7 +2569,6 @@ JENIS_HANTARAN = {
         if (gameState === "PLAYING") {
           timeLeft--;
           if (timeLeft <= 0) {
-            timeLeft = 0;
             gameState = "GAMEOVER";
             mainkanBunyi('whistle');
             clearInterval(timerInterval);
@@ -1080,301 +2577,235 @@ JENIS_HANTARAN = {
       }, 1000);
     }
 
-    function lakukanAksi() {
-      initAudio();
-      if (gameState === "MENU" || gameState === "GAMEOVER") {
-        startGame();
-        return;
-      }
-
-      if (hasBall && !ball.isMoving) {
-        // Hantar bola kepada rakan
-        hasBall = false;
-        ball.startX = player.x;
-        ball.startY = player.y - 10;
-        ball.targetX = teammate.x;
-        ball.targetY = teammate.y + 10;
-        ball.passType = selectedPassType;
-        ball.isReturning = false;
-        ball.isMoving = true;
-        ball.progress = 0;
-
-        // Kelajuan hantaran
-        const speeds = { 1: 0.024, 2: 0.032, 3: 0.021, 4: 0.018 };
-        ball.speed = speeds[selectedPassType] || 0.024;
-
-        mainkanBunyi('pass');
-      } else if (!hasBall && ball.isReturning) {
-        // Aktifkan serap daya tangan 'W' ketika bola menghampiri
-        player.isAbsorbing = true;
-        player.absorbTimer = 22; // bingkai aktif
-      }
-    }
-
-    // Keyboard Listeners
-    window.addEventListener('keydown', (e) => {
-      if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
-        e.preventDefault();
-      }
-      initAudio();
-
-      if (e.code === 'ArrowLeft' || e.key.toLowerCase() === 'a') player.movingDir = -1;
-      if (e.code === 'ArrowRight' || e.key.toLowerCase() === 'd') player.movingDir = 1;
-
-      if (e.key === '1') pilihHantaran(1);
-      if (e.key === '2') pilihHantaran(2);
-      if (e.key === '3') pilihHantaran(3);
-      if (e.key === '4') pilihHantaran(4);
-
-      if (e.code === 'Space' || e.code === 'Enter') {
-        lakukanAksi();
-      }
-    });
-
-    window.addEventListener('keyup', (e) => {
-      if ((e.code === 'ArrowLeft' || e.key.toLowerCase() === 'a') && player.movingDir === -1) {
-        player.movingDir = 0;
-      }
-      if ((e.code === 'ArrowRight' || e.key.toLowerCase() === 'd') && player.movingDir === 1) {
-        player.movingDir = 0;
-      }
-    });
-
-    // Touch on Canvas to Start
-    canvas.addEventListener('pointerdown', (e) => {
-      if (gameState === "MENU" || gameState === "GAMEOVER") {
-        startGame();
-      }
-    });
-
-    // --- LOGIK PERMAINAN ---
+    // --- GAME ENGINE UPDATE ---
     function updateGame() {
       if (gameState !== "PLAYING") return;
 
-      // Gerak pemain
+      const L = LOCALIZATION[currentLang];
+
+      // Move Player
       if (player.movingDir !== 0) {
         player.x += player.movingDir * player.speed;
-        player.x = Math.max(70, Math.min(C_WIDTH - 70, player.x));
+        player.x = Math.max(60, Math.min(C_WIDTH - 60, player.x));
       }
 
-      // Pemasa serap daya
+      // Absorb force timer
       if (player.absorbTimer > 0) {
         player.absorbTimer--;
       } else {
         player.isAbsorbing = false;
       }
 
-      // Gerak penghadang
+      // Defender movement & posture switching
       defender.x += defender.dir * defender.speed;
-      if (defender.x < 160) {
-        defender.x = 160;
+      if (defender.x < 180) {
+        defender.x = 180;
         defender.dir = 1;
-      } else if (defender.x > C_WIDTH - 160) {
-        defender.x = C_WIDTH - 160;
+      } else if (defender.x > C_WIDTH - 180) {
+        defender.x = C_WIDTH - 180;
         defender.dir = -1;
       }
 
-      // Tukar postur hadangan (tinggi, rendah, normal)
       defender.postureTimer++;
-      if (defender.postureTimer > 160) {
+      if (defender.postureTimer > 170) {
         defender.postureTimer = 0;
-        const postures = ["high", "low", "normal"];
-        defender.posture = postures[Math.floor(Math.random() * postures.length)];
+        const stances = ["high", "low", "normal"];
+        defender.posture = stances[Math.floor(Math.random() * stances.length)];
       }
 
-      // Rakan bergerak mencari ruang terbuka
-      const targetRakan = player.x + Math.sin(Date.now() * 0.0025) * 160;
-      teammate.x += (targetRakan - teammate.x) * 0.04;
-      teammate.x = Math.max(120, Math.min(C_WIDTH - 120, teammate.x));
+      // Teammate movement searching for space
+      teammate.targetX = player.x + Math.sin(Date.now() * 0.0025) * 160;
+      teammate.targetX = Math.max(120, Math.min(C_WIDTH - 120, teammate.targetX));
+      teammate.x += (teammate.targetX - teammate.x) * 0.04;
 
-      // Tip berkala
+      // Random tips
       tipTimer++;
       if (tipTimer > 320) {
         tipTimer = 0;
-        currentTip = tipsPJK[Math.floor(Math.random() * tipsPJK.length)];
+        currentTip = L.tips[Math.floor(Math.random() * L.tips.length)];
       }
 
       if (feedbackTimer > 0) feedbackTimer--;
 
-      // Kemas kini posisi bola
+      // If holding ball, ball tracks player
       if (hasBall && !ball.isMoving) {
         ball.x = player.x;
         ball.y = player.y - 12;
+        ball.heightOffset = 0;
         return;
       }
 
+      // Ball in flight
       if (ball.isMoving) {
         ball.progress += ball.speed;
 
-        // Semak bola sampai sasaran
         if (ball.progress >= 1.0) {
           ball.progress = 1.0;
-          ball.x = ball.targetX;
-          ball.y = ball.targetY;
           ball.isMoving = false;
-
-          if (!ball.isReturning) {
-            // Sampai kepada Rakan
-            passesCompleted++;
-            score += 15;
-            combo++;
-            mainkanBunyi('catch');
-            setFeedback("Hantaran kemas diterima rakan! Bersedia sambut pulangan bola!", "#10b981");
-
-            // Rakan hantar kembali ke pemain
-            setTimeout(() => {
-              if (gameState === "PLAYING") {
-                ball.startX = teammate.x;
-                ball.startY = teammate.y + 10;
-                ball.targetX = player.x;
-                ball.targetY = player.y - 10;
-                ball.isReturning = true;
-                ball.isMoving = true;
-                ball.progress = 0;
-                ball.speed = 0.025;
-                mainkanBunyi('pass');
-              }
-            }, 300);
-
-          } else {
-            // Sampai kepada Pemain (Ujian Serap Daya!)
-            if (player.isAbsorbing) {
-              // Serap daya sempurna!
-              perfectCatches++;
-              const bonus = 20 + (combo * 2);
-              score += bonus;
-              mainkanBunyi('catch');
-              setFeedback(`SEMPURNA! Serap Daya Tangan 'W' Kemas! (+${bonus} Mata)`, "#fbbf24");
-            } else {
-              // Tangkapan biasa tanpa serap daya
-              score += 5;
-              mainkanBunyi('catch');
-              setFeedback("Bola disambut. (Tip: Tekan SERAP DAYA semasa bola tiba!)", "#38bdf8");
-            }
-            hasBall = true;
-            ball.isReturning = false;
-          }
-          return;
         }
 
-        // Interpolasi
         ball.x = ball.startX + (ball.targetX - ball.startX) * ball.progress;
         ball.y = ball.startY + (ball.targetY - ball.startY) * ball.progress;
 
-        // Ketinggian Visual 3D bola
-        if (ball.passType === 3) { // Lantul
+        // 3D Arc calculation
+        const prof = PASS_PROFILES[ball.passType];
+        if (prof.isBounce) {
+          // Bounce off floor at 60% of distance
           if (ball.progress < 0.6) {
-            ball.heightOffset = Math.sin((ball.progress / 0.6) * Math.PI) * 12;
+            ball.heightOffset = Math.sin((ball.progress / 0.6) * Math.PI) * 10;
           } else {
-            if (ball.progress >= 0.6 && ball.progress <= 0.62) mainkanBunyi('bounce');
-            ball.heightOffset = Math.sin(((ball.progress - 0.6) / 0.4) * Math.PI) * 16;
+            if (ball.progress >= 0.6 && ball.progress <= 0.64) {
+              mainkanBunyi('bounce');
+            }
+            ball.heightOffset = Math.sin(((ball.progress - 0.6) / 0.4) * Math.PI) * 14;
           }
-        } else if (ball.passType === 4) { // Lob
-          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 44;
-        } else if (ball.passType === 2) { // Bahu laju
-          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 18;
-        } else { // Aras Dada
-          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 8;
+        } else {
+          ball.heightOffset = Math.sin(ball.progress * Math.PI) * prof.maxArc;
         }
 
-        // 🛡️ Semakan Hadangan Lawan (Interception)
+        // 1. Check defender interception on outbound pass
         if (!ball.isReturning) {
           const distDef = Math.hypot(ball.x - defender.x, ball.y - defender.y);
-          if (distDef < 38) {
-            let kenaHadang = false;
-            let sebab = "";
 
-            if (ball.passType === 1) { // Dada
-              kenaHadang = true;
-              sebab = "Hantaran aras dada terhalang! Lawan berdiri di garisan laluan.";
-            } else if (ball.passType === 2) { // Bahu
+          if (distDef < 38) {
+            let intercepted = false;
+            let reason = "";
+
+            if (ball.passType === 1) { // Chest
+              intercepted = true;
+              reason = L.feedbackChestBlock;
+            } else if (ball.passType === 2) { // Shoulder
               if (defender.posture === "high" || Math.abs(ball.x - defender.x) < 20) {
-                kenaHadang = true;
-                sebab = "Hantaran atas bahu dipintas tangan penghadang lawan!";
+                intercepted = true;
+                reason = L.feedbackShoulderBlock;
               }
-            } else if (ball.passType === 3) { // Lantul
+            } else if (ball.passType === 3) { // Bounce
               if (defender.posture === "low") {
-                kenaHadang = true;
-                sebab = "Hantaran lantul terkena kaki lawan yang membongkok!";
-              } else {
-                kenaHadang = false; // Lepas di bawah tangan tinggi!
+                intercepted = true;
+                reason = L.feedbackBounceBlock;
               }
-            } else if (ball.passType === 4) { // Atas kepala (Lob)
-              if (defender.posture === "high" && distDef < 18) {
-                kenaHadang = true;
-                sebab = "Lawan melonjak tinggi menyekat bola atas kepala!";
+            } else if (ball.passType === 4) { // Lob
+              if (defender.posture === "high" && distDef < 16) {
+                intercepted = true;
+                reason = L.feedbackLobBlock;
               }
             }
 
-            if (kenaHadang) {
+            if (intercepted) {
               mainkanBunyi('intercept');
               combo = 0;
               score = Math.max(0, score - 5);
               interceptedCount++;
-              setFeedback(sebab, "#ef4444");
+              feedbackText = reason;
+              feedbackColor = "#ef4444";
+              feedbackTimer = 110;
               hasBall = true;
               ball.isMoving = false;
-              ball.x = player.x;
-              ball.y = player.y - 12;
+              return;
             }
           }
+
+          // Ball reached teammate safely!
+          if (!ball.isMoving) {
+            passesCompleted++;
+            score += 10;
+            combo++;
+            mainkanBunyi('catch');
+            feedbackText = L.feedbackTeammateCaught;
+            feedbackColor = "#10b981";
+            feedbackTimer = 100;
+
+            // Teammate returns ball immediately
+            setTimeout(() => {
+              if (gameState === "PLAYING") {
+                ball.isMoving = true;
+                ball.isReturning = true;
+                ball.startX = teammate.x;
+                ball.startY = teammate.y + 10;
+                ball.targetX = player.x;
+                ball.targetY = player.y - 10;
+                ball.progress = 0;
+                ball.speed = 0.024;
+                ball.passType = selectedPassType;
+                mainkanBunyi('pass');
+              }
+            }, 320);
+          }
+        }
+
+        // 2. Check receiving & force absorption on return pass
+        else if (ball.isReturning && !ball.isMoving) {
+          if (player.isAbsorbing) {
+            perfectCatches++;
+            const bonus = 15 + (combo * 2);
+            score += bonus;
+            mainkanBunyi('catch');
+            feedbackText = L.feedbackAbsorbPerfect.replace('{bonus}', bonus);
+            feedbackColor = "#fbbf24";
+          } else {
+            score += 5;
+            mainkanBunyi('catch');
+            feedbackText = L.feedbackAbsorbMissed;
+            feedbackColor = "#38bdf8";
+          }
+          feedbackTimer = 110;
+          hasBall = true;
         }
       }
     }
 
-    // --- LUKISAN GELANGGANG & OBJEK ---
+    // --- CANVAS RENDERING FUNCTIONS ---
     function drawCourt() {
-      // Lantai Indoor Gelanggang Bola Baling (Biru Moden)
-      ctx.fillStyle = "#1e6091";
+      ctx.fillStyle = "#1b5a8c";
       ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
 
-      // Jalur kayu dewan sukan
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+      // Floor plank lines
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
       ctx.lineWidth = 1;
-      for (let y = 70; y < C_HEIGHT - 70; y += 35) {
+      for (let y = 60; y < C_HEIGHT - 60; y += 38) {
         ctx.beginPath();
         ctx.moveTo(30, y);
         ctx.lineTo(C_WIDTH - 30, y);
         ctx.stroke();
       }
 
-      // Garisan Luar Gelanggang
+      // Court outer boundary lines
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 4;
-      ctx.strokeRect(30, 70, C_WIDTH - 60, C_HEIGHT - 140);
+      ctx.strokeRect(30, 60, C_WIDTH - 60, C_HEIGHT - 120);
 
-      // Garisan Tengah
+      // Center Line
       const midY = C_HEIGHT / 2;
       ctx.beginPath();
       ctx.moveTo(30, midY);
       ctx.lineTo(C_WIDTH - 30, midY);
       ctx.stroke();
 
-      // Bulatan Tengah (Center circle)
+      // Center Circle
       ctx.beginPath();
       ctx.arc(C_WIDTH / 2, midY, 45, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Kawasan D Gol Atas (Garisan 6M Kawasan Gol)
+      // Top 6m Goal D-Zone
       ctx.fillStyle = "rgba(230, 126, 34, 0.4)";
       ctx.beginPath();
-      ctx.arc(C_WIDTH / 2, 70, 120, 0, Math.PI);
+      ctx.arc(C_WIDTH / 2, 60, 120, 0, Math.PI);
       ctx.fill();
       ctx.strokeStyle = "#e67e22";
       ctx.lineWidth = 4;
       ctx.stroke();
 
-      // Tiang Gol Atas
+      // Top Goal Post
       ctx.fillStyle = "#ffffff";
-      ctx.fillRect(C_WIDTH / 2 - 60, 52, 120, 18);
+      ctx.fillRect(C_WIDTH / 2 - 60, 44, 120, 16);
       ctx.strokeStyle = "#ef4444";
       ctx.lineWidth = 3;
-      ctx.strokeRect(C_WIDTH / 2 - 60, 52, 120, 18);
+      ctx.strokeRect(C_WIDTH / 2 - 60, 44, 120, 16);
 
-      // Kawasan D Pasukan Bawah
+      // Bottom Team D-Zone
       ctx.fillStyle = "rgba(230, 126, 34, 0.3)";
       ctx.beginPath();
-      ctx.arc(C_WIDTH / 2, C_HEIGHT - 70, 130, Math.PI, Math.PI * 2);
+      ctx.arc(C_WIDTH / 2, C_HEIGHT - 60, 130, Math.PI, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = "#e67e22";
       ctx.lineWidth = 4;
@@ -1382,13 +2813,13 @@ JENIS_HANTARAN = {
     }
 
     function drawPlayer(p, color, label, isUser = false) {
-      // Bayang
+      // Floor shadow
       ctx.fillStyle = "rgba(0, 0, 0, 0.35)";
       ctx.beginPath();
       ctx.ellipse(p.x, p.y + 18, p.radius, p.radius * 0.4, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Efek Gelombang Serap Daya
+      // Force absorption pulse ring
       if (isUser && p.isAbsorbing) {
         ctx.strokeStyle = "#fbbf24";
         ctx.lineWidth = 4;
@@ -1397,7 +2828,7 @@ JENIS_HANTARAN = {
         ctx.stroke();
       }
 
-      // Badan
+      // Torso
       ctx.fillStyle = color;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -1406,13 +2837,13 @@ JENIS_HANTARAN = {
       ctx.lineWidth = 3;
       ctx.stroke();
 
-      // Kepala
+      // Head
       ctx.fillStyle = "#fde047";
       ctx.beginPath();
       ctx.arc(p.x, p.y - 4, 11, 0, Math.PI * 2);
       ctx.fill();
 
-      // Posisi Tangan 'W' di hadapan dada
+      // 'W' Hand formation in front of torso
       const handColor = (isUser && p.isAbsorbing) ? "#fbbf24" : "#ffffff";
       ctx.strokeStyle = handColor;
       ctx.lineWidth = 3;
@@ -1425,7 +2856,7 @@ JENIS_HANTARAN = {
       ctx.lineTo(p.x + 14, p.y - 10);
       ctx.stroke();
 
-      // Label teks
+      // Label
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
       ctx.textAlign = "center";
@@ -1433,13 +2864,15 @@ JENIS_HANTARAN = {
     }
 
     function drawDefender(d) {
-      // Bayang
+      const L = LOCALIZATION[currentLang];
+
+      // Floor shadow
       ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
       ctx.beginPath();
       ctx.ellipse(d.x, d.y + 16, d.radius, d.radius * 0.4, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Badan
+      // Torso
       ctx.fillStyle = "#ef4444";
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
@@ -1448,33 +2881,32 @@ JENIS_HANTARAN = {
       ctx.lineWidth = 3;
       ctx.stroke();
 
-      // Tangan depang mengikut hadangan
+      // Arm positions reflecting posture
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 4;
       ctx.lineCap = "round";
       ctx.beginPath();
 
-      let badgeText = "Penghadang Lawan";
+      let badgeText = L.defNormal;
       let badgeCol = "#fca5a5";
 
       if (d.posture === "high") {
-        // Tangan angkat tinggi ke atas
+        // Raised arms
         ctx.moveTo(d.x - 18, d.y - 6);
         ctx.lineTo(d.x - 24, d.y - 32);
         ctx.moveTo(d.x + 18, d.y - 6);
         ctx.lineTo(d.x + 24, d.y - 32);
-        badgeText = "Hadang Tinggi ➔ Guna Lantul!";
+        badgeText = L.defHigh;
         badgeCol = "#fde047";
       } else if (d.posture === "low") {
-        // Tangan depang rendah
+        // Low arms
         ctx.moveTo(d.x - 16, d.y + 4);
         ctx.lineTo(d.x - 28, d.y + 14);
         ctx.moveTo(d.x + 16, d.y + 4);
         ctx.lineTo(d.x + 28, d.y + 14);
-        badgeText = "Hadang Rendah ➔ Guna Lob / Bahu";
+        badgeText = L.defLow;
         badgeCol = "#67e8f9";
       } else {
-        // Normal
         ctx.moveTo(d.x - 16, d.y - 4);
         ctx.lineTo(d.x - 28, d.y - 6);
         ctx.moveTo(d.x + 16, d.y - 4);
@@ -1482,7 +2914,7 @@ JENIS_HANTARAN = {
       }
       ctx.stroke();
 
-      // Badge status lawan
+      // Badge status label
       ctx.fillStyle = badgeCol;
       ctx.font = "bold 12px 'Plus Jakarta Sans', sans-serif";
       ctx.textAlign = "center";
@@ -1495,160 +2927,157 @@ JENIS_HANTARAN = {
       const physicalY = ball.y - ball.heightOffset;
       const ballRadius = 11 + (ball.heightOffset * 0.18);
 
-      // Bayang lantai
+      // Floor shadow
       ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
       ctx.beginPath();
-      ctx.ellipse(ball.x, ball.y + 6, Math.max(4, 11 - ball.heightOffset * 0.15), 5, 0, 0, Math.PI * 2);
+      ctx.ellipse(ball.x, ball.y + 6, 11, 4.5, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Bola Jingga Bola Baling
+      // Handball
       ctx.fillStyle = "#f59e0b";
       ctx.beginPath();
       ctx.arc(ball.x, physicalY, ballRadius, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 2.5;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Jalur corak bola
-      ctx.strokeStyle = "#b45309";
-      ctx.lineWidth = 2;
+      // Seam pattern
+      ctx.strokeStyle = "#d97706";
       ctx.beginPath();
       ctx.arc(ball.x, physicalY, ballRadius * 0.7, 0, Math.PI);
       ctx.stroke();
     }
 
     function drawHUD() {
-      // Panel Atas
-      ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
-      ctx.fillRect(0, 0, C_WIDTH, 68);
+      const L = LOCALIZATION[currentLang];
+
+      // Top HUD bar
+      ctx.fillStyle = "rgba(15, 23, 42, 0.88)";
+      ctx.fillRect(0, 0, C_WIDTH, 56);
       ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(0, 68);
-      ctx.lineTo(C_WIDTH, 68);
+      ctx.moveTo(0, 56);
+      ctx.lineTo(C_WIDTH, 56);
       ctx.stroke();
 
-      // Skor & Kombo
+      // Score & Combo
       ctx.fillStyle = "#fbbf24";
-      ctx.font = "bold 20px 'Fredoka', cursive";
+      ctx.font = "bold 18px 'Fredoka', cursive";
       ctx.textAlign = "left";
-      ctx.fillText(`SKOR: ${score}`, 25, 30);
+      ctx.fillText(`${L.hudScore}: ${score}`, 24, 26);
 
-      ctx.fillStyle = "#10b981";
-      ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillText(`KOMBO: ${combo}x  |  SERAP DAYA: ${perfectCatches}`, 25, 52);
-
-      // Pemasa
-      ctx.fillStyle = timeLeft <= 10 ? "#ef4444" : "#ffffff";
-      ctx.font = "bold 28px 'Fredoka', cursive";
-      ctx.textAlign = "center";
-      ctx.fillText(`${timeLeft}s`, C_WIDTH / 2, 38);
-      ctx.font = "bold 11px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillStyle = "#94a3b8";
-      ctx.fillText("MASA PERLAWANAN", C_WIDTH / 2, 54);
-
-      // Mod Hantaran Semasa
-      ctx.fillStyle = "#38bdf8";
-      ctx.font = "bold 17px 'Fredoka', cursive";
-      ctx.textAlign = "right";
-      ctx.fillText(`[${selectedPassType}] Hantaran ${getNamaHantaran(selectedPassType)}`, C_WIDTH - 25, 30);
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#34d399";
       ctx.font = "12px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillText("Tukar: Tekan [1, 2, 3, 4]", C_WIDTH - 25, 52);
+      ctx.fillText(`${L.hudCombo}: ${combo}x  |  ${L.hudPerfect}: ${perfectCatches}`, 24, 46);
 
-      // Panel Bawah
-      const botY = C_HEIGHT - 65;
-      ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
-      ctx.fillRect(0, botY, C_WIDTH, 65);
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+      // Match Timer
+      ctx.fillStyle = timeLeft <= 10 ? "#ef4444" : "#ffffff";
+      ctx.font = "bold 26px 'Fredoka', cursive";
+      ctx.textAlign = "center";
+      ctx.fillText(`${timeLeft}s`, C_WIDTH / 2, 34);
+
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "10px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(L.hudTime, C_WIDTH / 2, 48);
+
+      // Pass selected indicator
+      const pName = L.passBtnNames[selectedPassType - 1];
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 15px 'Plus Jakarta Sans', sans-serif";
+      ctx.textAlign = "right";
+      ctx.fillText(`[${selectedPassType}] ${pName}`, C_WIDTH - 24, 26);
+
+      ctx.fillStyle = "#cbd5e1";
+      ctx.font = "11px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText("Keys: 1, 2, 3, 4 | Move: A, D / Arrows", C_WIDTH - 24, 45);
+
+      // Bottom Message Bar
+      ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+      ctx.fillRect(0, C_HEIGHT - 54, C_WIDTH, 54);
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
       ctx.beginPath();
-      ctx.moveTo(0, botY);
-      ctx.lineTo(C_WIDTH, botY);
+      ctx.moveTo(0, C_HEIGHT - 54);
+      ctx.lineTo(C_WIDTH, C_HEIGHT - 54);
       ctx.stroke();
 
-      // Mesej Maklum Balas Dinamik
       ctx.fillStyle = feedbackColor;
-      ctx.font = "bold 16px 'Plus Jakarta Sans', sans-serif";
+      ctx.font = "bold 15px 'Plus Jakarta Sans', sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(feedbackText, C_WIDTH / 2, botY + 26);
+      ctx.fillText(feedbackText, C_WIDTH / 2, C_HEIGHT - 31);
 
-      // Tip Pedagogi PJK
       ctx.fillStyle = "#fbbf24";
-      ctx.font = "12px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillText(currentTip, C_WIDTH / 2, botY + 48);
+      ctx.font = "11.5px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(currentTip, C_WIDTH / 2, C_HEIGHT - 12);
     }
 
     function drawMenu() {
+      const L = LOCALIZATION[currentLang];
+
       ctx.fillStyle = "rgba(10, 15, 29, 0.88)";
       ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
 
-      // Dialog Box
-      const boxW = 680;
-      const boxH = 440;
+      const boxW = 660;
+      const boxH = 460;
       const boxX = (C_WIDTH - boxW) / 2;
       const boxY = (C_HEIGHT - boxH) / 2;
 
       ctx.fillStyle = "#0f172a";
       ctx.roundRect(boxX, boxY, boxW, boxH, 18);
       ctx.fill();
-      ctx.strokeStyle = "#fbbf24";
+      ctx.strokeStyle = "#f59e0b";
       ctx.lineWidth = 3;
       ctx.stroke();
 
-      // Tajuk
       ctx.fillStyle = "#fbbf24";
-      ctx.font = "bold 32px 'Fredoka', cursive";
+      ctx.font = "bold 30px 'Fredoka', cursive";
       ctx.textAlign = "center";
-      ctx.fillText("AKADEMI BOLA BALING TAHUN 5", C_WIDTH / 2, boxY + 50);
+      ctx.fillText(L.menuTitle, C_WIDTH / 2, boxY + 48);
 
       ctx.fillStyle = "#94a3b8";
-      ctx.font = "bold 15px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillText("Kemahiran Asas: Menghantar & Menerima Bola (KSSR Semakan)", C_WIDTH / 2, boxY + 80);
+      ctx.font = "bold 14px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(L.menuSub, C_WIDTH / 2, boxY + 76);
 
-      // 4 Petua Ringkas
-      const guides = [
-        "1. Hantaran Aras Dada: Tolak kuat dari dada. Laju & tepat pada jarak dekat.",
-        "2. Hantaran Atas Bahu: Kuat & laju untuk serangan pantas melepasi jarak jauh.",
-        "3. Hantaran Lantul: Melantun di lantai, menembusi pertahanan lawan yang tinggi!",
-        "4. Hantaran Atas Kepala: Melengkung tinggi melepasi lawan yang mengawal ketat."
-      ];
-
+      // 4 Pass Guides
       ctx.textAlign = "left";
-      ctx.font = "14px 'Plus Jakarta Sans', sans-serif";
-      guides.forEach((g, i) => {
+      ctx.font = "13.5px 'Plus Jakarta Sans', sans-serif";
+      L.menuGuides.forEach((g, i) => {
         ctx.fillStyle = "#38bdf8";
-        ctx.fillText(g.split(':')[0] + ":", boxX + 45, boxY + 125 + (i * 38));
+        const parts = g.split(':');
+        ctx.fillText(parts[0] + ":", boxX + 42, boxY + 120 + (i * 38));
         ctx.fillStyle = "#cbd5e1";
-        ctx.fillText(g.split(':')[1], boxX + 225, boxY + 125 + (i * 38));
+        ctx.fillText(parts[1], boxX + 225, boxY + 120 + (i * 38));
       });
 
-      // Kotak Serap Daya
+      // Force Absorption Box
       ctx.fillStyle = "rgba(16, 185, 129, 0.15)";
-      ctx.fillRect(boxX + 35, boxY + 280, boxW - 70, 52);
+      ctx.fillRect(boxX + 35, boxY + 276, boxW - 70, 52);
       ctx.strokeStyle = "#10b981";
       ctx.lineWidth = 1;
-      ctx.strokeRect(boxX + 35, boxY + 280, boxW - 70, 52);
+      ctx.strokeRect(boxX + 35, boxY + 276, boxW - 70, 52);
 
       ctx.fillStyle = "#34d399";
       ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("🤲 TEKNIK SERAP DAYA: Tekan [SPACE] atau Butang Aksi ketika bola sampai!", C_WIDTH / 2, boxY + 312);
+      ctx.fillText(L.menuCatchTip, C_WIDTH / 2, boxY + 308);
 
-      // Butang Mula
+      // Start Button
       ctx.fillStyle = "#2563eb";
-      ctx.roundRect(C_WIDTH / 2 - 160, boxY + 360, 320, 50, 12);
+      ctx.roundRect(C_WIDTH / 2 - 170, boxY + 355, 340, 50, 12);
       ctx.fill();
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 2;
       ctx.stroke();
 
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 18px 'Fredoka', cursive";
-      ctx.fillText("KLIK DI SINI UNTUK MULA", C_WIDTH / 2, boxY + 392);
+      ctx.font = "bold 17px 'Fredoka', cursive";
+      ctx.fillText(L.menuStartBtn, C_WIDTH / 2, boxY + 386);
     }
 
     function drawGameOver() {
+      const L = LOCALIZATION[currentLang];
+
       ctx.fillStyle = "rgba(10, 15, 29, 0.92)";
       ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
 
@@ -1665,57 +3094,59 @@ JENIS_HANTARAN = {
       ctx.stroke();
 
       ctx.fillStyle = "#fbbf24";
-      ctx.font = "bold 32px 'Fredoka', cursive";
+      ctx.font = "bold 30px 'Fredoka', cursive";
       ctx.textAlign = "center";
-      ctx.fillText("TAMAT MASA PERLAWANAN!", C_WIDTH / 2, boxY + 55);
+      ctx.fillText(L.gameOverTitle, C_WIDTH / 2, boxY + 52);
 
-      // Gred DSKP
-      let gred = "Tahap Penguasaan 6 (Cemerlang) 🏆";
+      // Mastery Grade
+      let gred = L.grades.top;
       let gredCol = "#10b981";
       if (score < 100) {
-        gred = "Tahap Penguasaan 3 (Usaha Lagi) 🥈";
+        gred = L.grades.low;
         gredCol = "#fbbf24";
       } else if (score < 200) {
-        gred = "Tahap Penguasaan 4-5 (Sangat Baik) 🥇";
+        gred = L.grades.mid;
         gredCol = "#38bdf8";
       }
 
       ctx.fillStyle = gredCol;
-      ctx.font = "bold 18px 'Plus Jakarta Sans', sans-serif";
-      ctx.fillText(gred, C_WIDTH / 2, boxY + 100);
+      ctx.font = "bold 17px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(gred, C_WIDTH / 2, boxY + 95);
 
-      // Statistik
-      const stats = [
-        `Jumlah Skor Keseluruhan: ${score} Mata`,
-        `Hantaran Berjaya ke Rakan: ${passesCompleted} kali`,
-        `Tangkapan Serap Daya Tangan 'W': ${perfectCatches} kali`,
-        `Bola Dipintas Lawan: ${interceptedCount} kali`
+      // Stats
+      const statLines = [
+        L.stats[0].replace('{score}', score),
+        L.stats[1].replace('{passes}', passesCompleted),
+        L.stats[2].replace('{catches}', perfectCatches),
+        L.stats[3].replace('{intercepts}', interceptedCount)
       ];
 
-      ctx.font = "15px 'Plus Jakarta Sans', sans-serif";
+      ctx.font = "14.5px 'Plus Jakarta Sans', sans-serif";
       ctx.fillStyle = "#f1f5f9";
-      stats.forEach((s, idx) => {
-        ctx.fillText(s, C_WIDTH / 2, boxY + 155 + (idx * 34));
+      statLines.forEach((s, idx) => {
+        ctx.fillText(s, C_WIDTH / 2, boxY + 150 + (idx * 34));
       });
 
-      // Butang Main Semula
+      // Play Again Button
       ctx.fillStyle = "#10b981";
-      ctx.roundRect(C_WIDTH / 2 - 150, boxY + 335, 300, 48, 12);
+      ctx.roundRect(C_WIDTH / 2 - 150, boxY + 330, 300, 48, 12);
       ctx.fill();
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 18px 'Fredoka', cursive";
-      ctx.fillText("MAIN SEMULA 🔄", C_WIDTH / 2, boxY + 365);
+      ctx.font = "bold 17px 'Fredoka', cursive";
+      ctx.fillText(L.restartBtn, C_WIDTH / 2, boxY + 360);
     }
 
-    // Main Game Loop
+    // --- MAIN GAME LOOP ---
     function gameLoop() {
       updateGame();
       drawCourt();
 
+      const L = LOCALIZATION[currentLang];
+
       if (gameState === "PLAYING") {
         drawDefender(defender);
-        drawPlayer(teammate, "#3b82f6", "Rakan Penerima");
-        drawPlayer(player, "#10b981", "Murid (Anda)", true);
+        drawPlayer(teammate, "#3b82f6", L.teammateTag);
+        drawPlayer(player, "#10b981", L.playerTag, true);
         drawBall();
         drawHUD();
       } else if (gameState === "MENU") {
@@ -1736,71 +3167,26 @@ JENIS_HANTARAN = {
       const target = document.getElementById(`tab-${tabName}`);
       if (target) target.classList.add('active');
 
-      const buttons = document.querySelectorAll('.nav-btn');
-      if (tabName === 'game' && buttons[0]) buttons[0].classList.add('active');
-      if (tabName === 'quiz' && buttons[1]) buttons[1].classList.add('active');
-      if (tabName === 'theory' && buttons[2]) buttons[2].classList.add('active');
-      if (tabName === 'code' && buttons[3]) buttons[3].classList.add('active');
+      const btn = document.getElementById(`tab-btn-${tabName}`);
+      if (btn) btn.classList.add('active');
     }
 
-    // --- SALIN KOD ---
+    // --- COPY CODE FUNCTION ---
     function salinKod(id) {
       const codeElem = document.getElementById(id);
       if (codeElem) {
         navigator.clipboard.writeText(codeElem.innerText).then(() => {
-          alert("Kod Python berjaya disalin ke papan keratan (clipboard)!");
+          alert(currentLang === 'en' ? "Python code copied to clipboard successfully!" : "Kod Python berjaya disalin ke papan keratan (clipboard)!");
         });
       }
     }
 
-    // --- KUIZ INTERAKTIF LOGIK ---
-    const quizData = [
-      {
-        soalan: "Soalan 1 / 4: Menembusi Pertahanan Bertubuh Tinggi",
-        senario: "Rakan sepasukan anda berada 8 meter di hadapan. Namun, pemain pertahanan lawan yang berbadan tinggi berdiri tegak tepat di hadapan anda sambil mengangkat kedua-dua belah tangan ke atas. Apakah jenis hantaran yang PALING SESUAI digunakan?",
-        pilihan: [
-          { text: "A. Hantaran Aras Dada", betul: false, ulasan: "Kurang sesuai kerana laluan dada dihadang tepat oleh tubuh dan depangan lawan." },
-          { text: "B. Hantaran Lantul (Bounce Pass)", betul: true, ulasan: "Tepat sekali! Hantaran Lantul membolehkan bola memantul di bawah jangkauan tangan lawan yang terangkat tinggi." },
-          { text: "C. Hantaran Leret Kaki", betul: false, ulasan: "Salah, bola baling tidak menggunakan hantaran leret kaki (kesalahan menyentuh bola di bawah lutut)." },
-          { text: "D. Menunggu tanpa membuat hantaran", betul: false, ulasan: "Salah, pemain tidak boleh memegang bola melebihi 3 saat dalam bola baling." }
-        ]
-      },
-      {
-        soalan: "Soalan 2 / 4: Serangan Pantas Jarak Jauh (Fast-Break)",
-        senario: "Pasukan anda berjaya merampas bola dan rakan anda (Farhan) sedang memecut laju ke arah pintu gol lawan sejauh 18 meter. Anda memerlukan hantaran yang kuat, laju dan jauh. Apakah pilihan terbaik?",
-        pilihan: [
-          { text: "A. Hantaran Atas Bahu (Shoulder Pass)", betul: true, ulasan: "Hebat! Hantaran Atas Bahu menjana daya tolakan dan kelajuan maksimum untuk hantaran jarak jauh." },
-          { text: "B. Hantaran Aras Dada", betul: false, ulasan: "Hantaran aras dada sukar mencapai jarak 18 meter dengan laju." },
-          { text: "C. Hantaran Lantul", betul: false, ulasan: "Hantaran lantul pada jarak terlalu jauh mudah kehilangan kelajuan dan dipintas." },
-          { text: "D. Balingan Bawah Lengan", betul: false, ulasan: "Kurang berkuasa untuk serangan pantas jarak jauh." }
-        ]
-      },
-      {
-        soalan: "Soalan 3 / 4: Mekanik Serap Daya Semasa Menerima Bola",
-        senario: "Rakan anda menghantar bola laju ke arah anda. Mengapakah murid Tahun 5 diajar untuk membentuk jari tangan 'W' dan membengkokkan siku ke arah dada semasa menerima bola?",
-        pilihan: [
-          { text: "A. Untuk menghasilkan daya lontaran yang lebih kuat kepada lawan", betul: false, ulasan: "Membengkokkan siku adalah untuk menerima bola, bukan melontar." },
-          { text: "B. Untuk menyerap momentum daya hentaman bola dan mengelakkan kecederaan jari", betul: true, ulasan: "Cemerlang! Konsep mekanik serap daya (bengkokkan siku dan tangan 'W') mengurangkan impak bola dan memastikan kawalan kemas." },
-          { text: "C. Supaya pengadil tidak meniup wisil kesalahan", betul: false, ulasan: "Bukan peraturan wisil, tetapi mekanik asas keselamatan dan kawalan bola." },
-          { text: "D. Untuk memantulkan bola terus ke lantai", betul: false, ulasan: "Salah, tujuan menerima adalah mengawal bola di tangan." }
-        ]
-      },
-      {
-        soalan: "Soalan 4 / 4: Mengatasi Pertahanan Rendah & Rapat",
-        senario: "Penghadang lawan mengawal anda dengan sangat rapat sambil membongkokkan badan untuk menyekat sebarang percubaan hantaran lantul atau aras dada. Apakah jenis hantaran terbaik untuk melepasi halangan ini?",
-        pilihan: [
-          { text: "A. Hantaran Atas Kepala / Lob (Overhead Pass)", betul: true, ulasan: "Tepat! Hantaran melengkung di atas kepala lawan melepasi halangan badan yang membongkok rendah." },
-          { text: "B. Hantaran Lantul", betul: false, ulasan: "Lawan membongkok rendah, hantaran lantul akan mudah terkena kaki atau badan lawan." },
-          { text: "C. Hantaran Aras Dada", betul: false, ulasan: "Laluan aras dada tertutup rapat oleh kawalan hadapan lawan." },
-          { text: "D. Balingan Belakang", betul: false, ulasan: "Hantaran buta ke belakang berisiko tinggi kehilangan bola." }
-        ]
-      }
-    ];
-
+    // --- QUIZ INTERACTIVE LOGIC ---
     let currentQuizIdx = 0;
 
     function paparSoalanQuiz() {
-      const q = quizData[currentQuizIdx];
+      const qList = QUIZ_DATA[currentLang];
+      const q = qList[currentQuizIdx];
       document.getElementById('quiz-soalan').innerText = q.soalan;
       document.getElementById('quiz-senario').innerText = q.senario;
 
@@ -1813,7 +3199,7 @@ JENIS_HANTARAN = {
 
       document.getElementById('btn-next-quiz').style.display = 'none';
 
-      q.pilihan.forEach((opt, idx) => {
+      q.pilihan.forEach((opt) => {
         const btn = document.createElement('button');
         btn.className = 'quiz-opt-btn';
         btn.innerHTML = `<span>${opt.text}</span> <span>➔</span>`;
@@ -1823,12 +3209,16 @@ JENIS_HANTARAN = {
     }
 
     function pilihJawapanQuiz(opt, btnElem) {
+      initAudio();
       const fb = document.getElementById('quiz-feedback');
       fb.className = 'quiz-feedback show ' + (opt.betul ? 'feedback-correct' : 'feedback-wrong');
-      fb.innerHTML = `<strong>${opt.betul ? '✅ TAHNIAH! JAWAPAN TEPAT' : '❌ KURANG TEPAT'}</strong><br>${opt.ulasan}`;
+      const prefix = opt.betul ? 
+        (currentLang === 'en' ? '✅ EXCELLENT! CORRECT ANSWER' : '✅ TAHNIAH! JAWAPAN TEPAT') : 
+        (currentLang === 'en' ? '❌ NOT QUITE' : '❌ KURANG TEPAT');
+
+      fb.innerHTML = `<strong>${prefix}</strong><br>${opt.ulasan}`;
       fb.style.display = 'block';
 
-      // Nyahaktifkan semua butang pilihan
       document.querySelectorAll('.quiz-opt-btn').forEach(b => {
         b.disabled = true;
         b.style.opacity = '0.7';
@@ -1847,13 +3237,50 @@ JENIS_HANTARAN = {
 
     function soalanSeterusnya() {
       currentQuizIdx++;
-      if (currentQuizIdx >= quizData.length) {
+      const qList = QUIZ_DATA[currentLang];
+      if (currentQuizIdx >= qList.length) {
         currentQuizIdx = 0;
       }
       paparSoalanQuiz();
     }
 
-    paparSoalanQuiz();
+    // --- KEYBOARD CONTROLS ---
+    window.addEventListener('keydown', (e) => {
+      initAudio();
+      if (e.key === "1") pilihHantaran(1);
+      if (e.key === "2") pilihHantaran(2);
+      if (e.key === "3") pilihHantaran(3);
+      if (e.key === "4") pilihHantaran(4);
+
+      if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") setGerak(-1);
+      if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") setGerak(1);
+
+      if (e.key === "l" || e.key === "L") toggleLanguage();
+
+      if (e.code === "Space" || e.key === "Enter") {
+        e.preventDefault();
+        lakukanAksi();
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "a" || e.key === "d" || e.key === "A" || e.key === "D") {
+        setGerak(0);
+      }
+    });
+
+    // Canvas click to start
+    canvas.addEventListener('click', (e) => {
+      initAudio();
+      if (gameState === "MENU" || gameState === "GAMEOVER") {
+        mulaGame();
+      } else if (gameState === "PLAYING") {
+        lakukanAksi();
+      }
+    });
+
+    // Initialize Language
+    applyLanguage();
   </script>
 </body>
 </html>
