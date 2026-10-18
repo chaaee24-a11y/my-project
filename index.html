@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Akademi Bola Baling Tahun 5 - Kemahiran Menghantar & Menerima</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1976d2;
+      --primary-dark: #0d47a1;
+      --accent: #f59e0b;
+      --accent-glow: #fbbf24;
+      --court-blue: #1e6091;
+      --court-d: #e67e22;
+      --field-border: #ffffff;
+      --success: #10b981;
+      --danger: #ef4444;
+      --dark-card: #0f172a;
+      --dark-bg: #090d16;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Nav */
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 20px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+    }
+
+    .brand-text h1 {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: #3b82f6;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-tabs {
+      display: flex;
+      background: rgba(30, 41, 59, 0.8);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn.active {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Game Arena Section */
+    .game-section {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .game-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .canvas-container {
+      background: #020617;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      touch-action: none;
+      background: #185a9d;
+    }
+
+    /* Mobile Virtual Controls */
+    .mobile-controls {
+      display: none;
+      background: #0b1329;
+      padding: 14px 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @media (max-width: 960px) {
+      .mobile-controls {
+        display: block;
+      }
+    }
+
+    .touch-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .dpad-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .touch-btn {
+      background: #1e293b;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      touch-action: manipulation;
+      transition: background 0.1s, transform 0.1s;
+    }
+
+    .touch-btn:active {
+      transform: scale(0.94);
+      background: #334155;
+    }
+
+    .btn-move {
+      width: 64px;
+      height: 52px;
+      font-size: 1.4rem;
+    }
+
+    .pass-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      width: 100%;
+    }
+
+    .touch-pass-btn {
+      background: #1e293b;
+      border: 2px solid #334155;
+      color: #94a3b8;
+      border-radius: 10px;
+      padding: 8px 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      line-height: 1.2;
+    }
+
+    .touch-pass-btn span {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .touch-pass-btn.active {
+      background: #1d4ed8;
+      border-color: #60a5fa;
+      color: #fff;
+    }
+
+    .btn-action-main {
+      flex: 1;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border: 2px solid #34d399;
+      color: white;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 12px;
+      padding: 12px 18px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Sidebar info panel */
+    .sidebar-panel {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.15rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pass-type-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .pass-type-card:hover {
+      border-color: #3b82f6;
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .pass-type-card.selected {
+      border-color: #3b82f6;
+      background: rgba(37, 99, 235, 0.15);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+    }
+
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .pass-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .pass-key {
+      background: #334155;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: #cbd5e1;
+    }
+
+    .pass-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .pass-tactics {
+      font-size: 0.72rem;
+      color: #38bdf8;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    .pedagogy-tip-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(234, 88, 12, 0.1));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .pedagogy-tip-box h4 {
+      font-size: 0.85rem;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .pedagogy-tip-box p {
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    /* Theory & Syllabus Section */
+    .theory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .theory-card {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .theory-card h3 {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theory-card p, .theory-card li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .theory-card ul {
+      padding-left: 18px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Code View Section */
+    .code-wrapper {
+      background: #0a0f1d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 14px;
+    }
+
+    .code-header {
+      background: #131d31;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .code-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .code-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    pre code {
+      display: block;
+      padding: 18px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      max-height: 550px;
+      line-height: 1.5;
+      white-space: pre;
+    }
+
+    /* Interactive Quiz Section */
+    .quiz-card {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 800px;
+      margin: 16px auto;
+    }
+
+    .quiz-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .quiz-scenario {
+      background: rgba(30, 41, 59, 0.7);
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-opt-btn {
+      background: rgba(30, 41, 59, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quiz-opt-btn:hover {
+      border-color: #3b82f6;
+      background: #1e293b;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .quiz-feedback.show {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+
+    .feedback-correct {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid #10b981;
+      color: #34d399;
+    }
+
+    .feedback-wrong {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    /* Footer */
+    footer {
+      background: #090e1a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-icon">🤾</div>
+        <div class="brand-text">
+          <h1>Juara Bola Baling <span class="brand-badge">PJK TAHUN 5</span></h1>
+          <p>Modul Interaktif: Kemahiran Menghantar & Menerima Bola (KSSR Semakan)</p>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <button class="nav-btn active" onclick="tukarTab('game')">🎮 Main Game</button>
+        <button class="nav-btn" onclick="tukarTab('quiz')">🧠 Uji Minda PJK</button>
+        <button class="nav-btn" onclick="tukarTab('theory')">📚 Panduan KSSR</button>
+        <button class="nav-btn" onclick="tukarTab('code')">💻 Kod Python</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- TAB 1: GAME INTERAKTIF -->
+    <div id="tab-game" class="tab-content active">
+      <div class="game-section">
+        <!-- Arena Canvas -->
+        <div class="canvas-container">
+          <canvas id="gameCanvas" width="900" height="600"></canvas>
+
+          <!-- Mobile Virtual Controls -->
+          <div class="mobile-controls">
+            <!-- Pass Selector Buttons -->
+            <div class="touch-row">
+              <div class="pass-selector">
+                <button class="touch-pass-btn active" id="btn-pass-1" onclick="pilihHantaran(1)">
+                  <span>1️⃣</span>Aras Dada
+                </button>
+                <button class="touch-pass-btn" id="btn-pass-2" onclick="pilihHantaran(2)">
+                  <span>2️⃣</span>Atas Bahu
+                </button>
+                <button class="touch-pass-btn" id="btn-pass-3" onclick="pilihHantaran(3)">
+                  <span>3️⃣</span>Lantul
+                </button>
+                <button class="touch-pass-btn" id="btn-pass-4" onclick="pilihHantaran(4)">
+                  <span>4️⃣</span>Atas Kepala
+                </button>
+              </div>
+            </div>
+
+            <!-- Movement & Main Action -->
+            <div class="touch-row">
+              <div class="dpad-group">
+                <button class="touch-btn btn-move" id="btn-kiri" 
+                        ontouchstart="setGerak(-1)" ontouchend="setGerak(0)"
+                        onmousedown="setGerak(-1)" onmouseup="setGerak(0)">◀</button>
+                <button class="touch-btn btn-move" id="btn-kanan" 
+                        ontouchstart="setGerak(1)" ontouchend="setGerak(0)"
+                        onmousedown="setGerak(1)" onmouseup="setGerak(0)">▶</button>
+              </div>
+              <button class="touch-btn btn-action-main" id="btn-hantar" onclick="lakukanAksi()">
+                ⚡ HANTAR / SERAP DAYA
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Info & Guide -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <span>🎯</span> 4 Jenis Hantaran PJK Tahun 5
+          </div>
+
+          <div class="pass-type-card selected" id="card-pass-1" onclick="pilihHantaran(1)">
+            <div class="pass-header">
+              <span class="pass-name">1. Hantaran Aras Dada</span>
+              <span class="pass-key">Kekunci 1</span>
+            </div>
+            <div class="pass-desc">Tolak bola kuat dari paras dada ke dada rakan. Laju dan tepat untuk jarak dekat.</div>
+            <div class="pass-tactics">💡 Taktik: Gunakan bila tiada lawan tegak di hadapan.</div>
+          </div>
+
+          <div class="pass-type-card" id="card-pass-2" onclick="pilihHantaran(2)">
+            <div class="pass-header">
+              <span class="pass-name">2. Hantaran Atas Bahu</span>
+              <span class="pass-key">Kekunci 2</span>
+            </div>
+            <div class="pass-desc">Hantaran paling kuat dan laju menggunakan ayunan siku dan pergelangan tangan.</div>
+            <div class="pass-tactics">💡 Taktik: Sesuai untuk serangan pantas (fast-break) jarak jauh.</div>
+          </div>
+
+          <div class="pass-type-card" id="card-pass-3" onclick="pilihHantaran(3)">
+            <div class="pass-header">
+              <span class="pass-name">3. Hantaran Lantul</span>
+              <span class="pass-key">Kekunci 3</span>
+            </div>
+            <div class="pass-desc">Lantun bola ke lantai kira-kira 2/3 perjalanan ke rakan penerima.</div>
+            <div class="pass-tactics">💡 Taktik: Terbaik lepasi penghadang lawan bertubuh tinggi!</div>
+          </div>
+
+          <div class="pass-type-card" id="card-pass-4" onclick="pilihHantaran(4)">
+            <div class="pass-header">
+              <span class="pass-name">4. Hantaran Atas Kepala</span>
+              <span class="pass-key">Kekunci 4</span>
+            </div>
+            <div class="pass-desc">Pegang bola dengan kedua-dua belah tangan di atas kepala dan lambung melengkung.</div>
+            <div class="pass-tactics">💡 Taktik: Mengatasi pertahanan yang mengawal rapat membongkok.</div>
+          </div>
+
+          <div class="pedagogy-tip-box">
+            <h4>🙌 Teknik Serap Daya (Menerima)</h4>
+            <p>Buka jari bentuk huruf <strong>'W'</strong> dengan ibu jari hampir bertemu. Apabila bola sampai, bengkokkan siku ke arah dada untuk serap momentum bola!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: KUIZ & UJI MINDA -->
+    <div id="tab-quiz" class="tab-content">
+      <div class="quiz-card">
+        <h2 style="font-family: 'Fredoka', cursive; color: #fbbf24; margin-bottom: 8px;">🧠 Kuiz Taktikal & Mekanik Bola Baling Tahun 5</h2>
+        <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 20px;">Jawab situasi perlawanan berikut berdasarkan Standard Kandungan PJK KSSR.</p>
+
+        <div id="quiz-container">
+          <div class="quiz-question" id="quiz-soalan">Soalan 1:</div>
+          <div class="quiz-scenario" id="quiz-senario">Situasi dimuatkan...</div>
+
+          <div class="quiz-options" id="quiz-pilihan">
+            <!-- Pilihan butang dijana secara dinamik -->
+          </div>
+
+          <div class="quiz-feedback" id="quiz-feedback"></div>
+
+          <button id="btn-next-quiz" class="btn-action" style="display:none; background:#2563eb; padding:10px 20px; font-size:0.9rem;" onclick="soalanSeterusnya()">
+            Soalan Seterusnya ➔
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: PANDUAN KSSR PJK TAHUN 5 -->
+    <div id="tab-theory" class="tab-content">
+      <h2 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #f59e0b; margin-bottom: 6px;">
+        📖 Sukatan Pelajaran: Kemahiran Asas Bola Baling KSSR Semakan Tahun 5
+      </h2>
+      <p style="color: #94a3b8; font-size: 0.88rem;">Bidang Kemahiran: Kategori Serangan (Invasion Games) - Standard Pembelajaran 1.8.1, 1.8.2, 2.8.1 & 2.8.2</p>
+
+      <div class="theory-grid">
+        <div class="theory-card">
+          <h3>⚡ 1. Kemahiran Menghantar Bola</h3>
+          <p>Terdapat 4 jenis hantaran utama yang perlu dikuasai murid Tahun 5:</p>
+          <ul>
+            <li><strong>Hantaran Aras Dada:</strong> Tolakan dari dada ke dada sasaran. Titik pelepasan pada aras dada.</li>
+            <li><strong>Hantaran Atas Bahu:</strong> Tarik tangan ke belakang telinga, hayun ke hadapan dengan langkah kaki sokongan.</li>
+            <li><strong>Hantaran Lantul:</strong> Titik pantulan pada 2/3 jarak dari penghantar ke penerima.</li>
+            <li><strong>Hantaran Atas Kepala:</strong> Mengelirukan lawan berpostur rendah melalui balingan melengkung (lob).</li>
+          </ul>
+        </div>
+
+        <div class="theory-card">
+          <h3>🤲 2. Kemahiran Menerima Bola</h3>
+          <p>Mekanik serap daya semasa menyambut bola:</p>
+          <ul>
+            <li><strong>Bentuk Tangan 'W':</strong> Buka jari tapak tangan, ibu jari dan jari telunjuk membentuk corak seakan 'W' untuk kawalan bola optimum.</li>
+            <li><strong>Serap Daya:</strong> Tarik tangan menghampiri dada dan bengkokkan siku secara beransur-ansur untuk mengurangkan impak bola.</li>
+            <li><strong>Gerak Sambut:</strong> Maju satu langkah ke hadapan menyambut bola, jangan berdiri kaku di tempat asal.</li>
+          </ul>
+        </div>
+
+        <div class="theory-card">
+          <h3>🛡️ 3. Konsep Ruang & Pertahanan</h3>
+          <p>Membaca situasi pertahanan lawan semasa membuat keputusan:</p>
+          <ul>
+            <li>Lawan angkat tangan tinggi ➔ Gunakan <strong>Hantaran Lantul</strong>.</li>
+            <li>Lawan kawal ketat & rendah ➔ Gunakan <strong>Hantaran Atas Kepala (Lob)</strong>.</li>
+            <li>Rakan bebas jarak dekat ➔ Gunakan <strong>Hantaran Aras Dada</strong>.</li>
+            <li>Rakan lari pantas ke hadapan ➔ Gunakan <strong>Hantaran Atas Bahu</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="theory-card">
+          <h3>🌟 4. Tahap Penguasaan (TP) PJK</h3>
+          <ul>
+            <li><strong>TP 1 & 2:</strong> Boleh mengingat dan melakukan lakuan asas dengan bimbingan guru.</li>
+            <li><strong>TP 3 & 4:</strong> Boleh melakukan hantaran dan serap daya dengan betul dan konsisten.</li>
+            <li><strong>TP 5 & 6:</strong> Boleh membuat keputusan taktikal memilih hantaran yang tepat mengikut situasi gelanggang sebenar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: KOD PYTHON ASAL (PYGAME & TERMINAL) -->
+    <div id="tab-code" class="tab-content">
+      <h2 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #38bdf8; margin-bottom: 6px;">
+        🐍 Fail Kod Sumber Python Lengkap
+      </h2>
+      <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 14px;">
+        Disediakan 2 versi fail Python: Versi Grafik Pygame (animasi gelanggang penuh) dan Versi Terminal/CLI (boleh terus jalan tanpa sebarang modul tambahan).
+      </p>
+
+      <!-- Code Box 1: game_bola_baling.py -->
+      <div class="code-wrapper">
+        <div class="code-header">
+          <div class="code-title">
+            <span>🎮</span> <strong>game_bola_baling.py</strong> (Versi Grafik Pygame 2D)
+          </div>
+          <div class="code-actions">
+            <button class="btn-action" onclick="salinKod('kod-pygame')">📋 Salin Kod</button>
+            <a href="game_bola_baling.py" download="game_bola_baling.py" class="btn-action" style="text-decoration:none;">⬇️ Muat Turun</a>
+          </div>
+        </div>
+        <pre><code id="kod-pygame"># Kod Python game_bola_baling.py lengkap (Pygame)
+# Pasang modul: pip install pygame
+# Jalankan: python game_bola_baling.py
+
+import math
+import random
+import sys
+import time
+import pygame
+
+# Inisialisasi
+pygame.init()
+pygame.font.init()
+LEBAR_SKRIN = 900
+TINGGI_SKRIN = 650
+SKRIN = pygame.display.set_mode((LEBAR_SKRIN, TINGGI_SKRIN))
+pygame.display.set_caption("Juara Bola Baling Tahun 5: Kemahiran Hantar & Terima")
+JAM = pygame.time.Clock()
+FPS = 60
+
+# 4 Jenis Hantaran Mengikut Silibus PJK Tahun 5
+JENIS_HANTARAN = {
+    1: {"nama": "Hantaran Aras Dada", "kelajuan": 9, "ketinggian": 1, "lantulan": False},
+    2: {"nama": "Hantaran Atas Bahu", "kelajuan": 12, "ketinggian": 2, "lantulan": False},
+    3: {"nama": "Hantaran Lantul", "kelajuan": 8, "ketinggian": 0, "lantulan": True},
+    4: {"nama": "Hantaran Atas Kepala (Lob)", "kelajuan": 7, "ketinggian": 3, "lantulan": False}
+}
+
+# (Sila rujuk fail penuh game_bola_baling.py yang disertakan di direktori workspace)
+</code></pre>
+      </div>
+
+      <!-- Code Box 2: game_terminal_pjk.py -->
+      <div class="code-wrapper" style="margin-top: 24px;">
+        <div class="code-header">
+          <div class="code-title">
+            <span>💻</span> <strong>game_terminal_pjk.py</strong> (Versi Konsol / CLI Mudah Tanpa Install Library)
+          </div>
+          <div class="code-actions">
+            <button class="btn-action" onclick="salinKod('kod-terminal')">📋 Salin Kod</button>
+            <a href="game_terminal_pjk.py" download="game_terminal_pjk.py" class="btn-action" style="text-decoration:none;">⬇️ Muat Turun</a>
+          </div>
+        </div>
+        <pre><code id="kod-terminal"># Simulasi Tekstual PJK Tahun 5 (Standard Kandungan 1.8 & 2.8)
+# Tiada library luar diperlukan! Cuma jalankan: python game_terminal_pjk.py
+
+import time
+import random
+import sys
+
+JENIS_HANTARAN = {
+    "1": {"nama": "Hantaran Aras Dada", "sesuai": "Jarak dekat & laluan bebas."},
+    "2": {"nama": "Hantaran Atas Bahu", "sesuai": "Jarak jauh & serangan pantas."},
+    "3": {"nama": "Hantaran Lantul", "sesuai": "Lawan tinggi mendepang tangan."},
+    "4": {"nama": "Hantaran Atas Kepala", "sesuai": "Lawan mengawal rapat rendah."}
+}
+
+# Jalankan simulasi kuiz dan ujian reaksi serap daya tangan 'W'...
+</code></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Aplikasi Pembelajaran Pendidikan Jasmani & Kesihatan (PJK) Sekolah Rendah Tahun 5</p>
+    <p style="margin-top: 4px; font-size: 0.74rem;">Dibina khusus mengikut Dokumen Standard Kurikulum & Pentaksiran (DSKP) KSSR Semakan Kemahiran Bola Baling.</p>
+  </footer>
+
+  <!-- Web Audio & Game Engine Script -->
+  <script>
+    // --- PENJANA AUDIO SYNTHETIC (Web Audio API) ---
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new AudioCtx();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function mainkanBunyi(jenis) {
+      try {
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (jenis === 'whistle') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1100, now);
+          osc.frequency.exponentialRampToValueAtTime(1350, now + 0.15);
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (jenis === 'pass') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(640, now + 0.12);
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+          osc.start(now);
+          osc.stop(now + 0.15);
+        } else if (jenis === 'bounce') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.exponentialRampToValueAtTime(110, now + 0.1);
+          gain.gain.setValueAtTime(0.4, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+          osc.start(now);
+          osc.stop(now + 0.12);
+        } else if (jenis === 'catch') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(800, now + 0.14);
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.16);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        } else if (jenis === 'intercept') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(160, now);
+          osc.frequency.exponentialRampToValueAtTime(80, now + 0.25);
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+          osc.start(now);
+          osc.stop(now + 0.3);
+        }
+      } catch (e) {
+        // audio fallback
+      }
+    }
+
+    // --- GAME ENGINE ---
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const C_WIDTH = 900;
+    const C_HEIGHT = 600;
+
+    let gameState = "MENU"; // MENU, PLAYING, GAMEOVER
+    let score = 0;
+    let combo = 0;
+    let perfectCatches = 0;
+    let passesCompleted = 0;
+    let interceptedCount = 0;
+    let timeLeft = 60;
+    let timerInterval = null;
+
+    let selectedPassType = 1; // 1: Aras Dada, 2: Atas Bahu, 3: Lantul, 4: Atas Kepala
+    let feedbackText = "Pilih jenis hantaran (1-4) & tekan butang untuk HANTAR!";
+    let feedbackColor = "#ffffff";
+    let feedbackTimer = 0;
+
+    const tipsPJK = [
+      "Tip PJK: Buka jari bentuk 'W' untuk menyambut bola dengan selamat!",
+      "Tip PJK: Bengkokkan siku ke arah dada untuk menyerap daya momentum bola.",
+      "Tip PJK: Hantaran Lantul paling berkesan menembusi pertahanan tinggi!",
+      "Tip PJK: Bergerak ke hadapan menyambut bola, jangan tunggu setempat!",
+      "Tip PJK: Hantaran Aras Dada memberi hantaran paling tepat dalam jarak dekat."
+    ];
+    let currentTip = tipsPJK[0];
+    let tipTimer = 0;
+
+    // Pemain Kita (Murid Tahun 5)
+    const player = {
+      x: C_WIDTH / 2,
+      y: 470,
+      radius: 24,
+      speed: 6.5,
+      movingDir: 0,
+      isAbsorbing: false,
+      absorbTimer: 0
+    };
+
+    // Rakan Penerima (Bergerak cari ruang)
+    const teammate = {
+      x: C_WIDTH / 2,
+      y: 130,
+      radius: 22,
+      targetX: C_WIDTH / 2
+    };
+
+    // Penghadang Lawan (Defenders)
+    const defender = {
+      x: C_WIDTH / 2,
+      y: 300,
+      radius: 22,
+      speed: 3.2,
+      dir: 1,
+      posture: "high", // "high", "low", "normal"
+      postureTimer: 0
+    };
+
+    // Bola Baling
+    const ball = {
+      x: player.x,
+      y: player.y - 12,
+      targetX: player.x,
+      targetY: player.y,
+      startX: player.x,
+      startY: player.y,
+      isMoving: false,
+      isReturning: false,
+      passType: 1,
+      progress: 0,
+      speed: 0.025,
+      heightOffset: 0
+    };
+
+    let hasBall = true;
+
+    function setGerak(dir) {
+      initAudio();
+      player.movingDir = dir;
+    }
+
+    function pilihHantaran(type) {
+      initAudio();
+      selectedPassType = type;
+      // Kemas kini UI butang
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`btn-pass-${i}`);
+        const card = document.getElementById(`card-pass-${i}`);
+        if (btn) btn.classList.toggle('active', i === type);
+        if (card) card.classList.toggle('selected', i === type);
+      }
+      setFeedback(`Mod Dipilih: Hantaran ${getNamaHantaran(type)}!`, "#38bdf8");
+    }
+
+    function getNamaHantaran(type) {
+      switch (type) {
+        case 1: return "Aras Dada";
+        case 2: return "Atas Bahu";
+        case 3: return "Lantul";
+        case 4: return "Atas Kepala (Lob)";
+        default: return "Aras Dada";
+      }
+    }
+
+    function setFeedback(txt, col = "#ffffff") {
+      feedbackText = txt;
+      feedbackColor = col;
+      feedbackTimer = 140;
+    }
+
+    function startGame() {
+      initAudio();
+      gameState = "PLAYING";
+      score = 0;
+      combo = 0;
+      perfectCatches = 0;
+      passesCompleted = 0;
+      interceptedCount = 0;
+      timeLeft = 60;
+      hasBall = true;
+      ball.isMoving = false;
+      player.x = C_WIDTH / 2;
+      teammate.x = C_WIDTH / 2;
+      defender.x = C_WIDTH / 2;
+      setFeedback("Perlawanan bermula! Lakukan hantaran pintar melepasi lawan!", "#10b981");
+      mainkanBunyi('whistle');
+
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (gameState === "PLAYING") {
+          timeLeft--;
+          if (timeLeft <= 0) {
+            timeLeft = 0;
+            gameState = "GAMEOVER";
+            mainkanBunyi('whistle');
+            clearInterval(timerInterval);
+          }
+        }
+      }, 1000);
+    }
+
+    function lakukanAksi() {
+      initAudio();
+      if (gameState === "MENU" || gameState === "GAMEOVER") {
+        startGame();
+        return;
+      }
+
+      if (hasBall && !ball.isMoving) {
+        // Hantar bola kepada rakan
+        hasBall = false;
+        ball.startX = player.x;
+        ball.startY = player.y - 10;
+        ball.targetX = teammate.x;
+        ball.targetY = teammate.y + 10;
+        ball.passType = selectedPassType;
+        ball.isReturning = false;
+        ball.isMoving = true;
+        ball.progress = 0;
+
+        // Kelajuan hantaran
+        const speeds = { 1: 0.024, 2: 0.032, 3: 0.021, 4: 0.018 };
+        ball.speed = speeds[selectedPassType] || 0.024;
+
+        mainkanBunyi('pass');
+      } else if (!hasBall && ball.isReturning) {
+        // Aktifkan serap daya tangan 'W' ketika bola menghampiri
+        player.isAbsorbing = true;
+        player.absorbTimer = 22; // bingkai aktif
+      }
+    }
+
+    // Keyboard Listeners
+    window.addEventListener('keydown', (e) => {
+      if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+        e.preventDefault();
+      }
+      initAudio();
+
+      if (e.code === 'ArrowLeft' || e.key.toLowerCase() === 'a') player.movingDir = -1;
+      if (e.code === 'ArrowRight' || e.key.toLowerCase() === 'd') player.movingDir = 1;
+
+      if (e.key === '1') pilihHantaran(1);
+      if (e.key === '2') pilihHantaran(2);
+      if (e.key === '3') pilihHantaran(3);
+      if (e.key === '4') pilihHantaran(4);
+
+      if (e.code === 'Space' || e.code === 'Enter') {
+        lakukanAksi();
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if ((e.code === 'ArrowLeft' || e.key.toLowerCase() === 'a') && player.movingDir === -1) {
+        player.movingDir = 0;
+      }
+      if ((e.code === 'ArrowRight' || e.key.toLowerCase() === 'd') && player.movingDir === 1) {
+        player.movingDir = 0;
+      }
+    });
+
+    // Touch on Canvas to Start
+    canvas.addEventListener('pointerdown', (e) => {
+      if (gameState === "MENU" || gameState === "GAMEOVER") {
+        startGame();
+      }
+    });
+
+    // --- LOGIK PERMAINAN ---
+    function updateGame() {
+      if (gameState !== "PLAYING") return;
+
+      // Gerak pemain
+      if (player.movingDir !== 0) {
+        player.x += player.movingDir * player.speed;
+        player.x = Math.max(70, Math.min(C_WIDTH - 70, player.x));
+      }
+
+      // Pemasa serap daya
+      if (player.absorbTimer > 0) {
+        player.absorbTimer--;
+      } else {
+        player.isAbsorbing = false;
+      }
+
+      // Gerak penghadang
+      defender.x += defender.dir * defender.speed;
+      if (defender.x < 160) {
+        defender.x = 160;
+        defender.dir = 1;
+      } else if (defender.x > C_WIDTH - 160) {
+        defender.x = C_WIDTH - 160;
+        defender.dir = -1;
+      }
+
+      // Tukar postur hadangan (tinggi, rendah, normal)
+      defender.postureTimer++;
+      if (defender.postureTimer > 160) {
+        defender.postureTimer = 0;
+        const postures = ["high", "low", "normal"];
+        defender.posture = postures[Math.floor(Math.random() * postures.length)];
+      }
+
+      // Rakan bergerak mencari ruang terbuka
+      const targetRakan = player.x + Math.sin(Date.now() * 0.0025) * 160;
+      teammate.x += (targetRakan - teammate.x) * 0.04;
+      teammate.x = Math.max(120, Math.min(C_WIDTH - 120, teammate.x));
+
+      // Tip berkala
+      tipTimer++;
+      if (tipTimer > 320) {
+        tipTimer = 0;
+        currentTip = tipsPJK[Math.floor(Math.random() * tipsPJK.length)];
+      }
+
+      if (feedbackTimer > 0) feedbackTimer--;
+
+      // Kemas kini posisi bola
+      if (hasBall && !ball.isMoving) {
+        ball.x = player.x;
+        ball.y = player.y - 12;
+        return;
+      }
+
+      if (ball.isMoving) {
+        ball.progress += ball.speed;
+
+        // Semak bola sampai sasaran
+        if (ball.progress >= 1.0) {
+          ball.progress = 1.0;
+          ball.x = ball.targetX;
+          ball.y = ball.targetY;
+          ball.isMoving = false;
+
+          if (!ball.isReturning) {
+            // Sampai kepada Rakan
+            passesCompleted++;
+            score += 15;
+            combo++;
+            mainkanBunyi('catch');
+            setFeedback("Hantaran kemas diterima rakan! Bersedia sambut pulangan bola!", "#10b981");
+
+            // Rakan hantar kembali ke pemain
+            setTimeout(() => {
+              if (gameState === "PLAYING") {
+                ball.startX = teammate.x;
+                ball.startY = teammate.y + 10;
+                ball.targetX = player.x;
+                ball.targetY = player.y - 10;
+                ball.isReturning = true;
+                ball.isMoving = true;
+                ball.progress = 0;
+                ball.speed = 0.025;
+                mainkanBunyi('pass');
+              }
+            }, 300);
+
+          } else {
+            // Sampai kepada Pemain (Ujian Serap Daya!)
+            if (player.isAbsorbing) {
+              // Serap daya sempurna!
+              perfectCatches++;
+              const bonus = 20 + (combo * 2);
+              score += bonus;
+              mainkanBunyi('catch');
+              setFeedback(`SEMPURNA! Serap Daya Tangan 'W' Kemas! (+${bonus} Mata)`, "#fbbf24");
+            } else {
+              // Tangkapan biasa tanpa serap daya
+              score += 5;
+              mainkanBunyi('catch');
+              setFeedback("Bola disambut. (Tip: Tekan SERAP DAYA semasa bola tiba!)", "#38bdf8");
+            }
+            hasBall = true;
+            ball.isReturning = false;
+          }
+          return;
+        }
+
+        // Interpolasi
+        ball.x = ball.startX + (ball.targetX - ball.startX) * ball.progress;
+        ball.y = ball.startY + (ball.targetY - ball.startY) * ball.progress;
+
+        // Ketinggian Visual 3D bola
+        if (ball.passType === 3) { // Lantul
+          if (ball.progress < 0.6) {
+            ball.heightOffset = Math.sin((ball.progress / 0.6) * Math.PI) * 12;
+          } else {
+            if (ball.progress >= 0.6 && ball.progress <= 0.62) mainkanBunyi('bounce');
+            ball.heightOffset = Math.sin(((ball.progress - 0.6) / 0.4) * Math.PI) * 16;
+          }
+        } else if (ball.passType === 4) { // Lob
+          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 44;
+        } else if (ball.passType === 2) { // Bahu laju
+          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 18;
+        } else { // Aras Dada
+          ball.heightOffset = Math.sin(ball.progress * Math.PI) * 8;
+        }
+
+        // 🛡️ Semakan Hadangan Lawan (Interception)
+        if (!ball.isReturning) {
+          const distDef = Math.hypot(ball.x - defender.x, ball.y - defender.y);
+          if (distDef < 38) {
+            let kenaHadang = false;
+            let sebab = "";
+
+            if (ball.passType === 1) { // Dada
+              kenaHadang = true;
+              sebab = "Hantaran aras dada terhalang! Lawan berdiri di garisan laluan.";
+            } else if (ball.passType === 2) { // Bahu
+              if (defender.posture === "high" || Math.abs(ball.x - defender.x) < 20) {
+                kenaHadang = true;
+                sebab = "Hantaran atas bahu dipintas tangan penghadang lawan!";
+              }
+            } else if (ball.passType === 3) { // Lantul
+              if (defender.posture === "low") {
+                kenaHadang = true;
+                sebab = "Hantaran lantul terkena kaki lawan yang membongkok!";
+              } else {
+                kenaHadang = false; // Lepas di bawah tangan tinggi!
+              }
+            } else if (ball.passType === 4) { // Atas kepala (Lob)
+              if (defender.posture === "high" && distDef < 18) {
+                kenaHadang = true;
+                sebab = "Lawan melonjak tinggi menyekat bola atas kepala!";
+              }
+            }
+
+            if (kenaHadang) {
+              mainkanBunyi('intercept');
+              combo = 0;
+              score = Math.max(0, score - 5);
+              interceptedCount++;
+              setFeedback(sebab, "#ef4444");
+              hasBall = true;
+              ball.isMoving = false;
+              ball.x = player.x;
+              ball.y = player.y - 12;
+            }
+          }
+        }
+      }
+    }
+
+    // --- LUKISAN GELANGGANG & OBJEK ---
+    function drawCourt() {
+      // Lantai Indoor Gelanggang Bola Baling (Biru Moden)
+      ctx.fillStyle = "#1e6091";
+      ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
+
+      // Jalur kayu dewan sukan
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+      ctx.lineWidth = 1;
+      for (let y = 70; y < C_HEIGHT - 70; y += 35) {
+        ctx.beginPath();
+        ctx.moveTo(30, y);
+        ctx.lineTo(C_WIDTH - 30, y);
+        ctx.stroke();
+      }
+
+      // Garisan Luar Gelanggang
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(30, 70, C_WIDTH - 60, C_HEIGHT - 140);
+
+      // Garisan Tengah
+      const midY = C_HEIGHT / 2;
+      ctx.beginPath();
+      ctx.moveTo(30, midY);
+      ctx.lineTo(C_WIDTH - 30, midY);
+      ctx.stroke();
+
+      // Bulatan Tengah (Center circle)
+      ctx.beginPath();
+      ctx.arc(C_WIDTH / 2, midY, 45, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Kawasan D Gol Atas (Garisan 6M Kawasan Gol)
+      ctx.fillStyle = "rgba(230, 126, 34, 0.4)";
+      ctx.beginPath();
+      ctx.arc(C_WIDTH / 2, 70, 120, 0, Math.PI);
+      ctx.fill();
+      ctx.strokeStyle = "#e67e22";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      // Tiang Gol Atas
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(C_WIDTH / 2 - 60, 52, 120, 18);
+      ctx.strokeStyle = "#ef4444";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(C_WIDTH / 2 - 60, 52, 120, 18);
+
+      // Kawasan D Pasukan Bawah
+      ctx.fillStyle = "rgba(230, 126, 34, 0.3)";
+      ctx.beginPath();
+      ctx.arc(C_WIDTH / 2, C_HEIGHT - 70, 130, Math.PI, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "#e67e22";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    }
+
+    function drawPlayer(p, color, label, isUser = false) {
+      // Bayang
+      ctx.fillStyle = "rgba(0, 0, 0, 0.35)";
+      ctx.beginPath();
+      ctx.ellipse(p.x, p.y + 18, p.radius, p.radius * 0.4, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Efek Gelombang Serap Daya
+      if (isUser && p.isAbsorbing) {
+        ctx.strokeStyle = "#fbbf24";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius + 14 + Math.sin(Date.now() * 0.02) * 4, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Badan
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Kepala
+      ctx.fillStyle = "#fde047";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y - 4, 11, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Posisi Tangan 'W' di hadapan dada
+      const handColor = (isUser && p.isAbsorbing) ? "#fbbf24" : "#ffffff";
+      ctx.strokeStyle = handColor;
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(p.x - 14, p.y - 10);
+      ctx.lineTo(p.x - 7, p.y - 18);
+      ctx.lineTo(p.x, p.y - 13);
+      ctx.lineTo(p.x + 7, p.y - 18);
+      ctx.lineTo(p.x + 14, p.y - 10);
+      ctx.stroke();
+
+      // Label teks
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(label, p.x, p.y + p.radius + 16);
+    }
+
+    function drawDefender(d) {
+      // Bayang
+      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+      ctx.beginPath();
+      ctx.ellipse(d.x, d.y + 16, d.radius, d.radius * 0.4, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Badan
+      ctx.fillStyle = "#ef4444";
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Tangan depang mengikut hadangan
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 4;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+
+      let badgeText = "Penghadang Lawan";
+      let badgeCol = "#fca5a5";
+
+      if (d.posture === "high") {
+        // Tangan angkat tinggi ke atas
+        ctx.moveTo(d.x - 18, d.y - 6);
+        ctx.lineTo(d.x - 24, d.y - 32);
+        ctx.moveTo(d.x + 18, d.y - 6);
+        ctx.lineTo(d.x + 24, d.y - 32);
+        badgeText = "Hadang Tinggi ➔ Guna Lantul!";
+        badgeCol = "#fde047";
+      } else if (d.posture === "low") {
+        // Tangan depang rendah
+        ctx.moveTo(d.x - 16, d.y + 4);
+        ctx.lineTo(d.x - 28, d.y + 14);
+        ctx.moveTo(d.x + 16, d.y + 4);
+        ctx.lineTo(d.x + 28, d.y + 14);
+        badgeText = "Hadang Rendah ➔ Guna Lob / Bahu";
+        badgeCol = "#67e8f9";
+      } else {
+        // Normal
+        ctx.moveTo(d.x - 16, d.y - 4);
+        ctx.lineTo(d.x - 28, d.y - 6);
+        ctx.moveTo(d.x + 16, d.y - 4);
+        ctx.lineTo(d.x + 28, d.y - 6);
+      }
+      ctx.stroke();
+
+      // Badge status lawan
+      ctx.fillStyle = badgeCol;
+      ctx.font = "bold 12px 'Plus Jakarta Sans', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(badgeText, d.x, d.y - 38);
+    }
+
+    function drawBall() {
+      if (!ball.isMoving && !hasBall) return;
+
+      const physicalY = ball.y - ball.heightOffset;
+      const ballRadius = 11 + (ball.heightOffset * 0.18);
+
+      // Bayang lantai
+      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+      ctx.beginPath();
+      ctx.ellipse(ball.x, ball.y + 6, Math.max(4, 11 - ball.heightOffset * 0.15), 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Bola Jingga Bola Baling
+      ctx.fillStyle = "#f59e0b";
+      ctx.beginPath();
+      ctx.arc(ball.x, physicalY, ballRadius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Jalur corak bola
+      ctx.strokeStyle = "#b45309";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(ball.x, physicalY, ballRadius * 0.7, 0, Math.PI);
+      ctx.stroke();
+    }
+
+    function drawHUD() {
+      // Panel Atas
+      ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
+      ctx.fillRect(0, 0, C_WIDTH, 68);
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, 68);
+      ctx.lineTo(C_WIDTH, 68);
+      ctx.stroke();
+
+      // Skor & Kombo
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "bold 20px 'Fredoka', cursive";
+      ctx.textAlign = "left";
+      ctx.fillText(`SKOR: ${score}`, 25, 30);
+
+      ctx.fillStyle = "#10b981";
+      ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(`KOMBO: ${combo}x  |  SERAP DAYA: ${perfectCatches}`, 25, 52);
+
+      // Pemasa
+      ctx.fillStyle = timeLeft <= 10 ? "#ef4444" : "#ffffff";
+      ctx.font = "bold 28px 'Fredoka', cursive";
+      ctx.textAlign = "center";
+      ctx.fillText(`${timeLeft}s`, C_WIDTH / 2, 38);
+      ctx.font = "bold 11px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillStyle = "#94a3b8";
+      ctx.fillText("MASA PERLAWANAN", C_WIDTH / 2, 54);
+
+      // Mod Hantaran Semasa
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 17px 'Fredoka', cursive";
+      ctx.textAlign = "right";
+      ctx.fillText(`[${selectedPassType}] Hantaran ${getNamaHantaran(selectedPassType)}`, C_WIDTH - 25, 30);
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "12px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText("Tukar: Tekan [1, 2, 3, 4]", C_WIDTH - 25, 52);
+
+      // Panel Bawah
+      const botY = C_HEIGHT - 65;
+      ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
+      ctx.fillRect(0, botY, C_WIDTH, 65);
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+      ctx.beginPath();
+      ctx.moveTo(0, botY);
+      ctx.lineTo(C_WIDTH, botY);
+      ctx.stroke();
+
+      // Mesej Maklum Balas Dinamik
+      ctx.fillStyle = feedbackColor;
+      ctx.font = "bold 16px 'Plus Jakarta Sans', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(feedbackText, C_WIDTH / 2, botY + 26);
+
+      // Tip Pedagogi PJK
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "12px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(currentTip, C_WIDTH / 2, botY + 48);
+    }
+
+    function drawMenu() {
+      ctx.fillStyle = "rgba(10, 15, 29, 0.88)";
+      ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
+
+      // Dialog Box
+      const boxW = 680;
+      const boxH = 440;
+      const boxX = (C_WIDTH - boxW) / 2;
+      const boxY = (C_HEIGHT - boxH) / 2;
+
+      ctx.fillStyle = "#0f172a";
+      ctx.roundRect(boxX, boxY, boxW, boxH, 18);
+      ctx.fill();
+      ctx.strokeStyle = "#fbbf24";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Tajuk
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "bold 32px 'Fredoka', cursive";
+      ctx.textAlign = "center";
+      ctx.fillText("AKADEMI BOLA BALING TAHUN 5", C_WIDTH / 2, boxY + 50);
+
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "bold 15px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText("Kemahiran Asas: Menghantar & Menerima Bola (KSSR Semakan)", C_WIDTH / 2, boxY + 80);
+
+      // 4 Petua Ringkas
+      const guides = [
+        "1. Hantaran Aras Dada: Tolak kuat dari dada. Laju & tepat pada jarak dekat.",
+        "2. Hantaran Atas Bahu: Kuat & laju untuk serangan pantas melepasi jarak jauh.",
+        "3. Hantaran Lantul: Melantun di lantai, menembusi pertahanan lawan yang tinggi!",
+        "4. Hantaran Atas Kepala: Melengkung tinggi melepasi lawan yang mengawal ketat."
+      ];
+
+      ctx.textAlign = "left";
+      ctx.font = "14px 'Plus Jakarta Sans', sans-serif";
+      guides.forEach((g, i) => {
+        ctx.fillStyle = "#38bdf8";
+        ctx.fillText(g.split(':')[0] + ":", boxX + 45, boxY + 125 + (i * 38));
+        ctx.fillStyle = "#cbd5e1";
+        ctx.fillText(g.split(':')[1], boxX + 225, boxY + 125 + (i * 38));
+      });
+
+      // Kotak Serap Daya
+      ctx.fillStyle = "rgba(16, 185, 129, 0.15)";
+      ctx.fillRect(boxX + 35, boxY + 280, boxW - 70, 52);
+      ctx.strokeStyle = "#10b981";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(boxX + 35, boxY + 280, boxW - 70, 52);
+
+      ctx.fillStyle = "#34d399";
+      ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("🤲 TEKNIK SERAP DAYA: Tekan [SPACE] atau Butang Aksi ketika bola sampai!", C_WIDTH / 2, boxY + 312);
+
+      // Butang Mula
+      ctx.fillStyle = "#2563eb";
+      ctx.roundRect(C_WIDTH / 2 - 160, boxY + 360, 320, 50, 12);
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 18px 'Fredoka', cursive";
+      ctx.fillText("KLIK DI SINI UNTUK MULA", C_WIDTH / 2, boxY + 392);
+    }
+
+    function drawGameOver() {
+      ctx.fillStyle = "rgba(10, 15, 29, 0.92)";
+      ctx.fillRect(0, 0, C_WIDTH, C_HEIGHT);
+
+      const boxW = 620;
+      const boxH = 420;
+      const boxX = (C_WIDTH - boxW) / 2;
+      const boxY = (C_HEIGHT - boxH) / 2;
+
+      ctx.fillStyle = "#0f172a";
+      ctx.roundRect(boxX, boxY, boxW, boxH, 18);
+      ctx.fill();
+      ctx.strokeStyle = "#10b981";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "bold 32px 'Fredoka', cursive";
+      ctx.textAlign = "center";
+      ctx.fillText("TAMAT MASA PERLAWANAN!", C_WIDTH / 2, boxY + 55);
+
+      // Gred DSKP
+      let gred = "Tahap Penguasaan 6 (Cemerlang) 🏆";
+      let gredCol = "#10b981";
+      if (score < 100) {
+        gred = "Tahap Penguasaan 3 (Usaha Lagi) 🥈";
+        gredCol = "#fbbf24";
+      } else if (score < 200) {
+        gred = "Tahap Penguasaan 4-5 (Sangat Baik) 🥇";
+        gredCol = "#38bdf8";
+      }
+
+      ctx.fillStyle = gredCol;
+      ctx.font = "bold 18px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(gred, C_WIDTH / 2, boxY + 100);
+
+      // Statistik
+      const stats = [
+        `Jumlah Skor Keseluruhan: ${score} Mata`,
+        `Hantaran Berjaya ke Rakan: ${passesCompleted} kali`,
+        `Tangkapan Serap Daya Tangan 'W': ${perfectCatches} kali`,
+        `Bola Dipintas Lawan: ${interceptedCount} kali`
+      ];
+
+      ctx.font = "15px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillStyle = "#f1f5f9";
+      stats.forEach((s, idx) => {
+        ctx.fillText(s, C_WIDTH / 2, boxY + 155 + (idx * 34));
+      });
+
+      // Butang Main Semula
+      ctx.fillStyle = "#10b981";
+      ctx.roundRect(C_WIDTH / 2 - 150, boxY + 335, 300, 48, 12);
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 18px 'Fredoka', cursive";
+      ctx.fillText("MAIN SEMULA 🔄", C_WIDTH / 2, boxY + 365);
+    }
+
+    // Main Game Loop
+    function gameLoop() {
+      updateGame();
+      drawCourt();
+
+      if (gameState === "PLAYING") {
+        drawDefender(defender);
+        drawPlayer(teammate, "#3b82f6", "Rakan Penerima");
+        drawPlayer(player, "#10b981", "Murid (Anda)", true);
+        drawBall();
+        drawHUD();
+      } else if (gameState === "MENU") {
+        drawMenu();
+      } else if (gameState === "GAMEOVER") {
+        drawGameOver();
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+    requestAnimationFrame(gameLoop);
+
+    // --- TAB SWITCHER ---
+    function tukarTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      const target = document.getElementById(`tab-${tabName}`);
+      if (target) target.classList.add('active');
+
+      const buttons = document.querySelectorAll('.nav-btn');
+      if (tabName === 'game' && buttons[0]) buttons[0].classList.add('active');
+      if (tabName === 'quiz' && buttons[1]) buttons[1].classList.add('active');
+      if (tabName === 'theory' && buttons[2]) buttons[2].classList.add('active');
+      if (tabName === 'code' && buttons[3]) buttons[3].classList.add('active');
+    }
+
+    // --- SALIN KOD ---
+    function salinKod(id) {
+      const codeElem = document.getElementById(id);
+      if (codeElem) {
+        navigator.clipboard.writeText(codeElem.innerText).then(() => {
+          alert("Kod Python berjaya disalin ke papan keratan (clipboard)!");
+        });
+      }
+    }
+
+    // --- KUIZ INTERAKTIF LOGIK ---
+    const quizData = [
+      {
+        soalan: "Soalan 1 / 4: Menembusi Pertahanan Bertubuh Tinggi",
+        senario: "Rakan sepasukan anda berada 8 meter di hadapan. Namun, pemain pertahanan lawan yang berbadan tinggi berdiri tegak tepat di hadapan anda sambil mengangkat kedua-dua belah tangan ke atas. Apakah jenis hantaran yang PALING SESUAI digunakan?",
+        pilihan: [
+          { text: "A. Hantaran Aras Dada", betul: false, ulasan: "Kurang sesuai kerana laluan dada dihadang tepat oleh tubuh dan depangan lawan." },
+          { text: "B. Hantaran Lantul (Bounce Pass)", betul: true, ulasan: "Tepat sekali! Hantaran Lantul membolehkan bola memantul di bawah jangkauan tangan lawan yang terangkat tinggi." },
+          { text: "C. Hantaran Leret Kaki", betul: false, ulasan: "Salah, bola baling tidak menggunakan hantaran leret kaki (kesalahan menyentuh bola di bawah lutut)." },
+          { text: "D. Menunggu tanpa membuat hantaran", betul: false, ulasan: "Salah, pemain tidak boleh memegang bola melebihi 3 saat dalam bola baling." }
+        ]
+      },
+      {
+        soalan: "Soalan 2 / 4: Serangan Pantas Jarak Jauh (Fast-Break)",
+        senario: "Pasukan anda berjaya merampas bola dan rakan anda (Farhan) sedang memecut laju ke arah pintu gol lawan sejauh 18 meter. Anda memerlukan hantaran yang kuat, laju dan jauh. Apakah pilihan terbaik?",
+        pilihan: [
+          { text: "A. Hantaran Atas Bahu (Shoulder Pass)", betul: true, ulasan: "Hebat! Hantaran Atas Bahu menjana daya tolakan dan kelajuan maksimum untuk hantaran jarak jauh." },
+          { text: "B. Hantaran Aras Dada", betul: false, ulasan: "Hantaran aras dada sukar mencapai jarak 18 meter dengan laju." },
+          { text: "C. Hantaran Lantul", betul: false, ulasan: "Hantaran lantul pada jarak terlalu jauh mudah kehilangan kelajuan dan dipintas." },
+          { text: "D. Balingan Bawah Lengan", betul: false, ulasan: "Kurang berkuasa untuk serangan pantas jarak jauh." }
+        ]
+      },
+      {
+        soalan: "Soalan 3 / 4: Mekanik Serap Daya Semasa Menerima Bola",
+        senario: "Rakan anda menghantar bola laju ke arah anda. Mengapakah murid Tahun 5 diajar untuk membentuk jari tangan 'W' dan membengkokkan siku ke arah dada semasa menerima bola?",
+        pilihan: [
+          { text: "A. Untuk menghasilkan daya lontaran yang lebih kuat kepada lawan", betul: false, ulasan: "Membengkokkan siku adalah untuk menerima bola, bukan melontar." },
+          { text: "B. Untuk menyerap momentum daya hentaman bola dan mengelakkan kecederaan jari", betul: true, ulasan: "Cemerlang! Konsep mekanik serap daya (bengkokkan siku dan tangan 'W') mengurangkan impak bola dan memastikan kawalan kemas." },
+          { text: "C. Supaya pengadil tidak meniup wisil kesalahan", betul: false, ulasan: "Bukan peraturan wisil, tetapi mekanik asas keselamatan dan kawalan bola." },
+          { text: "D. Untuk memantulkan bola terus ke lantai", betul: false, ulasan: "Salah, tujuan menerima adalah mengawal bola di tangan." }
+        ]
+      },
+      {
+        soalan: "Soalan 4 / 4: Mengatasi Pertahanan Rendah & Rapat",
+        senario: "Penghadang lawan mengawal anda dengan sangat rapat sambil membongkokkan badan untuk menyekat sebarang percubaan hantaran lantul atau aras dada. Apakah jenis hantaran terbaik untuk melepasi halangan ini?",
+        pilihan: [
+          { text: "A. Hantaran Atas Kepala / Lob (Overhead Pass)", betul: true, ulasan: "Tepat! Hantaran melengkung di atas kepala lawan melepasi halangan badan yang membongkok rendah." },
+          { text: "B. Hantaran Lantul", betul: false, ulasan: "Lawan membongkok rendah, hantaran lantul akan mudah terkena kaki atau badan lawan." },
+          { text: "C. Hantaran Aras Dada", betul: false, ulasan: "Laluan aras dada tertutup rapat oleh kawalan hadapan lawan." },
+          { text: "D. Balingan Belakang", betul: false, ulasan: "Hantaran buta ke belakang berisiko tinggi kehilangan bola." }
+        ]
+      }
+    ];
+
+    let currentQuizIdx = 0;
+
+    function paparSoalanQuiz() {
+      const q = quizData[currentQuizIdx];
+      document.getElementById('quiz-soalan').innerText = q.soalan;
+      document.getElementById('quiz-senario').innerText = q.senario;
+
+      const optsDiv = document.getElementById('quiz-pilihan');
+      optsDiv.innerHTML = '';
+
+      const fb = document.getElementById('quiz-feedback');
+      fb.className = 'quiz-feedback';
+      fb.style.display = 'none';
+
+      document.getElementById('btn-next-quiz').style.display = 'none';
+
+      q.pilihan.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt-btn';
+        btn.innerHTML = `<span>${opt.text}</span> <span>➔</span>`;
+        btn.onclick = () => pilihJawapanQuiz(opt, btn);
+        optsDiv.appendChild(btn);
+      });
+    }
+
+    function pilihJawapanQuiz(opt, btnElem) {
+      const fb = document.getElementById('quiz-feedback');
+      fb.className = 'quiz-feedback show ' + (opt.betul ? 'feedback-correct' : 'feedback-wrong');
+      fb.innerHTML = `<strong>${opt.betul ? '✅ TAHNIAH! JAWAPAN TEPAT' : '❌ KURANG TEPAT'}</strong><br>${opt.ulasan}`;
+      fb.style.display = 'block';
+
+      // Nyahaktifkan semua butang pilihan
+      document.querySelectorAll('.quiz-opt-btn').forEach(b => {
+        b.disabled = true;
+        b.style.opacity = '0.7';
+      });
+      btnElem.style.opacity = '1';
+      btnElem.style.borderColor = opt.betul ? '#10b981' : '#ef4444';
+
+      if (opt.betul) {
+        mainkanBunyi('whistle');
+      } else {
+        mainkanBunyi('intercept');
+      }
+
+      document.getElementById('btn-next-quiz').style.display = 'inline-block';
+    }
+
+    function soalanSeterusnya() {
+      currentQuizIdx++;
+      if (currentQuizIdx >= quizData.length) {
+        currentQuizIdx = 0;
+      }
+      paparSoalanQuiz();
+    }
+
+    paparSoalanQuiz();
+  </script>
+</body>
+</html>
